@@ -3,6 +3,16 @@
 	var lat  = -7.3
 	var zoom = 6.5
 
+    var source_boundary = new ol.source.TileWMS({
+      url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
+      params: {'LAYERS': 'bf_cityreg_091213', 'TILED': true},
+      serverType: 'geoserver'
+    });
+    var boundary = new ol.layer.Tile({
+           source: source_boundary,
+           title: 'Boundary',
+    });
+
     var source_l1 = new ol.source.TileWMS({
       url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
       params: {'LAYERS': 'cdd_djf_jawa', 'TILED': true},
@@ -96,12 +106,13 @@
         layers: [
             new ol.layer.Group({
                 title: 'Base Map',
+                displayInLayerSwitcher: false,
                 layers: [
                     new ol.layer.Tile({
                     	source: new ol.source.OSM(),
                         title: 'OSM',
                         visible: true,
-                    })
+                    }),
                 ]
             }),
             new ol.layer.Group({
@@ -111,6 +122,10 @@
             new ol.layer.Group({
                 'title': 'Consecutive Wet Days',
                 layers: [l8, l7, l6, l5]
+            }),
+            new ol.layer.Group({
+                'title': 'Boundary',
+                layers: [boundary]
             }),
         ],
         view: new ol.View({

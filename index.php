@@ -38,7 +38,7 @@
                         <div class="col-md-10" style="padding-right: 0px">
                             <h2 class="hidden-xs" >BADAN METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</h2>
                             <h1 class="visible-xs">BMKG</h1>
-                            <strong>Cepat, Tepat, Akurat, Luas dan Mudah dipahami</strong>
+                            <strong>Knowledge Management Perubahan Iklim dan Kualitas Udara</strong>
 
                         </div>
 
@@ -316,7 +316,7 @@
                                     </div>
                                 </div> 
                             </div>
-                        </div><!--------- THE END OF THE FIRST ROW OF THE LEFT SIDE BAR---> 
+                        </div><!-- THE END OF THE FIRST ROW OF THE LEFT SIDE BAR--> 
                         <div class="row">
                             <div class="panel panel-info">
                                 <div class="panel-heading text-center">
@@ -339,7 +339,7 @@
 
                                 </div>
                             </div>
-                        </div> <!--------- THE END OF THE SECOND ROW OF THE MAIN CONTENT--->  
+                        </div> <!-- THE END OF THE SECOND ROW OF THE MAIN CONTENT-->  
                         
                        <div class="row text-center">
                             <div class="col-lg-12">
@@ -367,10 +367,10 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div> <!--------- THE END OF THE SECOND ROW OF THE PAGINATION---> 
+                        </div> <!-- THE END OF THE SECOND ROW OF THE PAGINATION--> 
                     </div>                                                            
             </div>                   
-        </div>  <!--------- THE END OF THE FIRST ROW --->
+        </div>  <!-- THE END OF THE FIRST ROW -->
    
     </div>
        
