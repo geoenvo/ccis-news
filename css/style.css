@@ -61,6 +61,11 @@ footer{
   background: #000000;
 }
 
+.carousel-indicators {
+          bottom: -5px;
+          left: 290px;
+}
+
 .button-login {
     position: absolute;
     bottom: 2%;
