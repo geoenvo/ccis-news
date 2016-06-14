@@ -294,8 +294,9 @@
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-md-9">
-                                                <iframe style="border: 0;" height="407px" width="820px" src="ol/project/ccis.php"></iframe>
-                                                <div class="span4"></div>                                             
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="ol/project/ccis.php"></iframe>
+                                                </div>                                          
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="row" style="padding-right: 5px">
