@@ -125,7 +125,15 @@ class MediaData
             {
                 echo '<div class="col-md-4 portfolio-item">';
                 echo '<a href="#">';
-                echo '<img src="'.$temp[$i]->image.'" width=350 height="200"  alt="">';
+
+                if($temp[$i]->image == null)
+                {
+                    echo '<img src="http://www.thenews.com.pk/assets/front/img/no-image.jpg" width=350 height="200"  alt="">';
+                }
+                else{
+                    echo '<img src="'.$temp[$i]->image.'" width=350 height="200"  alt="">';
+                }
+                
                 echo '</a>';
                 echo '<h5>';
                 echo '<a href="'.$temp[$i]->link.'">'.$temp[$i]->title.'</a><br>';
