@@ -36,7 +36,7 @@
             if(isset($_GET['topik']))
             {
                 $topik = $_GET['topik'];
-                $page = 2;
+                $page = 1;
 
                 if($topik == 1)
                 {
@@ -50,8 +50,24 @@
                 }
             }
 
-        }
+            if(isset($_GET['bahasa']))
+            {
+                $bahasa = $_GET['bahasa'];
+                $page = 1;
 
+                if($bahasa == 1)
+                {
+
+                    $url = 'https://api.ebdesk.com/bmkg/news?language=id&limit=6';
+
+                }else if($bahasa == 2)
+                {
+                    $url = 'https://api.ebdesk.com/bmkg/news?language=en&limit=6';
+
+                }
+            }
+
+        }
 
         //$response = "bmkg.json";
         //$media_data = new MediaData($response);
@@ -97,7 +113,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="http://ccis.klimat.bmkg.go.id/ccis/">CCIS BMKG</a>
+                        <a class="navbar-brand" href="http://193.183.98.127:8002/">CCIS BMKG</a>
                     </div>
                     
                     <div class="collapse navbar-collapse" id="mynavbar-content">
@@ -434,7 +450,24 @@
                                             </select>
                                         </span>
 
-                                        <span class="pull-right"><a href="#petaproyeksi"> <label class="label label-info">Peta Proyeksi dan Keterpaparan </label> </a> </span>
+                                        <span class="pull-right"> Bahasa :
+                                            <select onChange="window.location='index.php?bahasa='+this.value+'#news'" >
+
+                                                <?php
+                                                $bahasa = array("","Indonesia","English");
+                                                for ($i = 0; $i < 3; $i++)
+                                                {
+                                                    ?>
+                                                    <option value="<?=$i ;?>" <? if ($item == $i) { print "SELECTED";}?> <?= $bahasa[$i];?></option>
+
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </select>
+                                        </span>
+
+                                        <span class="pull-left"><a href="#petaproyeksi"> <label class="label label-info">Peta Proyeksi dan Keterpaparan </label> </a> </span>
                                     </div>
                                     <div class="panel-body">
 
