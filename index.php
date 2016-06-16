@@ -425,7 +425,7 @@
                                         }
 
                                         echo '<li>';
-                                        echo '<a href="http://localhost:8080/CCIS/index.php?page='.($maxindex+1).'#news">&raquo;</a>';
+                                        echo '<a href="http://localhost:8080/CCIS/index.php?page='.($page+1).'#news">&raquo;</a>';
                                         echo '</li>';
 
                                     ?>
