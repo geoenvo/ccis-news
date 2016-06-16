@@ -20,7 +20,8 @@
         {
             $page = 1;
             $offset = 0;
-            $topik = "all";
+            $topik = 1;
+            $bahasa = 1;
             $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
         }else {
 
@@ -36,35 +37,54 @@
             if(isset($_GET['topik']))
             {
                 $topik = $_GET['topik'];
-                $page = 1;
+                //$page = 1;
+                $offset = ($page-1)*6;
+                $bahasa = $_GET['bahasa'];
+
+                if($bahasa == 1)
+                {
+
+                    $kodebahasa = "id";
+
+                }else if($bahasa == 2)
+                {
+                    $kodebahasa = "en";
+
+                }
 
                 if($topik == 1)
                 {
 
-                    $url = 'https://api.ebdesk.com/bmkg/news/10750?limit=6';
+
+                    $url = 'https://api.ebdesk.com/bmkg/news/10750?language='.$kodebahasa.'&limit=6&offset='.$offset;
 
                 }else if($topik == 2)
                 {
-                    $url = 'https://api.ebdesk.com/bmkg/news/11097?limit=6';
+                    $url = 'https://api.ebdesk.com/bmkg/news/11097?limit=6&offset='.$offset;
+                    //$url ='https://api.ebdesk.com/bmkg/news/11097?limit=5&offset=6&languange='.$kodebahasa;
 
                 }
+
+
             }
 
             if(isset($_GET['bahasa']))
             {
                 $bahasa = $_GET['bahasa'];
-                $page = 1;
+                //$page = 1;
 
                 if($bahasa == 1)
                 {
 
-                    $url = 'https://api.ebdesk.com/bmkg/news?language=id&limit=6';
+                    $kodebahasa = "id";
 
                 }else if($bahasa == 2)
                 {
-                    $url = 'https://api.ebdesk.com/bmkg/news?language=en&limit=6';
+                    $kodebahasa = "en";
 
                 }
+
+                $url = 'https://api.ebdesk.com/bmkg/news?language='.$kodebahasa.'&limit=6';
             }
 
         }
@@ -433,8 +453,9 @@
                                 <div class="panel panel-info">
                                     <div class="panel-heading text-center">
                                         Headline Hari Ini 
+                                        
                                         <span class="pull-right"> Topik :
-                                            <select onChange="window.location='index.php?topik='+this.value+'#news'" >
+                                            <select onChange="window.location='index.php?topik='+this.value+'&page='+ <?=$page?>+'#news'" >
 
                                                 <?php
                                                     $topik = array("","Perubahan Iklim","Kualitas Udara");
@@ -451,7 +472,7 @@
                                         </span>
 
                                         <span class="pull-right"> Bahasa :
-                                            <select onChange="window.location='index.php?bahasa='+this.value+'#news'" >
+                                            <select onChange="window.location='index.php?bahasa='+this.value+'&page='+ <?=$page?>+'#news'" >
 
                                                 <?php
                                                 $bahasa = array("","Indonesia","English");
