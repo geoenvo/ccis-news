@@ -45,7 +45,7 @@ class MediaData
 {
     public $data;
     
-    /*function __construct($jsonfile) {
+    function __construct($jsonfile) {
 
         $aContext = array(
             'http' => array(
@@ -56,14 +56,14 @@ class MediaData
         $sFile = file_get_contents($jsonfile, False, $cxContext);
         $data = json_decode($sFile, true);
         $this->data = $data;
-    }*/
+    }
 
-    function __construct($jsonfile) {
+    /*function __construct($jsonfile) {
         $myfile = fopen($jsonfile, "r") or die("Unable to open file!");
         $data = json_decode(fread($myfile,filesize($jsonfile)), true);
         fclose($myfile);
         $this->data = $data;
-    }
+    }*/
 
     public function readJsonData($jsonfile)
     {

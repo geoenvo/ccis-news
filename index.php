@@ -15,10 +15,27 @@
     <?php
         require 'datastorage.php';
         $count = 0;
-        $response = "bmkg-2.json";
-        $media_data = new MediaData($response);
-        //$url = 'https://api.ebdesk.com/bmkg/news';
-        //$media_data = new MediaData($url);
+       if (!isset($_GET) || empty($_GET))
+        {
+            $page = 1;
+            $offset = 0;
+        }else {
+
+            $page = $_GET['page'];
+            $offset = ($page-1)*6;
+
+            if($page == 1)
+            {
+                 $offset = 0;
+
+            }
+        }
+
+
+        //$response = "bmkg.json";
+        //$media_data = new MediaData($response);
+        $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
+        $media_data = new MediaData($url);
         $temp = $media_data->getMediaData();
         $number_of_data = $media_data->getNumberOfData();
     ?>
@@ -322,71 +339,63 @@
                     <div class="col-md-12">                         
                         <div class="row" >
                             <div class="col-md-12" style="padding-left: 0px; padding-right: 0px">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading text-center text-info">
-                                        Proyeksi Data Iklim dan Keterpaparan
-                                    </div>
-                                    <div class="panel-body">
-                                    <span>
-                                    <a href="http://ccis.klimat.bmkg.go.id/map/cnrd.php" class="button button2">CDD</button></a>
-                                    <a href="http://ccis.klimat.bmkg.go.id/map/cnrd.php" class="button button2">CWD</button></a>
-                                    <button class="button button2">Diurnal</button>
-                                    <button class="button button2">FHL</button>
-                                    <button class="button button2">HTH</button>
-                                    <a href="http://ccis.klimat.bmkg.go.id/map/cnrd.php" class="button button2">Hujan</button></a>
-                                    <button class="button button2">R50</button>
-                                    <button class="button button2">Suhu</button>
-                                    <button class="button button2">SuhuMin</button>
-                                    <button class="button button2">SuhuMax</button>
-                                    </span>
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="ol/project/ccis.php"></iframe>
-                                                </div>                                          
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="row" style="padding-right: 5px">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-heading text-center text-info">
-                                                            Data Legend
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=cdd_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+                                <section id="petaproyeksi">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading text-center text-info">
+                                            Proyeksi Data Iklim dan Keterpaparan <span class="pull-right"><a href="#news"> <label class="label label-info">Headline News </label> </a> </span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe class="embed-responsive-item" src="ol/project/ccis.php"></iframe>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="row" style="padding-right: 5px">
+                                                        <div class="panel panel-info">
+                                                            <div class="panel-heading text-center text-info">
+                                                                Data Legend
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <div class="row">
+                                                                    <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=cdd_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>                                                                    
+                                        </div>
                                     </div>
-                                </div> 
+                                </section>
                             </div>
                         </div><!-- THE END OF THE FIRST ROW OF THE LEFT SIDE BAR--> 
                         <div class="row">
-                            <div class="panel panel-info">
-                                <div class="panel-heading text-center">
-                                    Headline Hari Ini
-                                </div>
-                                <div class="panel-body">
+                            <section id="news">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center">
+                                        Headline Hari Ini <span class="pull-right"><a href="#petaproyeksi"> <label class="label label-info">Peta Proyeksi dan Keterpaparan </label> </a> </span>
+                                    </div>
+                                    <div class="panel-body">
 
-                                    <?php
+                                        <?php
                                         for($counter=1; $counter <= ($number_of_data/3); $counter++)
                                         {
                                             $media_data->displayMediaData($counter*3,$temp);
 
-                                            /*if($number_of_data%3 != 0)
+                                            if($number_of_data%3 != 0)
                                             {
 
                                                 $media_data->displayMediaData((intval($number_of_data/3)+1)*3,$temp);
-                                            }*/
+                                            }
                                         }
-                                    ?>
+                                        ?>
 
+                                    </div>
                                 </div>
-                            </div>
+                            </section>
                         </div> <!-- THE END OF THE SECOND ROW OF THE MAIN CONTENT-->  
                         
                        <div class="row text-center">
@@ -396,19 +405,19 @@
                                         <a href="#">&laquo;</a>
                                     </li>
                                     <li class="active">
-                                        <a href="#">1</a>
+                                        <a href="http://localhost:8080/CCIS/index.php?page=1#news">1</a>
                                     </li>
                                     <li>
-                                        <a href="#">2</a>
+                                        <a href="http://localhost:8080/CCIS/index.php?page=2#news">2</a>
                                     </li>
                                     <li>
-                                        <a href="#">3</a>
+                                        <a href="http://localhost:8080/CCIS/index.php?page=3#news">3</a>
                                     </li>
                                     <li>
-                                        <a href="#">4</a>
+                                        <a href="http://localhost:8080/CCIS/index.php?page=4#news">4</a>
                                     </li>
                                     <li>
-                                        <a href="#">5</a>
+                                        <a href="http://localhost:8080/CCIS/index.php?page=5#news">5</a>
                                     </li>
                                     <li>
                                         <a href="#">&raquo;</a>
