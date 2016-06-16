@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CDD</title>
+    <title>Suhu</title>
     <link rel="stylesheet" href="http://openlayers.org/en/v3.15.1/css/ol.css" type="text/css">
     <link rel="stylesheet" href="../src/ol3-layerswitcher.css" />
     <link rel="stylesheet" href="layerswitcher.css" />
@@ -47,49 +47,39 @@
            title: 'Batas Kabupaten',
     });
 
-    var source_l1 = new ol.source.TileWMS({
+    var source_l25 = new ol.source.TileWMS({
       url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'cdd_djf_jawa', 'TILED': true},
+      params: {'LAYERS': 'suhu_jawa', 'TILED': true},
       serverType: 'geoserver'
     });
-    var l1 = new ol.layer.Tile({
-           source: source_l1,
-           title: 'DJF',
+    var l25 = new ol.layer.Tile({
+           source: source_l25,
+           title: 'suhu rata-rata',
            type: 'base',
     });
 
-    var source_l2 = new ol.source.TileWMS({
+    var source_l26 = new ol.source.TileWMS({
       url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'cdd_mam_jawa', 'TILED': true},
+      params: {'LAYERS': 'suhumin_jawa', 'TILED': true},
       serverType: 'geoserver'
     });
-    var l2 = new ol.layer.Tile({
-           source: source_l2,
-           title: 'MAM',
+    var l26 = new ol.layer.Tile({
+           source: source_l26,
+           title: 'suhu minimum',
            type: 'base',
     });
 
-    var source_l3 = new ol.source.TileWMS({
+    var source_l27 = new ol.source.TileWMS({
       url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'cdd_jja_jawa', 'TILED': true},
+      params: {'LAYERS': 'suhumax_jawa', 'TILED': true},
       serverType: 'geoserver'
     });
-    var l3 = new ol.layer.Tile({
-           source: source_l3,
-           title: 'JJA',
+    var l27 = new ol.layer.Tile({
+           source: source_l27,
+           title: 'suhu maximum',
            type: 'base',
     });
 
-    var source_l4 = new ol.source.TileWMS({
-      url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'cdd_son_jawa', 'TILED': true},
-      serverType: 'geoserver'
-    });
-    var l4 = new ol.layer.Tile({
-           source: source_l4,
-           title: 'SON',
-           type: 'base',
-    });
 
       var map = new ol.Map({
           target: 'map',
@@ -99,8 +89,8 @@
                 layers: [osm]
             }),
             new ol.layer.Group({
-                'title': 'Consecutive Dry Days',
-                layers: [l4, l3, l2, l1]
+                'title': 'Suhu',
+                layers: [l27, l26, l25]
             }),
             new ol.layer.Group({
                 layers: [boundary]

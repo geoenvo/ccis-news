@@ -9,7 +9,23 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <link href="css/3-col-portfolio.css" rel="stylesheet">
-    <link rel="stylesheet" href="theme/default/style.css" type="text/css">    
+    <link rel="stylesheet" href="theme/default/style.css" type="text/css">
+    <link rel="stylesheet" href="css/openmap.css" type="text/css">
+    <script>
+    function OpenMap(evt, variable) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(variable).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    </script>
 </head>
 <body onload="init()">
     <?php
@@ -345,47 +361,253 @@
                                             Proyeksi Data Iklim dan Keterpaparan <span class="pull-right"><a href="#news"> <label class="label label-info">Headline News </label> </a> </span>
                                         </div>
                                         <div class="panel-body">
-                                        <span>
-                                        <a href="http://ccis.klimat.bmkg.go.id/map/cnrd.php" class="button button2">Hujan</a>
-                                        <a href="" class="button button2">Suhu</a>
-                                        <a href="http://ccis.klimat.bmkg.go.id/map/cnrd.php" class="button button2">CDD</a>
-                                        <a href="http://ccis.klimat.bmkg.go.id/map/cnrd.php" class="button button2">CWD</a>
-                                        <a href="" class="button button2">FHL</a>
-                                        <a href="" class="button button2">HTH</a>
-                                        <a href="" class="button button2">r50</a>
-                                        </span>
-                                            <div class="row">
-                                                <div class="col-md-9">
-                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                        <iframe class="embed-responsive-item" src="ol/project/cdd.php"></iframe>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="row" style="padding-right: 5px">
-                                                        <div class="panel panel-info">
-                                                            <div class="panel-heading text-center text-info">
-                                                                Data Legend
-                                                            </div>
-                                                            <div class="panel-body">
-                                                                <div class="row">
-                                                                    <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=cdd_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+<ul class="tab" style="cursor:pointer">
+  <li><a class="tablinks active" onclick="OpenMap(event, 'Hujan')">Hujan</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'Suhu')">Suhu</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'CDD')">CDD</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'CWD')">CWD</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'FHL')">FHL</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'HTH')">HTH</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'r50')">r50</a></li>
+</ul>
 
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span>
-                                            <br>
-                                            Akses via GeoPortal: <select>
-                                            <option value="">Des-Jan-Feb</option>
-                                            <option value="">Mar-Apr-Mei</option>
-                                            <option value="">Jun-Jul-Agu</option>
-                                            <option value="">Sep-Okt-Nov</option>
-                                            </select>
-                                            <a href="" class="button"> Go</a>
-                                            </span>
+<div id="Hujan" class="tabcontent" style="display: block;">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="ol/project/hujan.php"></iframe>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row" style="padding-right: 5px">
+                <div class="panel panel-info">
+                    <div class="panel-heading text-center text-info">
+                        Data Legend
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=hujan_djf_jaw&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span>
+    <br>
+    Akses via GeoPortal: <select onchange="location = this.value;">
+    <option value="http://139.162.55.216/layers/geonode%3Acdd_djf_jawa">Des-Jan-Feb</option>
+    <option value="http://139.162.55.216/layers/geonode%3Acdd_mam_jawa">Mar-Apr-Mei</option>
+    <option value="http://139.162.55.216/layers/geonode%3Acdd_jja_jawa">Jun-Jul-Agu</option>
+    <option value="http://139.162.55.216/layers/geonode%3Acdd_son_jawa">Sep-Okt-Nov</option>
+    </select>
+    </span>
+</div>
+
+<div id="Suhu" class="tabcontent" style="display: none;">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="ol/project/suhu.php"></iframe>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row" style="padding-right: 5px">
+                <div class="panel panel-info">
+                    <div class="panel-heading text-center text-info">
+                        Data Legend
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=suhu_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span>
+    <br>
+    Akses via GeoPortal: <select onchange="location = this.value;">
+    <option value="http://139.162.55.216/layers/geonode%3Asuhu_jawa">Suhu Rata-rata</option>
+    <option value="http://139.162.55.216/layers/geonode%3Asuhumin_jawa">Suhu Min</option>
+    <option value="http://139.162.55.216/layers/geonode%3Asuhumax_jawa">Suhu Max</option>
+    </select>
+    </span>
+</div>
+
+<div id="CDD" class="tabcontent" style="display: none;">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="ol/project/cdd.php"></iframe>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row" style="padding-right: 5px">
+                <div class="panel panel-info">
+                    <div class="panel-heading text-center text-info">
+                        Data Legend
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=cdd_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span>
+    <br>
+    Akses via GeoPortal: <select onchange="location = this.value;">
+    <option value="http://139.162.55.216/layers/geonode%3Acdd_djf_jawa">Des-Jan-Feb</option>
+    <option value="http://139.162.55.216/layers/geonode%3Acdd_mam_jawa">Mar-Apr-Mei</option>
+    <option value="http://139.162.55.216/layers/geonode%3Acdd_jja_jawa">Jun-Jul-Agu</option>
+    <option value="http://139.162.55.216/layers/geonode%3Acdd_son_jawa">Sep-Okt-Nov</option>
+    </select>
+    </span>
+</div>
+
+<div id="CWD" class="tabcontent" style="display: none;">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="ol/project/cwd.php"></iframe>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row" style="padding-right: 5px">
+                <div class="panel panel-info">
+                    <div class="panel-heading text-center text-info">
+                        Data Legend
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=cwd_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span>
+    <br>
+    Akses via GeoPortal: <select onchange="location = this.value;">
+    <option value="http://139.162.55.216/layers/geonode%3Acwd_djf_jawa">Des-Jan-Feb</option>
+    <option value="http://139.162.55.216/layers/geonode%3Acwd_mam_jawa">Mar-Apr-Mei</option>
+    <option value="http://139.162.55.216/layers/geonode%3Acwd_jja_jawa">Jun-Jul-Agu</option>
+    <option value="http://139.162.55.216/layers/geonode%3Acwd_son_jawa">Sep-Okt-Nov</option>
+    </select>
+    </span>
+</div>
+
+<div id="FHL" class="tabcontent" style="display: none;">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="ol/project/fhl.php"></iframe>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row" style="padding-right: 5px">
+                <div class="panel panel-info">
+                    <div class="panel-heading text-center text-info">
+                        Data Legend
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=fhl_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span>
+    <br>
+    Akses via GeoPortal: <select onchange="location = this.value;">
+    <option value="http://139.162.55.216/layers/geonode%3Afhl_djf_jawa">Des-Jan-Feb</option>
+    <option value="http://139.162.55.216/layers/geonode%3Afhl_mam_jawa">Mar-Apr-Mei</option>
+    <option value="http://139.162.55.216/layers/geonode%3Afhl_jja_jawa">Jun-Jul-Agu</option>
+    <option value="http://139.162.55.216/layers/geonode%3Afhl_son_jawa">Sep-Okt-Nov</option>
+    </select>
+    </span>
+</div>
+
+<div id="HTH" class="tabcontent" style="display: none;">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="ol/project/hth.php"></iframe>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row" style="padding-right: 5px">
+                <div class="panel panel-info">
+                    <div class="panel-heading text-center text-info">
+                        Data Legend
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=hth_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span>
+    <br>
+    Akses via GeoPortal: <select onchange="location = this.value;">
+    <option value="http://139.162.55.216/layers/geonode%3Ahth_djf_jawa">Des-Jan-Feb</option>
+    <option value="http://139.162.55.216/layers/geonode%3Ahth_mam_jawa">Mar-Apr-Mei</option>
+    <option value="http://139.162.55.216/layers/geonode%3Ahth_jja_jawa">Jun-Jul-Agu</option>
+    <option value="http://139.162.55.216/layers/geonode%3Ahth_son_jawa">Sep-Okt-Nov</option>
+    </select>
+    </span>
+</div>
+
+<div id="r50" class="tabcontent" style="display: none;">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="ol/project/r50.php"></iframe>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row" style="padding-right: 5px">
+                <div class="panel panel-info">
+                    <div class="panel-heading text-center text-info">
+                        Data Legend
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=r50_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span>
+    <br>
+    Akses via GeoPortal: <select onchange="location = this.value;">
+    <option value="http://139.162.55.216/layers/geonode%3Ar50_djf_jawa">Des-Jan-Feb</option>
+    <option value="http://139.162.55.216/layers/geonode%3Ar50_mam_jawa">Mar-Apr-Mei</option>
+    <option value="http://139.162.55.216/layers/geonode%3Ar50_jja_jawa">Jun-Jul-Agu</option>
+    <option value="http://139.162.55.216/layers/geonode%3Ar50_son_jawa">Sep-Okt-Nov</option>
+    </select>
+    </span>
+</div>
+
                                         </div>
                                     </div>
                                 </section>

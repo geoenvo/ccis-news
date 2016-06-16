@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CDD</title>
+    <title>CWD</title>
     <link rel="stylesheet" href="http://openlayers.org/en/v3.15.1/css/ol.css" type="text/css">
     <link rel="stylesheet" href="../src/ol3-layerswitcher.css" />
     <link rel="stylesheet" href="layerswitcher.css" />
@@ -47,46 +47,46 @@
            title: 'Batas Kabupaten',
     });
 
-    var source_l1 = new ol.source.TileWMS({
+    var source_l5 = new ol.source.TileWMS({
       url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'cdd_djf_jawa', 'TILED': true},
+      params: {'LAYERS': 'cwd_djf_jawa', 'TILED': true},
       serverType: 'geoserver'
     });
-    var l1 = new ol.layer.Tile({
-           source: source_l1,
+    var l5 = new ol.layer.Tile({
+           source: source_l5,
            title: 'DJF',
            type: 'base',
     });
 
-    var source_l2 = new ol.source.TileWMS({
+    var source_l6 = new ol.source.TileWMS({
       url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'cdd_mam_jawa', 'TILED': true},
+      params: {'LAYERS': 'cwd_mam_jawa', 'TILED': true},
       serverType: 'geoserver'
     });
-    var l2 = new ol.layer.Tile({
-           source: source_l2,
+    var l6 = new ol.layer.Tile({
+           source: source_l6,
            title: 'MAM',
            type: 'base',
     });
 
-    var source_l3 = new ol.source.TileWMS({
+    var source_l7 = new ol.source.TileWMS({
       url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'cdd_jja_jawa', 'TILED': true},
+      params: {'LAYERS': 'cwd_jja_jawa', 'TILED': true},
       serverType: 'geoserver'
     });
-    var l3 = new ol.layer.Tile({
-           source: source_l3,
+    var l7 = new ol.layer.Tile({
+           source: source_l7,
            title: 'JJA',
            type: 'base',
     });
 
-    var source_l4 = new ol.source.TileWMS({
+    var source_l8 = new ol.source.TileWMS({
       url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'cdd_son_jawa', 'TILED': true},
+      params: {'LAYERS': 'cwd_son_jawa', 'TILED': true},
       serverType: 'geoserver'
     });
-    var l4 = new ol.layer.Tile({
-           source: source_l4,
+    var l8 = new ol.layer.Tile({
+           source: source_l8,
            title: 'SON',
            type: 'base',
     });
@@ -99,8 +99,8 @@
                 layers: [osm]
             }),
             new ol.layer.Group({
-                'title': 'Consecutive Dry Days',
-                layers: [l4, l3, l2, l1]
+                'title': 'Consecutive Wet Days',
+                layers: [l8, l7, l6, l5]
             }),
             new ol.layer.Group({
                 layers: [boundary]

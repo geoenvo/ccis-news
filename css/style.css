@@ -84,22 +84,11 @@ footer{
     background-color: #2c8900;
 }
 
-.button2 {
-    background-color: #319900;
-    color: #fff;
-    padding: 5px 10px;
-    font-size: 14px;
-    margin-bottom: 10px;
-    float: left;
-    border: 1px solid green;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-}
-
-.button2:hover {
-    background-color: white; /* Green */
-    color: #4CAF50;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+.panel-info > .panel-heading {
+color: #19366B;
+background-color: #d9edf7;
+border-color: #bce8f1;
+font-weight: bold;
 }
 
 .btn-responsive {
