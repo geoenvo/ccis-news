@@ -401,27 +401,34 @@
                        <div class="row text-center">
                             <div class="col-lg-12">
                                 <ul class="pagination">
-                                    <li>
-                                        <a href="#">&laquo;</a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="http://localhost:8080/CCIS/index.php?page=1#news">1</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://localhost:8080/CCIS/index.php?page=2#news">2</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://localhost:8080/CCIS/index.php?page=3#news">3</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://localhost:8080/CCIS/index.php?page=4#news">4</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://localhost:8080/CCIS/index.php?page=5#news">5</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">&raquo;</a>
-                                    </li>
+                                    <?php
+
+                                        echo '<li>';
+                                        echo '<a href="http://localhost:8080/CCIS/index.php?page='.($page-1).'#news">&laquo;</a>';
+                                        echo '</li>';
+
+
+                                        $maxindex = $page + 5;
+                                        for($index = $page; $index < $maxindex; $index++)
+                                        {
+                                            if($index == $page)
+                                            {
+                                                echo '<li class="active">';
+                                                echo '<a href="http://localhost:8080/CCIS/index.php?page='.$index.'#news">'.$index.'</a>';
+                                                echo '</li>';
+                                            }else{
+                                                echo '<li>';
+                                                echo '<a href="http://localhost:8080/CCIS/index.php?page='.$index.'#news">'.$index.'</a>';
+                                                echo '</li>';
+                                            }
+
+                                        }
+
+                                        echo '<li>';
+                                        echo '<a href="http://localhost:8080/CCIS/index.php?page='.($maxindex+1).'#news">&raquo;</a>';
+                                        echo '</li>';
+
+                                    ?>
                                 </ul>
                             </div>
                         </div> <!-- THE END OF THE SECOND ROW OF THE PAGINATION--> 
