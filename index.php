@@ -404,7 +404,7 @@
                                     <?php
 
                                         echo '<li>';
-                                        echo '<a href="http://localhost:8080/CCIS/index.php?page='.($page-1).'#news">&laquo;</a>';
+                                        echo '<a href="http://193.183.98.127:8002/index.php?page='.($page-1).'#news">&laquo;</a>';
                                         echo '</li>';
 
 
@@ -414,18 +414,18 @@
                                             if($index == $page)
                                             {
                                                 echo '<li class="active">';
-                                                echo '<a href="http://localhost:8080/CCIS/index.php?page='.$index.'#news">'.$index.'</a>';
+                                                echo '<a href="http://193.183.98.127:8002/index.php?page='.$index.'#news">'.$index.'</a>';
                                                 echo '</li>';
                                             }else{
                                                 echo '<li>';
-                                                echo '<a href="http://localhost:8080/CCIS/index.php?page='.$index.'#news">'.$index.'</a>';
+                                                echo '<a href="http://193.183.98.127:8002/index.php?page='.$index.'#news">'.$index.'</a>';
                                                 echo '</li>';
                                             }
 
                                         }
 
                                         echo '<li>';
-                                        echo '<a href="http://localhost:8080/CCIS/index.php?page='.($page+1).'#news">&raquo;</a>';
+                                        echo '<a href="http://193.183.98.127:8002/index.php?page='.($page+1).'#news">&raquo;</a>';
                                         echo '</li>';
 
                                     ?>
