@@ -345,6 +345,7 @@
                                             Proyeksi Data Iklim dan Keterpaparan <span class="pull-right"><a href="#news"> <label class="label label-info">Headline News </label> </a> </span>
                                         </div>
                                         <div class="panel-body">
+<<<<<<< HEAD
                                         <span>
                                         <a href="http://ccis.klimat.bmkg.go.id/map/cnrd.php" class="button button2">Hujan</a>
                                         <a href="" class="button button2">Suhu</a>
@@ -354,6 +355,8 @@
                                         <a href="" class="button button2">HTH</a>
                                         <a href="" class="button button2">r50</a>
                                         </span>
+=======
+>>>>>>> 527eeab59a089e57072242cc476e01a64fb1e452
                                             <div class="row">
                                                 <div class="col-md-9">
                                                     <div class="embed-responsive embed-responsive-16by9">
