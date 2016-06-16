@@ -376,6 +376,16 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <span>
+                                            <br>
+                                            Akses via GeoPortal: <select>
+                                            <option value="">Des-Jan-Feb</option>
+                                            <option value="">Mar-Apr-Mei</option>
+                                            <option value="">Jun-Jul-Agu</option>
+                                            <option value="">Sep-Okt-Nov</option>
+                                            </select>
+                                            <a href="" class="button"> Go</a>
+                                            </span>
                                         </div>
                                     </div>
                                 </section>
