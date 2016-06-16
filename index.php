@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Knowledge Management PIKU</title>
+    <link rel="icon" href="img/logo_BMKG_square.ico" type="image/ico" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -14,7 +15,7 @@
     <?php
         require 'datastorage.php';
         $count = 0;
-        $response = "bmkg.json";
+        $response = "bmkg-2.json";
         $media_data = new MediaData($response);
         //$url = 'https://api.ebdesk.com/bmkg/news';
         //$media_data = new MediaData($url);
@@ -23,7 +24,7 @@
     ?>
 
     <header>
-        <div class="container">
+        <div class="container";>
             <div class="topbar topbar-default topbar-fixed-top" role="navigation">
                 <div class="container ft12">
                     <div class="topbar-collapse collapse"></div>
@@ -63,7 +64,7 @@
                     
                     <div class="collapse navbar-collapse" id="mynavbar-content">
                         <ul class="nav navbar-nav">
-                            <li><a href="http://ccis.klimat.bmkg.go.id/ccis/">Home</a> </li>
+                            <li><a href="http://193.183.98.127:8002/">Home</a> </li>
                             <li><a href="http://ccis.klimat.bmkg.go.id/ccis/news">News</a> </li>
                             <li><a href="http://ccis.klimat.bmkg.go.id/ccis/climate-change">Climate Change</a> </li>
                             <li class="dropdown"><a href="http://ccis.klimat.bmkg.go.id/ccis/map" class="dropdown-toggle" data-toggle="dropdown">Map<b class="caret"></b> </a>
@@ -115,7 +116,16 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="img/slider1.jpg" alt="Chania" width="460" height="345">
+                    	<?php
+                        if($temp[0]->image != null)
+                        {
+                        	echo '<img src="'.$temp[0]->image.'" alt="Chania">';
+                        }
+                        else
+                        {
+                        	echo '<img src="img/slider-default.jpg" alt="Chania">';
+                        }
+                        ?>
                         <div class="carousel-caption">
                         </div>
 
@@ -128,8 +138,6 @@
                                                 if($temp[0]->title != null)
                                                 {
                                                     echo '<h4>'.$temp[0]->title.'</h4>';
-
-
                                                     echo '</div>';
                                                     echo '<hr>';
                                                     echo '<div class="" >';
@@ -145,24 +153,30 @@
                     </div>
 
                     <div class="item">
-                        <img src="img/slider2.jpg" alt="Chania" width="460" height="345">
-
+                    	<?php
+                        if($temp[1]->image != null)
+                        {
+                        	echo '<img src="'.$temp[1]->image.'" alt="Chania">';
+                        }
+                        else
+                        {
+                        	echo '<img src="img/slider-default.jpg" alt="Chania">';
+                        }
+                        ?>
                         <div class="carousel-content">
                             <div class="row">
                                 <div class="col-md-4" style="height: 250px;width: 500px;padding-top: 2%">
                                     <div class="" style="">
                                         <div class="">
                                             <?php
-                                            if($temp[1]->title != null)
-                                            {
+                                            	if($temp[1]->title != null)
+                                            	{
                                                 echo '<h4>'.$temp[1]->title.'</h4>';
-
-
                                                 echo '</div>';
                                                 echo '<hr>';
                                                 echo '<div class="" >';
                                                 echo $temp[1]->description.'<span><a href="'.$temp[1]->link.'" class="btn btn-info">';
-                                            }
+                                            	}
                                             ?>
                                             Read More</a></span>
                                         </div>
@@ -177,7 +191,16 @@
                     </div>
 
                     <div class="item">
-                        <img src="img/slider3.jpg" alt="Flower" width="460" height="345">
+                    	<?php
+                        if($temp[2]->image != null)
+                        {
+                        	echo '<img src="'.$temp[2]->image.'" alt="Chania">';
+                        }
+                        else
+                        {
+                        	echo '<img src="img/slider-default.jpg" alt="Chania">';
+                        }
+                        ?>
                         <div class="carousel-caption">
 
                         </div>
@@ -187,16 +210,14 @@
                                     <div class="" style="">
                                         <div class="">
                                             <?php
-                                            if($temp[2]->title != null)
-                                            {
+                                            	if($temp[2]->title != null)
+                                            	{
                                                 echo '<h4>'.$temp[2]->title.'</h4>';
-
-
                                                 echo '</div>';
                                                 echo '<hr>';
                                                 echo '<div class="" >';
                                                 echo $temp[2]->description.'<span><a href="'.$temp[2]->link.'" class="btn btn-info">';
-                                            }
+                                            	}
                                             ?>
                                             Read More</a></span>
                                         </div>
@@ -207,7 +228,16 @@
                     </div>
 
                     <div class="item">
-                        <img src="img/slider4.jpg" alt="Flower" width="460" height="345">
+                    	<?php
+                        if($temp[3]->image != null)
+                        {
+                        	echo '<img src="'.$temp[3]->image.'" alt="Chania">';
+                        }
+                        else
+                        {
+                        	echo '<img src="img/slider-default.jpg" alt="Chania">';
+                        }
+                        ?>
                         <div class="carousel-caption">
 
                         </div>
@@ -217,16 +247,14 @@
                                     <div class="" style="">
                                         <div class="">
                                             <?php
-                                            if($temp[3]->title != null)
-                                            {
+                                            	if($temp[3]->title != null)
+                                            	{
                                                 echo '<h4>'.$temp[3]->title.'</h4>';
-
-
                                                 echo '</div>';
                                                 echo '<hr>';
                                                 echo '<div class="" >';
                                                 echo $temp[3]->description.'<span><a href="'.$temp[3]->link.'" class="btn btn-info">';
-                                            }
+                                            	}
                                             ?>
                                             Read More</a></span>
                                         </div>
@@ -237,7 +265,16 @@
                     </div>
 
                     <div class="item">
-                        <img src="img/slider5.jpg" alt="Flower" width="460" height="345">
+                    	<?php
+                        if($temp[4]->image != null)
+                        {
+                        	echo '<img src="'.$temp[4]->image.'" alt="Chania">';
+                        }
+                        else
+                        {
+                        	echo '<img src="img/slider-default.jpg" alt="Chania">';
+                        }
+                        ?>
                         <div class="carousel-caption">
 
                         </div>
@@ -248,15 +285,13 @@
                                         <div class="">
                                             <?php
                                             if($temp[4]->title != null)
-                                            {
+                                            	{
                                                 echo '<h4>'.$temp[4]->title.'</h4>';
-
-
                                                 echo '</div>';
                                                 echo '<hr>';
                                                 echo '<div class="" >';
                                                 echo $temp[4]->description.'<span><a href="'.$temp[4]->link.'" class="btn btn-info">';
-                                            }
+                                            	}
                                             ?>
                                             Read More</a></span>
                                         </div>
@@ -292,6 +327,18 @@
                                         Proyeksi Data Iklim dan Keterpaparan
                                     </div>
                                     <div class="panel-body">
+                                    <span>
+                                    <a href="http://ccis.klimat.bmkg.go.id/map/cnrd.php" class="button button2">CDD</button></a>
+                                    <a href="http://ccis.klimat.bmkg.go.id/map/cnrd.php" class="button button2">CWD</button></a>
+                                    <button class="button button2">Diurnal</button>
+                                    <button class="button button2">FHL</button>
+                                    <button class="button button2">HTH</button>
+                                    <a href="http://ccis.klimat.bmkg.go.id/map/cnrd.php" class="button button2">Hujan</button></a>
+                                    <button class="button button2">R50</button>
+                                    <button class="button button2">Suhu</button>
+                                    <button class="button button2">SuhuMin</button>
+                                    <button class="button button2">SuhuMax</button>
+                                    </span>
                                         <div class="row">
                                             <div class="col-md-9">
                                                 <div class="embed-responsive embed-responsive-16by9">

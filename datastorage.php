@@ -84,6 +84,7 @@ class MediaData
             $obj->link = $value['link'];
             $obj->image = $value['image'];
             $obj->description = $value['description'];
+            $obj->date = $value['date'];
             $info[] = $obj;
         }
 
@@ -126,10 +127,11 @@ class MediaData
                 echo '<a href="#">';
                 echo '<img src="'.$temp[$i]->image.'" width=350 height="200"  alt="">';
                 echo '</a>';
-                echo '<h6>';
+                echo '<h5>';
                 echo '<a href="'.$temp[$i]->link.'">'.$temp[$i]->title.'</a><br>';
-                echo '</h6>';
-                echo $temp[$i]->description;
+                echo '</h5>';
+                echo '<h6>'.$temp[$i]->date.'</h6>';
+                echo ''.$temp[$i]->description.' <br>';
                 echo '</div>';
             }
 
