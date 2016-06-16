@@ -15,26 +15,47 @@
     <?php
         require 'datastorage.php';
         $count = 0;
-       if (!isset($_GET) || empty($_GET))
+       
+        if (!isset($_GET) || empty($_GET))
         {
             $page = 1;
             $offset = 0;
+            $topik = "all";
+            $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
         }else {
 
-            $page = $_GET['page'];
-            $offset = ($page-1)*6;
 
-            if($page == 1)
+            if(isset($_GET['page']))
             {
-                 $offset = 0;
-
+                $page = $_GET['page'];
+                $offset = ($page-1)*6;
+                $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
             }
+
+
+            if(isset($_GET['topik']))
+            {
+                $topik = $_GET['topik'];
+                $page = 2;
+
+                if($topik == 1)
+                {
+
+                    $url = 'https://api.ebdesk.com/bmkg/news/10750?limit=6';
+
+                }else if($topik == 2)
+                {
+                    $url = 'https://api.ebdesk.com/bmkg/news/11097?limit=6';
+
+                }
+            }
+
         }
 
 
         //$response = "bmkg.json";
         //$media_data = new MediaData($response);
-        $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
+        //$url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
         $media_data = new MediaData($url);
         $temp = $media_data->getMediaData();
         $number_of_data = $media_data->getNumberOfData();
@@ -395,7 +416,25 @@
                             <section id="news">
                                 <div class="panel panel-info">
                                     <div class="panel-heading text-center">
-                                        Headline Hari Ini <span class="pull-right"><a href="#petaproyeksi"> <label class="label label-info">Peta Proyeksi dan Keterpaparan </label> </a> </span>
+                                        Headline Hari Ini 
+                                        <span class="pull-right"> Topik :
+                                            <select onChange="window.location='index.php?topik='+this.value+'#news'" >
+
+                                                <?php
+                                                    $topik = array("","Perubahan Iklim","Kualitas Udara");
+                                                    for ($i = 0; $i < 3; $i++)
+                                                    {
+                                                        ?>
+                                                        <option value="<?=$i ;?>" <? if ($item == $i) { print "SELECTED";}?> <?= $topik[$i];?></option>
+
+                                                        <?php
+                                                    }
+                                                    ?>
+
+                                            </select>
+                                        </span>
+
+                                        <span class="pull-right"><a href="#petaproyeksi"> <label class="label label-info">Peta Proyeksi dan Keterpaparan </label> </a> </span>
                                     </div>
                                     <div class="panel-body">
 
