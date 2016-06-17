@@ -732,7 +732,7 @@
 
                                                         </select>
                                                         <input type="text" name="page" hidden="hidden" value= <?=$page ;?> >
-                                                <input type="submit" value="Go"/>
+                                                <input class="btn btn-info" type="submit" value="Go"/>
                                             </form>
                                         </span>
 
