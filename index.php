@@ -3,29 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Knowledge Management PIKU</title>
-    <link rel="icon" href="img/logo_BMKG_square.ico" type="image/ico" sizes="16x16">
+    <link rel="icon" href="img/logo_BMKG_square.ico" type="image/ico">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <link href="css/3-col-portfolio.css" rel="stylesheet">
-    <link rel="stylesheet" href="theme/default/style.css" type="text/css">
     <link rel="stylesheet" href="css/openmap.css" type="text/css">
-    <script>
-    function OpenMap(evt, variable) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(variable).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-    </script>
+    <script src="js/openmap.js"></script>
 </head>
 <body onload="init()">
     <?php
@@ -453,12 +438,22 @@
     </div>
     <span>
     <br>
-    Akses via GeoPortal: <select onchange="location = this.value;">
-    <option value="http://139.162.55.216/layers/geonode%3Acdd_djf_jawa">Des-Jan-Feb</option>
-    <option value="http://139.162.55.216/layers/geonode%3Acdd_mam_jawa">Mar-Apr-Mei</option>
-    <option value="http://139.162.55.216/layers/geonode%3Acdd_jja_jawa">Jun-Jul-Agu</option>
-    <option value="http://139.162.55.216/layers/geonode%3Acdd_son_jawa">Sep-Okt-Nov</option>
-    </select>
+<label>Akses via GeoPortal:</label>
+<select id="hujan">
+    <option value="http://139.162.55.216/layers/geonode%3Ahujan_djf_jaw">Des-Jan-Feb</option>
+    <option value="http://139.162.55.216/layers/geonode%3Ahujan_mam_jaw">Mar-Apr-Mei</option>
+    <option value="http://139.162.55.216/layers/geonode%3Ahujan_jja_jaw">Jun-Jul-Agu</option>
+    <option value="http://139.162.55.216/layers/geonode%3Ahujan_son_jaw">Sep-Okt-Nov</option>
+</select>
+<input type="button" value="Go!" onclick="Gohujan()" />
+    <script type="text/javascript">
+    function Gohujan(){
+    var geoportal = document.getElementById("hujan");
+    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
+
+    window.open(selectedVal)
+    }
+    </script>
     </span>
 </div>
 
@@ -487,11 +482,21 @@
     </div>
     <span>
     <br>
-    Akses via GeoPortal: <select onchange="location = this.value;">
+<label>Akses via GeoPortal:</label>
+<select id="suhu">
     <option value="http://139.162.55.216/layers/geonode%3Asuhu_jawa">Suhu Rata-rata</option>
     <option value="http://139.162.55.216/layers/geonode%3Asuhumin_jawa">Suhu Min</option>
     <option value="http://139.162.55.216/layers/geonode%3Asuhumax_jawa">Suhu Max</option>
-    </select>
+</select>
+<input type="button" value="Go!" onclick="Gosuhu()" />
+    <script type="text/javascript">
+    function Gosuhu(){
+    var geoportal = document.getElementById("suhu");
+    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
+
+    window.open(selectedVal)
+    }
+    </script>
     </span>
 </div>
 
@@ -520,12 +525,22 @@
     </div>
     <span>
     <br>
-    Akses via GeoPortal: <select onchange="location = this.value;">
+<label>Akses via GeoPortal:</label>
+<select id="cdd">
     <option value="http://139.162.55.216/layers/geonode%3Acdd_djf_jawa">Des-Jan-Feb</option>
     <option value="http://139.162.55.216/layers/geonode%3Acdd_mam_jawa">Mar-Apr-Mei</option>
     <option value="http://139.162.55.216/layers/geonode%3Acdd_jja_jawa">Jun-Jul-Agu</option>
     <option value="http://139.162.55.216/layers/geonode%3Acdd_son_jawa">Sep-Okt-Nov</option>
-    </select>
+</select>
+<input type="button" value="Go!" onclick="Gocdd()" />
+<script type="text/javascript">
+function Gocdd(){
+    var geoportal = document.getElementById("cdd");
+    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
+
+    window.open(selectedVal)
+}
+</script>
     </span>
 </div>
 
@@ -554,12 +569,22 @@
     </div>
     <span>
     <br>
-    Akses via GeoPortal: <select onchange="location = this.value;">
+<label>Akses via GeoPortal:</label>
+<select id="cwd">
     <option value="http://139.162.55.216/layers/geonode%3Acwd_djf_jawa">Des-Jan-Feb</option>
     <option value="http://139.162.55.216/layers/geonode%3Acwd_mam_jawa">Mar-Apr-Mei</option>
     <option value="http://139.162.55.216/layers/geonode%3Acwd_jja_jawa">Jun-Jul-Agu</option>
     <option value="http://139.162.55.216/layers/geonode%3Acwd_son_jawa">Sep-Okt-Nov</option>
-    </select>
+</select>
+<input type="button" value="Go!" onclick="Gocwd()" />
+<script type="text/javascript">
+function Gocwd(){
+    var geoportal = document.getElementById("cwd");
+    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
+
+    window.open(selectedVal)
+}
+</script>
     </span>
 </div>
 
@@ -588,12 +613,22 @@
     </div>
     <span>
     <br>
-    Akses via GeoPortal: <select onchange="location = this.value;">
+<label>Akses via GeoPortal:</label>
+<select id="fhl">
     <option value="http://139.162.55.216/layers/geonode%3Afhl_djf_jawa">Des-Jan-Feb</option>
     <option value="http://139.162.55.216/layers/geonode%3Afhl_mam_jawa">Mar-Apr-Mei</option>
     <option value="http://139.162.55.216/layers/geonode%3Afhl_jja_jawa">Jun-Jul-Agu</option>
     <option value="http://139.162.55.216/layers/geonode%3Afhl_son_jawa">Sep-Okt-Nov</option>
-    </select>
+</select>
+<input type="button" value="Go!" onclick="Gofhl()" />
+<script type="text/javascript">
+function Gofhl(){
+    var geoportal = document.getElementById("fhl");
+    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
+
+    window.open(selectedVal)
+}
+</script>
     </span>
 </div>
 
@@ -622,12 +657,22 @@
     </div>
     <span>
     <br>
-    Akses via GeoPortal: <select onchange="location = this.value;">
+<label>Akses via GeoPortal:</label>
+<select id="hth">
     <option value="http://139.162.55.216/layers/geonode%3Ahth_djf_jawa">Des-Jan-Feb</option>
     <option value="http://139.162.55.216/layers/geonode%3Ahth_mam_jawa">Mar-Apr-Mei</option>
     <option value="http://139.162.55.216/layers/geonode%3Ahth_jja_jawa">Jun-Jul-Agu</option>
     <option value="http://139.162.55.216/layers/geonode%3Ahth_son_jawa">Sep-Okt-Nov</option>
-    </select>
+</select>
+<input type="button" value="Go!" onclick="Gohth()" />
+<script type="text/javascript">
+function Gohth(){
+    var geoportal = document.getElementById("hth");
+    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
+
+    window.open(selectedVal)
+}
+</script>
     </span>
 </div>
 
@@ -656,12 +701,22 @@
     </div>
     <span>
     <br>
-    Akses via GeoPortal: <select onchange="location = this.value;">
+<label>Akses via GeoPortal:</label>
+<select id="r">
     <option value="http://139.162.55.216/layers/geonode%3Ar50_djf_jawa">Des-Jan-Feb</option>
     <option value="http://139.162.55.216/layers/geonode%3Ar50_mam_jawa">Mar-Apr-Mei</option>
     <option value="http://139.162.55.216/layers/geonode%3Ar50_jja_jawa">Jun-Jul-Agu</option>
     <option value="http://139.162.55.216/layers/geonode%3Ar50_son_jawa">Sep-Okt-Nov</option>
-    </select>
+</select>
+<input type="button" value="Go!" onclick="Gor()" />
+<script type="text/javascript">
+function Gor(){
+    var geoportal = document.getElementById("r");
+    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
+
+    window.open(selectedVal)
+}
+</script>
     </span>
 </div>
 

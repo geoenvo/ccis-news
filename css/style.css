@@ -50,6 +50,7 @@ footer{
   position: absolute;
   padding-left: 20px;
   padding-right: 20px;
+  top: 10%;
   bottom: 10%;
   left: 3%;
   z-index: 20;
