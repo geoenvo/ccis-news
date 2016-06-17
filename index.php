@@ -32,12 +32,14 @@
         require 'datastorage.php';
         $count = 0;
        
-        if (!isset($_GET) || empty($_GET))
+        $page = 1;
+       
+        if ((!isset($_GET) || empty($_GET)) && (!isset($_POST) || empty($_POST)))
         {
             $page = 1;
             $offset = 0;
-            $topik = 1;
-            $bahasa = 1;
+            //$topik = 1;
+            //$bahasa = 1;
             $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
         }else {
 
@@ -50,57 +52,78 @@
             }
 
 
-            if(isset($_GET['topik']))
+            if(isset($_POST['topik']) && isset($_POST['bahasa']))
             {
-                $topik = $_GET['topik'];
-                //$page = 1;
+                if($_POST['page'] == null)
+                {
+                    $page = 1;
+                }
+                else{
+                    $page = $_POST['page'];
+                }
+
+                $topik = $_POST['topik'];
+                $bahasa = $_POST['bahasa'];
                 $offset = ($page-1)*6;
-                $bahasa = $_GET['bahasa'];
+
 
                 if($bahasa == 1)
                 {
-
                     $kodebahasa = "id";
 
-                }else if($bahasa == 2)
+                }elseif($bahasa == 2)
                 {
                     $kodebahasa = "en";
 
+                }
+                else
+                {
+                    $kodebahasa="all";
                 }
 
                 if($topik == 1)
                 {
+                    $topikid = "10750";
+                    //$url = 'https://api.ebdesk.com/bmkg/news/10750?language='.$kodebahasa.'&limit=6&offset='.$offset;
 
-
-                    $url = 'https://api.ebdesk.com/bmkg/news/10750?language='.$kodebahasa.'&limit=6&offset='.$offset;
-
-                }else if($topik == 2)
+                }elseif($topik == 2)
                 {
-                    $url = 'https://api.ebdesk.com/bmkg/news/11097?limit=6&offset='.$offset;
+                    $topikid = "11097";
                     //$url ='https://api.ebdesk.com/bmkg/news/11097?limit=5&offset=6&languange='.$kodebahasa;
 
                 }
-
-
-            }
-
-            if(isset($_GET['bahasa']))
-            {
-                $bahasa = $_GET['bahasa'];
-                //$page = 1;
-
-                if($bahasa == 1)
+                else
                 {
-
-                    $kodebahasa = "id";
-
-                }else if($bahasa == 2)
-                {
-                    $kodebahasa = "en";
-
+                    $topikid="all";
                 }
 
-                $url = 'https://api.ebdesk.com/bmkg/news?language='.$kodebahasa.'&limit=6';
+                if($kodebahasa == "all")
+                {
+                    if($topikid == "all")
+                    {
+                        $url = 'https://api.ebdesk.com/bmkg/news/?limit=6&offset='.$offset;
+                    }
+                    else
+                    {
+                        $url = 'https://api.ebdesk.com/bmkg/news/'.$topikid.'?limit=6&offset='.$offset;
+                    }
+
+                }
+                elseif($topikid == "all")
+                {
+                    if($kodebahasa == "all")
+                    {
+                        $url = 'https://api.ebdesk.com/bmkg/news/?limit=6&offset='.$offset;
+                    }
+                    else
+                    {
+                        $url = 'https://api.ebdesk.com/bmkg/news/?language='.$kodebahasa.'&limit=6&offset='.$offset;
+                    }
+                }
+                else
+                {
+                    $url = 'https://api.ebdesk.com/bmkg/news/'.$topikid.'?language='.$kodebahasa.'&limit=6&offset='.$offset;
+                }
             }
 
         }
@@ -676,40 +699,42 @@
                                     <div class="panel-heading text-center">
                                         Headline Hari Ini 
                                         
-                                        <span class="pull-right"> Topik :
-                                            <select>
+                                        <span class="pull-right">
+                                            <form action="index.php#news" method="post">
+                                                 Topik : <select name="topik">
 
-                                                <?php
-                                                    $topik = array("","Perubahan Iklim","Kualitas Udara");
-                                                    for ($i = 0; $i < 3; $i++)
-                                                    {
-                                                        ?>
-                                                        <option value="<?=$i ;?>" <? if ($bahasa == $i) { echo ' selected="selected"';}?><?= $topik[$i];?></option>
+                                                            <?php
+                                                            $topik = array("","Perubahan Iklim","Kualitas Udara");
+                                                            for ($i = 0; $i < 3; $i++)
+                                                            {
+                                                                ?>
+                                                                <option value="<?=$i ;?>" <? if ($topik == $i) { echo ' selected="selected"';}?><?= $topik[$i];?></option>
 
-                                                        <?php
-                                                    }
-                                                    ?>
+                                                                <?php
+                                                            }
+                                                            ?>
 
-                                            </select>
+                                                        </select>
+
+
+                                                Bahasa : <select name="bahasa">
+
+                                                            <?php
+                                                            $bahasa = array("","Indonesia","English");
+                                                            for ($i = 0; $i < 3; $i++)
+                                                            {
+                                                                ?>
+                                                                <option value="<?=$i ;?>" <? if ($bahasa == $i) { echo ' selected="selected"';}?><?= $bahasa[$i];?></option>
+
+                                                                <?php
+                                                            }
+                                                            ?>
+
+                                                        </select>
+                                                        <input type="text" name="page" hidden="hidden" value= <?=$page ;?> >
+                                                <input type="submit" value="Go"/>
+                                            </form>
                                         </span>
-
-                                        <span class="pull-right"> Bahasa :
-                                            <select >
-
-                                                <?php
-                                                $bahasa = array("","Indonesia","English");
-                                                for ($i = 0; $i < 3; $i++)
-                                                {
-                                                    ?>
-                                                    <option value="<?=$i ;?>" <? if ($bahasa == $i) { echo ' selected="selected"';}?><?= $bahasa[$i];?></option>
-
-                                                    <?php
-                                                }
-                                                ?>
-
-                                            </select>
-                                        </span>
-                                        <span><a href="" class="pull-right btn btn-info">Go</a> </span>
 
                                 
                                     </div>
