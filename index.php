@@ -439,7 +439,7 @@
             <div class="row" style="padding-right: 5px">
                 <div class="panel panel-info">
                     <div class="panel-heading text-center text-info">
-                        Data Legend
+                        Legenda
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -677,14 +677,14 @@
                                         Headline Hari Ini 
                                         
                                         <span class="pull-right"> Topik :
-                                            <select onChange="window.location='index.php?topik='+this.value+'&page='+ <?=$page?>+'#news'" >
+                                            <select>
 
                                                 <?php
                                                     $topik = array("","Perubahan Iklim","Kualitas Udara");
                                                     for ($i = 0; $i < 3; $i++)
                                                     {
                                                         ?>
-                                                        <option value="<?=$i ;?>" <? if ($item == $i) { print "SELECTED";}?> <?= $topik[$i];?></option>
+                                                        <option value="<?=$i ;?>" <? if ($bahasa == $i) { echo ' selected="selected"';}?><?= $topik[$i];?></option>
 
                                                         <?php
                                                     }
@@ -694,14 +694,14 @@
                                         </span>
 
                                         <span class="pull-right"> Bahasa :
-                                            <select onChange="window.location='index.php?bahasa='+this.value+'&page='+ <?=$page?>+'#news'" >
+                                            <select >
 
                                                 <?php
                                                 $bahasa = array("","Indonesia","English");
                                                 for ($i = 0; $i < 3; $i++)
                                                 {
                                                     ?>
-                                                    <option value="<?=$i ;?>" <? if ($item == $i) { print "SELECTED";}?> <?= $bahasa[$i];?></option>
+                                                    <option value="<?=$i ;?>" <? if ($bahasa == $i) { echo ' selected="selected"';}?><?= $bahasa[$i];?></option>
 
                                                     <?php
                                                 }
@@ -709,6 +709,7 @@
 
                                             </select>
                                         </span>
+                                        <span><a href="" class="pull-right btn btn-info">Go</a> </span>
 
                                 
                                     </div>
