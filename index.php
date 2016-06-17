@@ -394,14 +394,14 @@
                 </div>
 
                 <!-- Left and right controls -->
-                <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
-                </a>-->
+                </a>
             </div>
     </div>
     
@@ -415,7 +415,7 @@
                                 <section id="petaproyeksi">
                                     <div class="panel panel-info">
                                         <div class="panel-heading text-center text-info">
-                                            Proyeksi Data Iklim dan Keterpaparan <span class="pull-right"><a href="#news"> <label class="label label-info">Headline News </label> </a> </span>
+                                            Proyeksi Data Iklim dan Keterpaparan 
                                         </div>
                                         <div class="panel-body">
 <ul class="tab" style="cursor:pointer">
@@ -710,7 +710,7 @@
                                             </select>
                                         </span>
 
-                                        <span class="pull-left"><a href="#petaproyeksi"> <label class="label label-info">Peta Proyeksi dan Keterpaparan </label> </a> </span>
+                                
                                     </div>
                                     <div class="panel-body">
 
