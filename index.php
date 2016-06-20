@@ -135,9 +135,9 @@
                             <a href=""><img src="img/logo_BMKG.png" alt="BMKG" title="" width="55"></a>
                         </div>
                         <div class="col-md-10" style="padding-right: 0px">
-                            <h2 class="hidden-xs" >BADAN METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</h2>
+                            <h2 class="hidden-xs" style="font-size: 16px">BADAN METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</h2>
                             <h1 class="visible-xs">BMKG</h1>
-                            <strong>Knowledge Management Perubahan Iklim dan Kualitas Udara</strong>
+                            <strong style="font-size: 30px">Knowledge Management Perubahan Iklim dan Kualitas Udara</strong>
 
                         </div>
 
@@ -731,9 +731,9 @@ function Gohth(){
     <option value="http://139.162.55.216/layers/geonode%3Ar50_jja_jawa">Jun-Jul-Agu</option>
     <option value="http://139.162.55.216/layers/geonode%3Ar50_son_jawa">Sep-Okt-Nov</option>
 </select>
-<input type="button" value="Go!" onclick="Gor()" />
+<input type="button" value="Go!" onclick="Gor50()" />
 <script type="text/javascript">
-function Gor(){
+function Gor50(){
     var geoportal = document.getElementById("r");
     var selectedVal = geoportal.options[geoportal.selectedIndex].value;
 

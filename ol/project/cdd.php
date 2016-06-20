@@ -95,7 +95,6 @@
           target: 'map',
           layers: [
             new ol.layer.Group({
-                displayInLayerSwitcher: false,
                 layers: [osm]
             }),
             new ol.layer.Group({
