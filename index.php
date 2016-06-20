@@ -440,7 +440,7 @@
     <div class="row">
         <div class="col-md-9">
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="ol/project/hujan.php"></iframe>
+                <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/hujan.php"></iframe>
             </div>
         </div>
         <div class="col-md-3">
@@ -484,7 +484,7 @@
     <div class="row">
         <div class="col-md-9">
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="ol/project/suhu.php"></iframe>
+                <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/suhu.php"></iframe>
             </div>
         </div>
         <div class="col-md-3">
@@ -527,7 +527,7 @@
     <div class="row">
         <div class="col-md-9">
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="ol/project/cdd.php"></iframe>
+                <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/cdd.php"></iframe>
             </div>
         </div>
         <div class="col-md-3">
@@ -571,7 +571,7 @@ function Gocdd(){
     <div class="row">
         <div class="col-md-9">
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="ol/project/cwd.php"></iframe>
+                <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/cwd.php"></iframe>
             </div>
         </div>
         <div class="col-md-3">
@@ -615,7 +615,7 @@ function Gocwd(){
     <div class="row">
         <div class="col-md-9">
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="ol/project/fhl.php"></iframe>
+                <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/fhl.php"></iframe>
             </div>
         </div>
         <div class="col-md-3">
@@ -659,7 +659,7 @@ function Gofhl(){
     <div class="row">
         <div class="col-md-9">
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="ol/project/hth.php"></iframe>
+                <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/hth.php"></iframe>
             </div>
         </div>
         <div class="col-md-3">
@@ -703,7 +703,7 @@ function Gohth(){
     <div class="row">
         <div class="col-md-9">
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="ol/project/r50.php"></iframe>
+                <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/r50.php"></iframe>
             </div>
         </div>
         <div class="col-md-3">
