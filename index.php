@@ -422,8 +422,8 @@
                             <div class="col-md-12" style="padding-left: 0px; padding-right: 0px">
                                 <section id="petaproyeksi">
                                     <div class="panel panel-info">
-                                        <div class="panel-heading text-center text-info">
-                                            Proyeksi Data Iklim dan Keterpaparan 
+                                        <div class="panel-heading text-left text-info">
+                                            Data Proyeksi Iklim 
                                         </div>
                                         <div class="panel-body">
 <ul class="tab" style="cursor:pointer">
@@ -751,7 +751,7 @@ function Gor(){
                         <div class="row">
                             <section id="news">
                                 <div class="panel panel-info">
-                                    <div class="panel-heading text-center">
+                                    <div class="panel-heading text-left">
                                         Headline Hari Ini 
                                         
                                         <span class="pull-right">
