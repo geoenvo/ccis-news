@@ -211,10 +211,10 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
     </div>
 </header>
 
+<div style="margin-top: 30px">
 <div class="container">
-    <br>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div id="myCarousel" class="carousel slide hidden-xs" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -385,65 +385,19 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                 </a>
             </div>
         </div>
-        <div class="col-md-8">
+
+        <div class="col-md-6">
             <div class="row">
                 <div class="col-md-12">
-                    <div id='monthlystatistic' style="width: 100%; height: 150px;">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div id='yearlystatistic' style="width: 100%; height: 150px;">
-                    </div>
+                    <div id='mediashare' style="width: 100%; height: 150px;"></div>
+                    <a href="statistic.php" class="btn btn-info pull-right">More Statistic</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="row" style="padding-top: 10px; padding-right: 18px">
-        <a href="statistic.php" class="btn btn-info pull-right">More Statistic</a>
-    </div>
-    <div class="row" style="padding-top: 10px">
-        <div class="col-md-4">
-            <div class="panel panel-info">
-                <div class="panel-heading text-center text-info">
-                    Related Organization
-                </div>
-                <div class="panel-body">
-                     <?php
-                        $row_num = $media_data->getDataCount();
-                        $media_data->displayOrganization($temp_data_organization);
-                    ?>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-info">
-                <div class="panel-heading text-center text-info">
-                    Climate Change Trending Topic
-                </div>
-                <div class="panel-body">
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-info">
-                <div class="panel-heading text-center text-info">
-                    Air Quality Trending Topic
-                </div>
-                <div class="panel-body">
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div style="margin-top: 10px">
+<div style="margin-top: 30px">
 <div class="row">    
     <div class="container">
         <div class="col-md-12">                         
