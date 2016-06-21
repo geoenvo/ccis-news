@@ -389,8 +389,7 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-12">
-                    <div id='monthlystatistic' style="width: 100%; height: 300px;"></div>
-                    <a href="statistic.php" class="btn btn-info pull-right">More Statistic</a>
+                    <div id='mediashare' style="width: 100%; height: 297px;"></div>
                 </div>
             </div>
         </div>
@@ -398,6 +397,10 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
 </div>
 
 <div class="container">
+    <div class="row" style="margin-top: 10px; padding-right: 16px">
+        <a href="statistic.php" class="btn btn-info pull-right">More Statistic</a>
+    </div>
+
     <div class="row" style="margin-top: 20px">
         <div class="col-md-12">
             <div class="panel panel-info">
@@ -681,10 +684,10 @@ echo '
 </footer>
 
     <script src="js/bootstrap.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="js/mediashare.js"></script>
     <script>
         jQuery(document).ready(function() {
-            GenerateCharts.init();
+           MediaShareCharts.init();
         });
     </script>
 </body>
