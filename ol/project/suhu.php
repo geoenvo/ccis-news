@@ -61,7 +61,7 @@
             }),
             new ol.layer.Group({
                 'title': 'Suhu',
-                layers: [l27, l26, l25]
+                layers: [l25]
             }),
             new ol.layer.Group({
                 layers: [boundary]

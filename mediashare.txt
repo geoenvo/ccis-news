@@ -1,10 +1,10 @@
-Republika,36
-Suara Merdeka,31
+Republika,38
+Suara Merdeka,32
 Elshinta,29
+Tribun News,29
 The Sydney Morning Herald,29
-Okezone,28
-Tribun News,28
-Bisnis Indonesia,27
+Okezone,29
+Bisnis Indonesia,28
 Tempo Interaktif,23
 Antara,22
-Brisbane times,20
+Kompas,20

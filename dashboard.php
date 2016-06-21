@@ -211,7 +211,7 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
     </div>
 </header>
 
-<div style="margin-top: 30px">
+<div style="margin-top: 20px">
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -389,7 +389,7 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-12">
-                    <div id='mediashare' style="width: 100%; height: 150px;"></div>
+                    <div id='mediashare' style="width: 100%; height: 280px;"></div>
                     <a href="statistic.php" class="btn btn-info pull-right">More Statistic</a>
                 </div>
             </div>
@@ -398,7 +398,7 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
 </div>
 
 <div class="container">
-    <div class="row" style="padding-top: 10px">
+    <div class="row" style="margin-top: 20px">
         <div class="col-md-12">
             <div class="panel panel-info">
                 <div class="panel-heading text-center text-info">
@@ -415,7 +415,7 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
     </div>
 </div>
 
-<div style="margin-top: 30px">
+<div style="margin-top: 20px">
 <div class="row">    
     <div class="container">
         <div class="col-md-12">                         
