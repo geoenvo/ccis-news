@@ -116,7 +116,8 @@ class MediaData
             if($temp[$i]->organization != null)
             {
                // echo '<div class="col-md-3 portfolio-item">';
-                echo $temp[$i]->organization.',';
+                echo '<label class="label label-default">'.($i+1).'.'.'</label>';
+                echo $temp[$i]->organization.', ';
                 //echo '</div>';
             }
 
