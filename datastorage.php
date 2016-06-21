@@ -185,7 +185,8 @@ class MediaData
     {
         $info = array();
         $myfile = fopen($statisticfile, "w") or die("Unable to open file!");
-
+        $numItems = count($this->dataStatistic['data']);
+        $i = 0;
         
         foreach ($this->dataStatistic['data'] as $value) {
             $obj = new stdClass();
@@ -199,7 +200,15 @@ class MediaData
             }
             
             $obj->count = $value['count'];
-            $tempdata = $obj->date.','.$value['count']."\n";
+
+
+            if(++$i === $numItems) {
+                $tempdata = $obj->date.','.$obj->count;
+            }
+            else{
+                $tempdata = $obj->date.','.$obj->count."\n";
+            }
+
             fwrite($myfile, $tempdata);
             $info[] = $obj;
         }
