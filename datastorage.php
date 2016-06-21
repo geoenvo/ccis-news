@@ -45,6 +45,8 @@ class MediaData
 {
     public $data;
     public $dataStatistic;
+    public $relatedOrganization;
+    public $mediaShare;
     
     function __construct($jsonfile) {
 
@@ -66,6 +68,103 @@ class MediaData
         $this->data = $data;
     }*/
 
+    public function getRelatedOrganizationJsonData($url)
+    {
+        $aContext = array(
+            'http' => array(
+                'request_fulluri' => true,
+            ),
+        );
+        $cxContext = stream_context_create($aContext);
+        $sFile = file_get_contents($url, False, $cxContext);
+        $data = json_decode($sFile, true);
+        $this->relatedOrganization =  $data;
+    }
+
+    public function getRelatedOrganizationData()
+    {
+        $info = array();
+
+        foreach ($this->relatedOrganization['data'] as $value) {
+            $obj = new stdClass();
+            $obj->organization = $value['organization'];
+            $obj->score = $value['score'];
+            $info[] = $obj;
+        }
+
+        return $info;
+    }
+
+    public function getDataCount()
+    {
+        $count = 0;
+
+        foreach ($this->relatedOrganization['data'] as $value) {
+            $count++;
+        }
+
+        return $count;
+    }
+
+
+    public function displayOrganization($temp)
+    {
+        $number_of_data = $this->getDataCount();
+        
+        for($i=0; $i < $number_of_data; $i++) {
+
+            if($temp[$i]->organization != null)
+            {
+               // echo '<div class="col-md-3 portfolio-item">';
+                echo $temp[$i]->organization.',';
+                //echo '</div>';
+            }
+
+        }
+
+    }
+
+    public function getMediaShareJsonData($url)
+    {
+        $aContext = array(
+            'http' => array(
+                'request_fulluri' => true,
+            ),
+        );
+        $cxContext = stream_context_create($aContext);
+        $sFile = file_get_contents($url, False, $cxContext);
+        $data = json_decode($sFile, true);
+        $this->mediaShare =  $data;
+
+
+    }
+
+    public function getMediaShareData($medisharefile)
+    {
+        $info = array();
+        $myfile = fopen($medisharefile, "w") or die("Unable to open file!");
+        $numItems = count($this->mediaShare['data']);
+        $i = 0;
+
+        foreach ($this->mediaShare['data'] as $value) {
+            $obj = new stdClass();
+            $obj->media = $value['media'];
+            $obj->score = $value['score'];
+
+            if(++$i === $numItems) {
+                $tempdata = $obj->media.','.$obj->score;
+            }
+            else{
+                $tempdata = $obj->media.','.$obj->score."\n";
+            }
+            
+            fwrite($myfile, $tempdata);
+            $info[] = $obj;
+        }
+
+        fclose($myfile);
+        return $info;
+    }
 
     public function getStatisticJsonData($url)
     {
