@@ -38,7 +38,7 @@ var GenerateCharts = function() {
                         {
                             visible: true,
                             unitInterval: 100,
-                            title: { text: 'Statistic<br>' }
+                            title: { text: 'News Count<br>' }
                         },
                         series: [
                             { dataField: 'Hit', displayText: 'News count' }
@@ -88,7 +88,7 @@ var GenerateCharts = function() {
                         {
                             visible: true,
                             unitInterval: 1000,
-                            title: { text: 'Statistic<br>' }
+                            title: { text: 'News Count<br>' }
                         },
                         series: [
                             { dataField: 'Hit', displayText: 'News count' }
