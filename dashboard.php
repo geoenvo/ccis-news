@@ -124,6 +124,12 @@ if ((!isset($_GET) || empty($_GET)) && (!isset($_POST) || empty($_POST)))
 $media_data = new MediaData($url);
 $temp = $media_data->getMediaData();
 $number_of_data = $media_data->getNumberOfData();
+
+$media_data->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=2016&month=06');
+$tempdata = $media_data->getStatisticData("statistik_monthly.txt","monthly");
+$media_data->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=2016');
+$tempdata = $media_data->getStatisticData("statistik_yearly.txt","yearly");
+
 ?>
 
 <header>
@@ -380,48 +386,50 @@ $number_of_data = $media_data->getNumberOfData();
         </div>
         <div class="col-md-8">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading text-center text-info">
-                            Related Organization
-                        </div>
-                        <div class="panel-body">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading text-center text-info">
-                            Climate Change Trending Topic
-                        </div>
-                        <div class="panel-body">
-
-                        </div>
+                <div class="col-md-12">
+                    <div id='monthlystatistic' style="width: 100%; height: 150px;">
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading text-center text-info">
-                            Statistic News
-                        </div>
-                        <div class="panel-body">
-                            <div id='chartContainer' style="width: 100%; height: 200px;">
-                            </div>
-                        </div>
+                <div class="col-md-12">
+                    <div id='yearlystatistic' style="width: 100%; height: 150px;">
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading text-center text-info">
-                            Air Quality Trending Topic
-                        </div>
-                        <div class="panel-body">
+            </div>
+        </div>
+    </div>
+</div>
 
-                        </div>
-                    </div>
+<div class="container">
+    <div class="row" style="padding-top: 10px">
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading text-center text-info">
+                    Related Organization
+                </div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading text-center text-info">
+                    Climate Change Trending Topic
+                </div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading text-center text-info">
+                    Air Quality Trending Topic
+                </div>
+                <div class="panel-body">
+
                 </div>
             </div>
         </div>
