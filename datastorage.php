@@ -1,5 +1,10 @@
 <?php
 
+if( ! ini_get('date.timezone') )
+{
+    date_default_timezone_set('Asia/Jakarta');
+}
+
 class MediaContent
 {
     protected $stack;
@@ -44,6 +49,9 @@ class MediaContent
 class MediaData
 {
     public $data;
+    public $dataStatistic;
+    public $relatedOrganization;
+    public $mediaShare;
     
     function __construct($jsonfile) {
 
@@ -64,6 +72,156 @@ class MediaData
         fclose($myfile);
         $this->data = $data;
     }*/
+
+    public function getRelatedOrganizationJsonData($url)
+    {
+        $aContext = array(
+            'http' => array(
+                'request_fulluri' => true,
+            ),
+        );
+        $cxContext = stream_context_create($aContext);
+        $sFile = file_get_contents($url, False, $cxContext);
+        $data = json_decode($sFile, true);
+        $this->relatedOrganization =  $data;
+    }
+
+    public function getRelatedOrganizationData()
+    {
+        $info = array();
+
+        foreach ($this->relatedOrganization['data'] as $value) {
+            $obj = new stdClass();
+            $obj->organization = $value['organization'];
+            $obj->score = $value['score'];
+            $info[] = $obj;
+        }
+
+        return $info;
+    }
+
+    public function getDataCount()
+    {
+        $count = 0;
+
+        foreach ($this->relatedOrganization['data'] as $value) {
+            $count++;
+        }
+
+        return $count;
+    }
+
+
+    public function displayOrganization($temp)
+    {
+        $number_of_data = $this->getDataCount();
+        
+        for($i=0; $i < $number_of_data; $i++) {
+
+            if($temp[$i]->organization != null)
+            {
+               // echo '<div class="col-md-3 portfolio-item">';
+                echo '<label class="label label-default">'.($i+1).'.'.'</label>';
+                echo $temp[$i]->organization.', ';
+                //echo '</div>';
+            }
+
+        }
+
+    }
+
+    public function getMediaShareJsonData($url)
+    {
+        $aContext = array(
+            'http' => array(
+                'request_fulluri' => true,
+            ),
+        );
+        $cxContext = stream_context_create($aContext);
+        $sFile = file_get_contents($url, False, $cxContext);
+        $data = json_decode($sFile, true);
+        $this->mediaShare =  $data;
+
+
+    }
+
+    public function getMediaShareData($medisharefile)
+    {
+        $info = array();
+        $myfile = fopen($medisharefile, "w") or die("Unable to open file!");
+        $numItems = count($this->mediaShare['data']);
+        $i = 0;
+
+        foreach ($this->mediaShare['data'] as $value) {
+            $obj = new stdClass();
+            $obj->media = $value['media'];
+            $obj->score = $value['score'];
+
+            if(++$i === $numItems) {
+                $tempdata = $obj->media.','.$obj->score;
+            }
+            else{
+                $tempdata = $obj->media.','.$obj->score."\n";
+            }
+            
+            fwrite($myfile, $tempdata);
+            $info[] = $obj;
+        }
+
+        fclose($myfile);
+        return $info;
+    }
+
+    public function getStatisticJsonData($url)
+    {
+        $aContext = array(
+            'http' => array(
+                'request_fulluri' => true,
+            ),
+        );
+        $cxContext = stream_context_create($aContext);
+        $sFile = file_get_contents($url, False, $cxContext);
+        $data = json_decode($sFile, true);
+        $this->dataStatistic =  $data;
+
+
+    }
+    
+    public function getStatisticData($statisticfile, $kind)
+    {
+        $info = array();
+        $myfile = fopen($statisticfile, "w") or die("Unable to open file!");
+        $numItems = count($this->dataStatistic['data']);
+        $i = 0;
+        
+        foreach ($this->dataStatistic['data'] as $value) {
+            $obj = new stdClass();
+            
+            if($kind == "monthly")
+            {
+                $obj->date = date('d', strtotime($value['date']));
+            }
+            else{
+                $obj->date = date('m', strtotime($value['date'].'01'));
+            }
+            
+            $obj->count = $value['count'];
+
+
+            if(++$i === $numItems) {
+                $tempdata = $obj->date.','.$obj->count;
+            }
+            else{
+                $tempdata = $obj->date.','.$obj->count."\n";
+            }
+
+            fwrite($myfile, $tempdata);
+            $info[] = $obj;
+        }
+
+        fclose($myfile);
+        return $info;
+    }
 
     public function readJsonData($jsonfile)
     {

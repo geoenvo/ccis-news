@@ -124,6 +124,15 @@ if ((!isset($_GET) || empty($_GET)) && (!isset($_POST) || empty($_POST)))
 $media_data = new MediaData($url);
 $temp = $media_data->getMediaData();
 $number_of_data = $media_data->getNumberOfData();
+
+$media_data->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=2016&month=06');
+$tempdata = $media_data->getStatisticData("statistik_monthly.txt","monthly");
+$media_data->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=2016');
+$tempdata = $media_data->getStatisticData("statistik_yearly.txt","yearly");
+$media_data->getRelatedOrganizationJsonData('https://api.ebdesk.com/bmkg/organization');
+$temp_data_organization = $media_data->getRelatedOrganizationData();
+$media_data->getMediaShareJsonData('https://api.ebdesk.com/bmkg/media_share');
+$temp_media_share = $media_data->getMediaShareData("mediashare.txt");
 ?>
 
 <header>
@@ -140,9 +149,9 @@ $number_of_data = $media_data->getNumberOfData();
                         <a href=""><img src="img/logo_BMKG.png" alt="BMKG" title="" width="55"></a>
                     </div>
                     <div class="col-md-10" style="padding-right: 0px">
-                        <h2 class="hidden-xs" >BADAN METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</h2>
-                        <h1 class="visible-xs">BMKG</h1>
-                        <strong>Knowledge Management Perubahan Iklim dan Kualitas Udara</strong>
+                        <h2 class="hidden-xs" style="color: #fff; font-size: 16px">BADAN METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</h2>
+                        <h1 style="color: #fff; font-size: 16px" class="visible-xs">BMKG</h1>
+                        <strong style="color: #fff; font-size: 30px">Knowledge Management Perubahan Iklim dan Kualitas Udara</strong>
 
                     </div>
 
@@ -169,7 +178,6 @@ $number_of_data = $media_data->getNumberOfData();
                     <ul class="nav navbar-nav">
                         <li><a href="http://193.183.98.127:8002/">Home</a> </li>
                         <li><a href="http://ccis.klimat.bmkg.go.id/ccis/news">News</a> </li>
-                        <li><a href="http://ccis.klimat.bmkg.go.id/ccis/climate-change">Climate Change</a> </li>
                         <li class="dropdown"><a href="http://ccis.klimat.bmkg.go.id/ccis/map" class="dropdown-toggle" data-toggle="dropdown">Map<b class="caret"></b> </a>
                             <ul class="dropdown-menu">
                                 <li><a href="http://ccis.klimat.bmkg.go.id/ccis/content/cdd-cwd-rainfall">CDD, CWD & Rainfall</a> </li>
@@ -183,7 +191,6 @@ $number_of_data = $media_data->getNumberOfData();
                                 <li><a href="http://ccis.klimat.bmkg.go.id/ccis/content/climate-indices-definitions">Climate Indice Definition</a> </li>
                             </ul>
                         </li>
-                        <li><a href="http://ccis.klimat.bmkg.go.id/ccis/events">Events</a> </li>
                         <li><a href="http://ccis.klimat.bmkg.go.id/ccis/about">About</a> </li>
                         <li><a href="http://139.162.55.216/">Geoportal</a> </li>
                     </ul>
@@ -380,47 +387,14 @@ $number_of_data = $media_data->getNumberOfData();
         </div>
         <div class="col-md-8">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading text-center text-info">
-                            Related Organization
-                        </div>
-                        <div class="panel-body">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading text-center text-info">
-                            Climate Change Trending Topic
-                        </div>
-                        <div class="panel-body">
-
-                        </div>
+                <div class="col-md-12">
+                    <div id='monthlystatistic' style="width: 100%; height: 150px;">
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading text-center text-info">
-                            Statistic News
-                        </div>
-                        <div class="panel-body">
-                            <div id='chartContainer' style="width: 100%; height: 200px;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading text-center text-info">
-                            Air Quality Trending Topic
-                        </div>
-                        <div class="panel-body">
-
-                        </div>
+                <div class="col-md-12">
+                    <div id='yearlystatistic' style="width: 100%; height: 150px;">
                     </div>
                 </div>
             </div>
@@ -428,99 +402,96 @@ $number_of_data = $media_data->getNumberOfData();
     </div>
 </div>
 
+<div class="container">
+    <div class="row" style="padding-top: 10px; padding-right: 18px">
+        <a href="statistic.php" class="btn btn-info pull-right">More Statistic</a>
+    </div>
+    <div class="row" style="padding-top: 10px">
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading text-center text-info">
+                    Related Organization
+                </div>
+                <div class="panel-body">
+                     <?php
+                        $row_num = $media_data->getDataCount();
+                        $media_data->displayOrganization($temp_data_organization);
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading text-center text-info">
+                    Climate Change Trending Topic
+                </div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading text-center text-info">
+                    Air Quality Trending Topic
+                </div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div style="margin-top: 10px">
+<div class="row">    
+    <div class="container">
+        <div class="col-md-12">                         
+            <div class="row" >
+                <div class="col-md-12" style="padding-left: 0px; padding-right: 0px">
+                    <section id="petaproyeksi">
+                        <div class="panel panel-info">
+                            <div class="panel-heading text-left text-info">
+                                Data Proyeksi Iklim 
+                            </div>
+                            <div class="panel-body">
+<ul class="tab" style="cursor:pointer">
+  <li><a class="tablinks active" onclick="OpenMap(event, 'suhu')">Suhu</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'hujan')">Hujan</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'cdd')">CDD</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'cwd')">CWD</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'fhl')">FHL</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'hth')">HTH</a></li>
+  <li><a class="tablinks" onclick="OpenMap(event, 'r50')">r50</a></li>
+</ul>
+
+<div id="suhu" class="tabcontent" style="display: block;">
     <div class="row">
-        <div class="container">
-            <div class="col-md-12">
-                <div class="row" >
-                    <div class="col-md-12" style="padding-left: 0px; padding-right: 0px">
-                        <section id="petaproyeksi">
-                            <div class="panel panel-info">
-                                <div class="panel-heading text-left text-info">
-                                    Data Proyeksi Iklim
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="tab" style="cursor:pointer">
-                                        <li><a class="tablinks active" onclick="OpenMap(event, 'Hujan')">Hujan</a></li>
-                                        <li><a class="tablinks" onclick="OpenMap(event, 'Suhu')">Suhu</a></li>
-                                        <li><a class="tablinks" onclick="OpenMap(event, 'CDD')">CDD</a></li>
-                                        <li><a class="tablinks" onclick="OpenMap(event, 'CWD')">CWD</a></li>
-                                        <li><a class="tablinks" onclick="OpenMap(event, 'FHL')">FHL</a></li>
-                                        <li><a class="tablinks" onclick="OpenMap(event, 'HTH')">HTH</a></li>
-                                        <li><a class="tablinks" onclick="OpenMap(event, 'r50')">r50</a></li>
-                                    </ul>
+        <div class="col-md-9">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/suhu.php"></iframe>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row" style="padding-right: 5px">
+                <div class="panel panel-info">
+                    <div class="panel-heading text-center text-info">
+                        Data Legend
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=suhu_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
 
-                                    <div id="Hujan" class="tabcontent" style="display: block;">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="ol/project/hujan.php"></iframe>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="row" style="padding-right: 5px">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-heading text-center text-info">
-                                                            Legenda
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=hujan_djf_jaw&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <span>
     <br>
 <label>Akses via GeoPortal:</label>
-<select id="hujan">
-    <option value="http://139.162.55.216/layers/geonode%3Ahujan_djf_jaw">Des-Jan-Feb</option>
-    <option value="http://139.162.55.216/layers/geonode%3Ahujan_mam_jaw">Mar-Apr-Mei</option>
-    <option value="http://139.162.55.216/layers/geonode%3Ahujan_jja_jaw">Jun-Jul-Agu</option>
-    <option value="http://139.162.55.216/layers/geonode%3Ahujan_son_jaw">Sep-Okt-Nov</option>
-</select>
-<input type="button" value="Go!" onclick="Gohujan()" />
-    <script type="text/javascript">
-    function Gohujan(){
-        var geoportal = document.getElementById("hujan");
-        var selectedVal = geoportal.options[geoportal.selectedIndex].value;
-
-        window.open(selectedVal)
-    }
-    </script>
-    </span>
-                                    </div>
-
-                                    <div id="Suhu" class="tabcontent" style="display: none;">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="ol/project/suhu.php"></iframe>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="row" style="padding-right: 5px">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-heading text-center text-info">
-                                                            Data Legend
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=suhu_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-    <span>
-    <br>
-<label>Akses via GeoPortal:</label>
-<select id="suhu">
+<select id="selectsuhu">
     <option value="http://139.162.55.216/layers/geonode%3Asuhu_jawa">Suhu Rata-rata</option>
     <option value="http://139.162.55.216/layers/geonode%3Asuhumin_jawa">Suhu Min</option>
     <option value="http://139.162.55.216/layers/geonode%3Asuhumax_jawa">Suhu Max</option>
@@ -528,234 +499,88 @@ $number_of_data = $media_data->getNumberOfData();
 <input type="button" value="Go!" onclick="Gosuhu()" />
     <script type="text/javascript">
     function Gosuhu(){
-        var geoportal = document.getElementById("suhu");
-        var selectedVal = geoportal.options[geoportal.selectedIndex].value;
+    var geoportal = document.getElementById("selectsuhu");
+    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
 
-        window.open(selectedVal)
+    window.open(selectedVal)
     }
     </script>
     </span>
-                                    </div>
+</div>
 
-                                    <div id="CDD" class="tabcontent" style="display: none;">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="ol/project/cdd.php"></iframe>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="row" style="padding-right: 5px">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-heading text-center text-info">
-                                                            Data Legend
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=cdd_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+<?php 
+$climate = array("hujan", "cdd", "cwd", "fhl", "hth", "r50"); 
 
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+foreach ($climate as $value) {
+
+echo "<div id=$value ";
+echo 'class="tabcontent" style="display: none;">';
+echo '<div class="row">';
+echo '<div class="col-md-9">';
+echo '<div class="embed-responsive embed-responsive-16by9">';
+echo '<iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/';
+echo "$value";
+echo '.php"></iframe>';
+echo '</div>';
+echo '</div>';
+echo '<div class="col-md-3">';
+echo '<div class="row" style="padding-right: 5px">';
+echo '<div class="panel panel-info">';
+echo '<div class="panel-heading text-center text-info">';
+echo 'Legenda';
+echo '</div>';
+echo '<div class="panel-body">';
+echo '<div class="row">';
+echo '<img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=';
+echo "$value";
+echo '_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">';
+echo '                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <span>
     <br>
 <label>Akses via GeoPortal:</label>
-<select id="cdd">
-    <option value="http://139.162.55.216/layers/geonode%3Acdd_djf_jawa">Des-Jan-Feb</option>
-    <option value="http://139.162.55.216/layers/geonode%3Acdd_mam_jawa">Mar-Apr-Mei</option>
-    <option value="http://139.162.55.216/layers/geonode%3Acdd_jja_jawa">Jun-Jul-Agu</option>
-    <option value="http://139.162.55.216/layers/geonode%3Acdd_son_jawa">Sep-Okt-Nov</option>
-</select>
-<input type="button" value="Go!" onclick="Gocdd()" />
-<script type="text/javascript">
-function Gocdd(){
-    var geoportal = document.getElementById("cdd");
-    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
+<select id="select';
+echo "$value";
+echo '">';
+echo '<option value="http://139.162.55.216/layers/geonode%3A';
+echo "$value";
+echo '_djf_jawa">Des-Jan-Feb</option>';
+echo '<option value="http://139.162.55.216/layers/geonode%3A';
+echo "$value";
+echo '_mam_jawa">Mar-Apr-Mei</option>';
+echo '<option value="http://139.162.55.216/layers/geonode%3A';
+echo "$value";
+echo '_jja_jawa">Jun-Jul-Agu</option>';
+echo '<option value="http://139.162.55.216/layers/geonode%3A';
+echo "$value";
+echo '_son_jawa">Sep-Okt-Nov</option>';
+echo '</select>
+<input type="button" value="Go" onclick="Go';
+echo "$value";
+echo '()" />
+    <script type="text/javascript">
+    function Go';
+echo "$value";
+echo '(){';
+echo '
+        var geoportal = document.getElementById("select';
+echo "$value";
+echo '");';
+echo '
+        var selectedVal = geoportal.options[geoportal.selectedIndex].value;
 
     window.open(selectedVal)
-}
-</script>
+    }
+    </script>
     </span>
-                                    </div>
+</div>';
 
-                                    <div id="CWD" class="tabcontent" style="display: none;">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="ol/project/cwd.php"></iframe>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="row" style="padding-right: 5px">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-heading text-center text-info">
-                                                            Data Legend
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=cwd_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-    <span>
-    <br>
-<label>Akses via GeoPortal:</label>
-<select id="cwd">
-    <option value="http://139.162.55.216/layers/geonode%3Acwd_djf_jawa">Des-Jan-Feb</option>
-    <option value="http://139.162.55.216/layers/geonode%3Acwd_mam_jawa">Mar-Apr-Mei</option>
-    <option value="http://139.162.55.216/layers/geonode%3Acwd_jja_jawa">Jun-Jul-Agu</option>
-    <option value="http://139.162.55.216/layers/geonode%3Acwd_son_jawa">Sep-Okt-Nov</option>
-</select>
-<input type="button" value="Go!" onclick="Gocwd()" />
-<script type="text/javascript">
-function Gocwd(){
-    var geoportal = document.getElementById("cwd");
-    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
-
-    window.open(selectedVal)
 }
-</script>
-    </span>
-                                    </div>
-
-                                    <div id="FHL" class="tabcontent" style="display: none;">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="ol/project/fhl.php"></iframe>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="row" style="padding-right: 5px">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-heading text-center text-info">
-                                                            Data Legend
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=fhl_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-    <span>
-    <br>
-<label>Akses via GeoPortal:</label>
-<select id="fhl">
-    <option value="http://139.162.55.216/layers/geonode%3Afhl_djf_jawa">Des-Jan-Feb</option>
-    <option value="http://139.162.55.216/layers/geonode%3Afhl_mam_jawa">Mar-Apr-Mei</option>
-    <option value="http://139.162.55.216/layers/geonode%3Afhl_jja_jawa">Jun-Jul-Agu</option>
-    <option value="http://139.162.55.216/layers/geonode%3Afhl_son_jawa">Sep-Okt-Nov</option>
-</select>
-<input type="button" value="Go!" onclick="Gofhl()" />
-<script type="text/javascript">
-function Gofhl(){
-    var geoportal = document.getElementById("fhl");
-    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
-
-    window.open(selectedVal)
-}
-</script>
-    </span>
-                                    </div>
-
-                                    <div id="HTH" class="tabcontent" style="display: none;">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="ol/project/hth.php"></iframe>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="row" style="padding-right: 5px">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-heading text-center text-info">
-                                                            Data Legend
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=hth_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-    <span>
-    <br>
-<label>Akses via GeoPortal:</label>
-<select id="hth">
-    <option value="http://139.162.55.216/layers/geonode%3Ahth_djf_jawa">Des-Jan-Feb</option>
-    <option value="http://139.162.55.216/layers/geonode%3Ahth_mam_jawa">Mar-Apr-Mei</option>
-    <option value="http://139.162.55.216/layers/geonode%3Ahth_jja_jawa">Jun-Jul-Agu</option>
-    <option value="http://139.162.55.216/layers/geonode%3Ahth_son_jawa">Sep-Okt-Nov</option>
-</select>
-<input type="button" value="Go!" onclick="Gohth()" />
-<script type="text/javascript">
-function Gohth(){
-    var geoportal = document.getElementById("hth");
-    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
-
-    window.open(selectedVal)
-}
-</script>
-    </span>
-                                    </div>
-
-                                    <div id="r50" class="tabcontent" style="display: none;">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="ol/project/r50.php"></iframe>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="row" style="padding-right: 5px">
-                                                    <div class="panel panel-info">
-                                                        <div class="panel-heading text-center text-info">
-                                                            Data Legend
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=r50_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-    <span>
-    <br>
-<label>Akses via GeoPortal:</label>
-<select id="r">
-    <option value="http://139.162.55.216/layers/geonode%3Ar50_djf_jawa">Des-Jan-Feb</option>
-    <option value="http://139.162.55.216/layers/geonode%3Ar50_mam_jawa">Mar-Apr-Mei</option>
-    <option value="http://139.162.55.216/layers/geonode%3Ar50_jja_jawa">Jun-Jul-Agu</option>
-    <option value="http://139.162.55.216/layers/geonode%3Ar50_son_jawa">Sep-Okt-Nov</option>
-</select>
-<input type="button" value="Go!" onclick="Gor()" />
-<script type="text/javascript">
-function Gor(){
-    var geoportal = document.getElementById("r");
-    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
-
-    window.open(selectedVal)
-}
-</script>
-    </span>
-                                    </div>
+?>
 
                                 </div>
                             </div>

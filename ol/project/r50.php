@@ -1,124 +1,79 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>r50</title>
+    <title>CDD</title>
     <link rel="stylesheet" href="http://openlayers.org/en/v3.15.1/css/ol.css" type="text/css">
     <link rel="stylesheet" href="../src/ol3-layerswitcher.css" />
     <link rel="stylesheet" href="layerswitcher.css" />
     <script src="http://openlayers.org/en/v3.15.1/build/ol.js"></script>
     <script src="../src/ol3-layerswitcher.js"></script>
+    <script src="climate.js"></script>
     <style>
       .map:-moz-full-screen {
-        height: 100%; width: 100%;
+        width: 100%;
+        height: 100%;
       }
       .map:-webkit-full-screen {
-        height: 100%; width: 100%;
+        width: 100%;
+        height: 100%;
       }
       .map:-ms-fullscreen {
-        height: 100%; width: 100%;
+        width: 100%;
+        height: 100%;
       }
+
       .map:fullscreen {
-        height: 100%; width: 100%;
+        width: 100%;
+        height: 100%;
       }
+
       .ol-rotate {
         top: 3em;
+      }
+
+      .map {
+        width: 100%;
+        height: 100%;
+      }
+
+      .sidepanel-title {
+        position: absolute;
+        bottom: 10%;
+        left: 2%;
+        z-index: 1;
+        text-align: left;
+        font-size: 1.3em;
+        color: #000;
       }
     </style>
   </head>
   <body>
-    <div id="map" class="map"></div>
+      <div id="map" class="map">
+        <div class="sidepanel-title">Proyeksi Perubahan Frekuensi Hujan Lebat Periode 2032-2040 terhadap 2006-2014 Pulau Jawa</div>
+      </div>
+
     <script>
-
-    var lon  = 110.5
-    var lat  = -7.3
-    var zoom = 6.5
-
-    var osm = new ol.layer.Tile({
-      source: new ol.source.MapQuest({layer: 'osm'})
-    });
-
-    var source_boundary = new ol.source.TileWMS({
-      url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'bf_cityreg_091213', 'TILED': true},
-      serverType: 'geoserver'
-    });
-    var boundary = new ol.layer.Tile({
-           source: source_boundary,
-           title: 'Batas Kabupaten',
-    });
-
-    var source_l21 = new ol.source.TileWMS({
-      url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'r50_djf_jawa', 'TILED': true},
-      serverType: 'geoserver'
-    });
-    var l21 = new ol.layer.Tile({
-           source: source_l21,
-           title: 'DJF',
-           type: 'base',
-    });
-
-    var source_l22 = new ol.source.TileWMS({
-      url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'r50_mam_jawa', 'TILED': true},
-      serverType: 'geoserver'
-    });
-    var l22 = new ol.layer.Tile({
-           source: source_l22,
-           title: 'MAM',
-           type: 'base',
-    });
-
-    var source_l23 = new ol.source.TileWMS({
-      url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'r50_jja_jawa', 'TILED': true},
-      serverType: 'geoserver'
-    });
-    var l23 = new ol.layer.Tile({
-           source: source_l23,
-           title: 'JJA',
-           type: 'base',
-    });
-
-    var source_l24 = new ol.source.TileWMS({
-      url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-      params: {'LAYERS': 'r50_son_jawa', 'TILED': true},
-      serverType: 'geoserver'
-    });
-    var l24 = new ol.layer.Tile({
-           source: source_l24,
-           title: 'SON',
-           type: 'base',
-    });
-
-
       var map = new ol.Map({
           target: 'map',
           layers: [
             new ol.layer.Group({
-                displayInLayerSwitcher: false,
                 layers: [osm]
             }),
             new ol.layer.Group({
-                'title': 'Frekuensi Hujan Lebat',
+                'title': 'Frekuensi Hujan Lebat (r50)',
                 layers: [l24, l23, l22, l21]
             }),
             new ol.layer.Group({
                 layers: [boundary]
             }),
-        ],
-        view: new ol.View({
-            center: ol.proj.transform([lon, lat], 'EPSG:4326', 'EPSG:3857'),
-            zoom: zoom
-          }),
-        controls: ol.control.defaults().extend([
+          ],
+          view: view,
+          controls: ol.control.defaults().extend([
             new ol.control.FullScreen()
           ]),
       });
 
-      var layerSwitcher = new ol.control.LayerSwitcher({
-        tipLabel: 'Legend' // Optional label for button
-      });
+      var layerSwitcher = new ol.control.LayerSwitcher();
       map.addControl(layerSwitcher);
     </script>
   </body>
