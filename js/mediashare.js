@@ -9,7 +9,7 @@ var MediaShareCharts = function() {
                 { name: 'Media' },
                 { name: 'Share' }
             ],
-            url: 'http://localhost:8080/hore/mediashare.txt'
+            url: 'http://193.183.98.127:8002/mediashare.txt'
         };
         var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
         // prepare jqxChart settings
