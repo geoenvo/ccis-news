@@ -10,7 +10,7 @@ var GenerateCharts = function() {
                 { name: 'Hit' }
 
             ],
-            url: 'http://localhost:8080/BMKG/statistik_monthly.txt'
+            url: 'http://193.183.98.127:8002/statistik_monthly.txt'
         };
         var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
         // prepare jqxChart settings
@@ -60,7 +60,7 @@ var GenerateCharts = function() {
                 { name: 'Hit' }
 
             ],
-            url: 'http://localhost:8080/BMKG/statistik_yearly.txt'
+            url: 'http://193.183.98.127:8002/statistik_yearly.txt'
         };
         var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
         // prepare jqxChart settings
