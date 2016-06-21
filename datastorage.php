@@ -44,6 +44,7 @@ class MediaContent
 class MediaData
 {
     public $data;
+    public $dataStatistic;
     
     function __construct($jsonfile) {
 
