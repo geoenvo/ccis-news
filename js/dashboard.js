@@ -136,7 +136,7 @@ var GenerateCharts = function() {
                                     displayText: 'Media',
                                     labelRadius: 170,
                                     initialAngle: 15,
-                                    radius: 145,
+                                    radius: 100,
                                     centerOffset: 0,
                                     formatFunction: function (value) {
                                         if (isNaN(value))
