@@ -149,9 +149,9 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                         <a href=""><img src="img/logo_BMKG.png" alt="BMKG" title="" width="55"></a>
                     </div>
                     <div class="col-md-10" style="padding-right: 0px">
-                        <h2 class="hidden-xs" >BADAN METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</h2>
-                        <h1 class="visible-xs">BMKG</h1>
-                        <strong>Knowledge Management Perubahan Iklim dan Kualitas Udara</strong>
+                        <h2 class="hidden-xs" style="color: #fff; font-size: 16px">BADAN METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</h2>
+                        <h1 style="color: #fff; font-size: 16px" class="visible-xs">BMKG</h1>
+                        <strong style="color: #fff; font-size: 30px">Knowledge Management Perubahan Iklim dan Kualitas Udara</strong>
 
                     </div>
 
