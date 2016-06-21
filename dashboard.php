@@ -129,7 +129,10 @@ $media_data->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=20
 $tempdata = $media_data->getStatisticData("statistik_monthly.txt","monthly");
 $media_data->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=2016');
 $tempdata = $media_data->getStatisticData("statistik_yearly.txt","yearly");
-
+$media_data->getRelatedOrganizationJsonData('https://api.ebdesk.com/bmkg/organization');
+$temp_data_organization = $media_data->getRelatedOrganizationData();
+$media_data->getMediaShareJsonData('https://api.ebdesk.com/bmkg/media_share');
+$temp_media_share = $media_data->getMediaShareData("mediashare.txt");
 ?>
 
 <header>
@@ -409,7 +412,10 @@ $tempdata = $media_data->getStatisticData("statistik_yearly.txt","yearly");
                     Related Organization
                 </div>
                 <div class="panel-body">
-
+                     <?php
+                        $row_num = $media_data->getDataCount();
+                        $media_data->displayOrganization($temp_data_organization);
+                    ?>
                 </div>
             </div>
         </div>
