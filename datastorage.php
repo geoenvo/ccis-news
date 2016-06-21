@@ -65,6 +65,49 @@ class MediaData
         $this->data = $data;
     }*/
 
+
+    public function getStatisticJsonData($url)
+    {
+        $aContext = array(
+            'http' => array(
+                'request_fulluri' => true,
+            ),
+        );
+        $cxContext = stream_context_create($aContext);
+        $sFile = file_get_contents($url, False, $cxContext);
+        $data = json_decode($sFile, true);
+        $this->dataStatistic =  $data;
+
+
+    }
+    
+    public function getStatisticData($statisticfile, $kind)
+    {
+        $info = array();
+        $myfile = fopen($statisticfile, "w") or die("Unable to open file!");
+
+        
+        foreach ($this->dataStatistic['data'] as $value) {
+            $obj = new stdClass();
+            
+            if($kind == "monthly")
+            {
+                $obj->date = date('d', strtotime($value['date']));
+            }
+            else{
+                $obj->date = date('m', strtotime($value['date'].'01'));
+            }
+            
+            $obj->count = $value['count'];
+            $tempdata = $obj->date.','.$value['count']."\n";
+            fwrite($myfile, $tempdata);
+            $info[] = $obj;
+        }
+
+        fclose($myfile);
+        return $info;
+    }
+
     public function readJsonData($jsonfile)
     {
         $myfile = fopen($jsonfile, "r") or die("Unable to open file!");
