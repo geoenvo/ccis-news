@@ -405,6 +405,9 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
 </div>
 
 <div class="container">
+    <div class="row" style="padding-top: 10px; padding-right: 18px">
+        <a href="statistic.php" class="btn btn-info pull-right">More Statistic</a>
+    </div>
     <div class="row" style="padding-top: 10px">
         <div class="col-md-4">
             <div class="panel panel-info">
