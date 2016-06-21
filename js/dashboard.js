@@ -41,7 +41,7 @@ var GenerateCharts = function() {
                             title: { text: 'Statistic<br>' }
                         },
                         series: [
-                            { dataField: 'Hit', displayText: 'Hit count' }
+                            { dataField: 'Hit', displayText: 'News count' }
 
                         ]
                     }
@@ -91,7 +91,7 @@ var GenerateCharts = function() {
                             title: { text: 'Statistic<br>' }
                         },
                         series: [
-                            { dataField: 'Hit', displayText: 'Hit count' }
+                            { dataField: 'Hit', displayText: 'News count' }
 
                         ]
                     }
