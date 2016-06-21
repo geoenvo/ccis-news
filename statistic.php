@@ -178,7 +178,6 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                     <ul class="nav navbar-nav">
                         <li><a href="http://193.183.98.127:8002/">Home</a> </li>
                         <li><a href="http://ccis.klimat.bmkg.go.id/ccis/news">News</a> </li>
-                        <li><a href="http://ccis.klimat.bmkg.go.id/ccis/climate-change">Climate Change</a> </li>
                         <li class="dropdown"><a href="http://ccis.klimat.bmkg.go.id/ccis/map" class="dropdown-toggle" data-toggle="dropdown">Map<b class="caret"></b> </a>
                             <ul class="dropdown-menu">
                                 <li><a href="http://ccis.klimat.bmkg.go.id/ccis/content/cdd-cwd-rainfall">CDD, CWD & Rainfall</a> </li>
@@ -192,7 +191,6 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                                 <li><a href="http://ccis.klimat.bmkg.go.id/ccis/content/climate-indices-definitions">Climate Indice Definition</a> </li>
                             </ul>
                         </li>
-                        <li><a href="http://ccis.klimat.bmkg.go.id/ccis/events">Events</a> </li>
                         <li><a href="http://ccis.klimat.bmkg.go.id/ccis/about">About</a> </li>
                         <li><a href="http://139.162.55.216/">Geoportal</a> </li>
                     </ul>
