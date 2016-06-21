@@ -397,6 +397,24 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
     </div>
 </div>
 
+<div class="container">
+    <div class="row" style="padding-top: 10px">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading text-center text-info">
+                    Related Organization
+                </div>
+                <div class="panel-body">
+                     <?php
+                        $row_num = $media_data->getDataCount();
+                        $media_data->displayOrganization($temp_data_organization);
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div style="margin-top: 30px">
 <div class="row">    
     <div class="container">
@@ -430,7 +448,7 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
             <div class="row" style="padding-right: 5px">
                 <div class="panel panel-info">
                     <div class="panel-heading text-center text-info">
-                        Data Legend
+                        Legenda
                     </div>
                     <div class="panel-body">
                         <div class="row">
