@@ -10,10 +10,6 @@ header{
     
 }
 
-h1, h2, strong{
-    text-shadow: 1px 1px 1px #fff, 3px 3px 5px;
-}
-
 .nextButton{
     position: absolute;
     left: 80%;
