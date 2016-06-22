@@ -697,9 +697,11 @@ echo '
 
     <script src="js/bootstrap.js"></script>
     <script src="js/mediashare.js"></script>
+    <script src="js/autorefresh.js"></script>
     <script>
         jQuery(document).ready(function() {
            MediaShareCharts.init();
+           AutoRefresh.init();
         });
     </script>
 </body>
