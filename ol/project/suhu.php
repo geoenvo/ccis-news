@@ -8,44 +8,6 @@
     <script src="http://openlayers.org/en/v3.15.1/build/ol.js"></script>
     <script src="../src/ol3-layerswitcher.js"></script>
     <script src="climate.js"></script>
-    <style>
-      .map:-moz-full-screen {
-        width: 100%;
-        height: 100%;
-      }
-      .map:-webkit-full-screen {
-        width: 100%;
-        height: 100%;
-      }
-      .map:-ms-fullscreen {
-        width: 100%;
-        height: 100%;
-      }
-
-      .map:fullscreen {
-        width: 100%;
-        height: 100%;
-      }
-
-      .ol-rotate {
-        top: 3em;
-      }
-
-      .map {
-        width: 100%;
-        height: 100%;
-      }
-
-      .sidepanel-title {
-        position: absolute;
-        bottom: 10%;
-        left: 2%;
-        z-index: 1;
-        text-align: left;
-        font-size: 1.3em;
-        color: #000;
-      }
-    </style>
   </head>
   <body>
       <div id="map" class="map">

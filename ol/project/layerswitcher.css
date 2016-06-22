@@ -6,7 +6,36 @@ html, body {
   font-size: small;
 }
 
-#map {
+.map:-moz-full-screen {
   width: 100%;
   height: 100%;
+}
+.map:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+}
+.map:-ms-fullscreen {
+  width: 100%;
+  height: 100%;
+}
+.map:fullscreen {
+  width: 100%;
+  height: 100%;
+}
+.ol-rotate {
+  top: 3em;
+}
+.map {
+  width: 100%;
+  height: 100%;
+}
+.sidepanel-title {
+  position: absolute;
+  bottom: 10%;
+  left: 2%;
+  z-index: 1;
+  text-align: left;
+  font-size: 1.3em;
+  color: white; text-shadow: 0 0 0.3em #000, 0 0 0.3em #000,
+  0 0 0.3em #000;
 }
