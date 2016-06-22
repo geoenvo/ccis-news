@@ -11,7 +11,7 @@
   </head>
   <body>
       <div id="map" class="map">
-        <div class="sidepanel-title">Proyeksi Peubahan Hari Tanpa Hujan Musiman Periode 2032-2040 terhadap 2006-2014 Pulau Jawa</div>
+        <div class="sidepanel-title">Proyeksi Perubahan Hari Tanpa Hujan Musiman Periode 2032-2040 terhadap 2006-2014 Pulau Jawa</div>
       </div>
 
     <script>
