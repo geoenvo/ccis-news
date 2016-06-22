@@ -257,6 +257,11 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                 </div>
                 <div class="panel-body">
 
+<div style='width:auto;height:auto;'><!-- You may use this wrapping div to restrict the height or width -->
+    <script type='text/javascript' charset='utf-8'  src='http://worditout.com/word-cloud/1726496/private/063432a0edd36c23f6c6680f0f9e9094/embed.js'></script>
+    <noscript><p style='text-align:center;font-size:xx-small;overflow:auto;height:100%;'><a href='http://worditout.com/word-cloud/1726496/private/063432a0edd36c23f6c6680f0f9e9094' title='Click to go to this word&nbsp;cloud on WordItOut.com'>Untitled word&nbsp;cloud</a><br />Click on the link above to see this word&nbsp;cloud at <a href='http://worditout.com' title='Transform your text into word&nbsp;clouds!'>WordItOut</a>. You may also view it on this website if you enable JavaScript (see your web browser settings).</p></noscript>
+
+</div>
                 </div>
             </div>
         </div>
@@ -266,6 +271,11 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                     Air Quality Trending Topic
                 </div>
                 <div class="panel-body">
+
+<div style='width:auto;height:auto;'><!-- You may use this wrapping div to restrict the height or width -->
+    <script type='text/javascript' charset='utf-8'  src='http://worditout.com/word-cloud/1726502/private/13cc7a36c80b0540f9796d4bc896f656/embed.js'></script>
+    <noscript><p style='text-align:center;font-size:xx-small;overflow:auto;height:100%;'><a href='http://worditout.com/word-cloud/1726502/private/13cc7a36c80b0540f9796d4bc896f656' title='Click to go to this word&nbsp;cloud on WordItOut.com'>Untitled word&nbsp;cloud</a><br />Click on the link above to see this word&nbsp;cloud at <a href='http://worditout.com' title='Transform your text into word&nbsp;clouds!'>WordItOut</a>. You may also view it on this website if you enable JavaScript (see your web browser settings).</p></noscript>
+</div>
 
                 </div>
             </div>

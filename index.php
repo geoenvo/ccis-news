@@ -471,7 +471,7 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
     <option value="http://139.162.55.216/layers/geonode%3Asuhumin_jawa">Suhu Min</option>
     <option value="http://139.162.55.216/layers/geonode%3Asuhumax_jawa">Suhu Max</option>
 </select>
-<input type="button" value="Go!" onclick="Gosuhu()" />
+<input type="button" value="Go" onclick="Gosuhu()" />
     <script type="text/javascript">
     function Gosuhu(){
     var geoportal = document.getElementById("selectsuhu");
