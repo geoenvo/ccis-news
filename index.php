@@ -19,42 +19,43 @@
 </head>
 <body>
 <?php
-require 'datastorage.php';
-$count = 0;
+    require 'datastorage.php';
+    $count = 0;
 
-$page = 1;
+    $page = 1;
 
-if ((!isset($_GET) || empty($_GET)) && (!isset($_POST) || empty($_POST)))
+    if ((!isset($_GET) || empty($_GET)) && (!isset($_POST) || empty($_POST)))
 {
     $page = 1;
     $offset = 0;
-    //$topik = 1;
+    $topikid = "all";
     //$bahasa = 1;
     $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
+    $media_data = new MediaData($url);
+    $temp = $media_data->getMediaData();
+    $number_of_data = $media_data->getNumberOfData();
 }else {
 
 
     if(isset($_GET['page']))
     {
+        $topikid = "all";
         $page = $_GET['page'];
         $offset = ($page-1)*6;
         $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
+        $media_data = new MediaData($url);
+        $temp = $media_data->getMediaData();
+        $number_of_data = $media_data->getNumberOfData();
     }
 
 
     if(isset($_POST['topik']) && isset($_POST['bahasa']))
     {
-        if($_POST['page'] == null)
-        {
-            $page = 1;
-        }
-        else{
-            $page = $_POST['page'];
-        }
 
         $topik = $_POST['topik'];
         $bahasa = $_POST['bahasa'];
-        $offset = ($page-1)*6;
+        $page = $_POST['page'];
+        //$offset = ($page-1)*6;
 
 
         if($bahasa == 1)
@@ -87,52 +88,23 @@ if ((!isset($_GET) || empty($_GET)) && (!isset($_POST) || empty($_POST)))
             $topikid="all";
         }
 
-        if($kodebahasa == "all")
-        {
-            if($topikid == "all")
-            {
-                $url = 'https://api.ebdesk.com/bmkg/news/?limit=6&offset='.$offset;
-            }
-            else
-            {
-                $url = 'https://api.ebdesk.com/bmkg/news/'.$topikid.'?limit=6&offset='.$offset;
-            }
+        $news = new News("cache.json");
+        $temp = $news->getMediaData($topikid, $kodebahasa);
 
-        }
-        elseif($topikid == "all")
-        {
-            if($kodebahasa == "all")
-            {
-                $url = 'https://api.ebdesk.com/bmkg/news/?limit=6&offset='.$offset;
-            }
-            else
-            {
-                $url = 'https://api.ebdesk.com/bmkg/news/?language='.$kodebahasa.'&limit=6&offset='.$offset;
-            }
-        }
-        else
-        {
-            $url = 'https://api.ebdesk.com/bmkg/news/'.$topikid.'?language='.$kodebahasa.'&limit=6&offset='.$offset;
-        }
     }
 
 }
 
-//$response = "bmkg.json";
-//$media_data = new MediaData($response);
-//$url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
-$media_data = new MediaData($url);
-$temp = $media_data->getMediaData();
-$number_of_data = $media_data->getNumberOfData();
+$statistic = new StatisticChart();
+$statistic->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=2016&month=06');
+$tempdata = $statistic->getStatisticData("statistik_monthly.txt","monthly");
+$statistic->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=2016');
+$tempdata = $statistic->getStatisticData("statistik_yearly.txt","yearly");
+$statistic->getRelatedOrganizationJsonData('https://api.ebdesk.com/bmkg/organization');
+$temp_data_organization = $statistic->getRelatedOrganizationData();
+$statistic->getMediaShareJsonData('https://api.ebdesk.com/bmkg/media_share');
+$temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 
-$media_data->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=2016&month=06');
-$tempdata = $media_data->getStatisticData("statistik_monthly.txt","monthly");
-$media_data->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=2016');
-$tempdata = $media_data->getStatisticData("statistik_yearly.txt","yearly");
-$media_data->getRelatedOrganizationJsonData('https://api.ebdesk.com/bmkg/organization');
-$temp_data_organization = $media_data->getRelatedOrganizationData();
-$media_data->getMediaShareJsonData('https://api.ebdesk.com/bmkg/media_share');
-$temp_media_share = $media_data->getMediaShareData("mediashare.txt");
 ?>
 
 <header>
@@ -226,12 +198,18 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                 </ol>
 
                 <!-- Wrapper for slides -->
+                <?php
+                    $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset=0';
+                    $carousel_news = new CarouselData($url);
+                    $news_carousel = $carousel_news->getMediaData();
+                ?>
+                <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
                         <?php
-                        if($temp[0]->image != null)
+                        if($news_carousel[0]->image != null)
                         {
-                            echo '<img src="'.$temp[0]->image.'" alt="Chania" width="200" height="200">';
+                            echo '<img src="'.$news_carousel[0]->image.'" alt="Chania" width="200" height="200">';
                         }
                         else
                         {
@@ -243,12 +221,12 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                             <div class="row">
                                 <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
 
-                                            <?php
-                                            if($temp[0]->title != null)
-                                            {
-                                                echo '<a href="'.$temp[0]->link.'"> <h5>'.$temp[0]->title.'</h5></a>';
-                                            }
-                                            ?>
+                                    <?php
+                                    if($news_carousel[0]->title != null)
+                                    {
+                                        echo '<a href="'.$news_carousel[0]->link.'"> <h5>'.$news_carousel[0]->title.'</h5></a>';
+                                    }
+                                    ?>
 
                                 </div>
                             </div>
@@ -257,9 +235,9 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
 
                     <div class="item">
                         <?php
-                        if($temp[1]->image != null)
+                        if($news_carousel[1]->image != null)
                         {
-                            echo '<img src="'.$temp[1]->image.'" alt="Chania" width="200" height="200">';
+                            echo '<img src="'.$news_carousel[1]->image.'" alt="Chania" width="200" height="200">';
                         }
                         else
                         {
@@ -270,12 +248,12 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                             <div class="row">
                                 <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
 
-                                            <?php
-                                            if($temp[1]->title != null)
-                                            {
-                                                echo '<a href="'.$temp[1]->link.'">'.$temp[1]->title.'</a>';
-                                            }
-                                            ?>
+                                    <?php
+                                    if($news_carousel[1]->title != null)
+                                    {
+                                        echo '<a href="'.$news_carousel[1]->link.'">'.$news_carousel[1]->title.'</a>';
+                                    }
+                                    ?>
 
                                 </div>
                             </div>
@@ -288,9 +266,9 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
 
                     <div class="item">
                         <?php
-                        if($temp[2]->image != null)
+                        if($news_carousel[2]->image != null)
                         {
-                            echo '<img src="'.$temp[2]->image.'" alt="Chania" width="200" height="200">';
+                            echo '<img src="'.$news_carousel[2]->image.'" alt="Chania" width="200" height="200">';
                         }
                         else
                         {
@@ -304,12 +282,12 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                             <div class="row">
                                 <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
 
-                                            <?php
-                                            if($temp[2]->title != null)
-                                            {
-                                                echo '<a href="'.$temp[2]->link.'">'.$temp[2]->title.'</a>';
-                                            }
-                                            ?>
+                                    <?php
+                                    if($news_carousel[2]->title != null)
+                                    {
+                                        echo '<a href="'.$news_carousel[2]->link.'">'.$news_carousel[2]->title.'</a>';
+                                    }
+                                    ?>
 
                                 </div>
                             </div>
@@ -318,9 +296,9 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
 
                     <div class="item">
                         <?php
-                        if($temp[3]->image != null)
+                        if($news_carousel[3]->image != null)
                         {
-                            echo '<img src="'.$temp[3]->image.'" alt="Chania" width="200" height="200">';
+                            echo '<img src="'.$news_carousel[3]->image.'" alt="Chania" width="200" height="200">';
                         }
                         else
                         {
@@ -333,12 +311,12 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                         <div class="carousel-dashboard">
                             <div class="row">
                                 <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
-                                            <?php
-                                            if($temp[3]->title != null)
-                                            {
-                                                echo '<a href="'.$temp[3]->link.'">'.$temp[3]->title.'</a>';
-                                            }
-                                            ?>
+                                    <?php
+                                    if($news_carousel[3]->title != null)
+                                    {
+                                        echo '<a href="'.$news_carousel[3]->link.'">'.$news_carousel[3]->title.'</a>';
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -346,9 +324,9 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
 
                     <div class="item">
                         <?php
-                        if($temp[4]->image != null)
+                        if($news_carousel[4]->image != null)
                         {
-                            echo '<img src="'.$temp[4]->image.'" alt="Chania" width="200" height="200">';
+                            echo '<img src="'.$news_carousel[4]->image.'" alt="Chania" width="200" height="200">';
                         }
                         else
                         {
@@ -361,12 +339,12 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                         <div class="carousel-dashboard">
                             <div class="row">
                                 <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
-                                            <?php
-                                            if($temp[4]->title != null)
-                                            {
-                                                echo '<a href="'.$temp[4]->link.'">'.$temp[4]->title.'</a>';
-                                            }
-                                            ?>
+                                    <?php
+                                    if($news_carousel[4]->title != null)
+                                    {
+                                        echo '<a href="'.$news_carousel[4]->link.'">'.$news_carousel[4]->title.'</a>';
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -409,8 +387,8 @@ $temp_media_share = $media_data->getMediaShareData("mediashare.txt");
                 </div>
                 <div class="panel-body">
                      <?php
-                        $row_num = $media_data->getDataCount();
-                        $media_data->displayOrganization($temp_data_organization);
+                        $row_num = $statistic->getDataCount();
+                         $statistic->displayOrganization($temp_data_organization);
                     ?>
                 </div>
             </div>
@@ -610,14 +588,48 @@ echo '
                             <div class="panel-body">
 
                                 <?php
-                                for($counter=1; $counter <= ($number_of_data/3); $counter++)
+                                    if(isset($_POST['topik']))
                                 {
-                                    $media_data->displayMediaData($counter*3,$temp);
-
-                                    if($number_of_data%3 != 0)
+                                    if($topikid == "10750")
                                     {
+                                        $topik = "Perubahan Iklim";
+                                    }
+                                    else
+                                    {
+                                        $topik = "Kualitas Udara";
+                                    }
+                                    $number_of_data = $news->getNumberOfData($topikid,$kodebahasa);
+                                    //$news->displayMediaData($temp, $topik,$number_of_data);
+                                    if($number_of_data < 3)
+                                    {
+                                        for($counter =1; $counter <= $number_of_data; $counter++)
+                                        {
+                                            $news->displayMediaData($temp, $topik,$number_of_data,$counter*3);
+                                        }
+                                    }else{
+                                        for($counter=1; $counter <= ($number_of_data/3); $counter++)
+                                        {
+                                            $news->displayMediaData($temp, $topik,$number_of_data,$counter*3);
 
-                                        $media_data->displayMediaData((intval($number_of_data/3)+1)*3,$temp);
+                                            if($number_of_data%3 != 0)
+                                            {
+
+                                                $news->displayMediaData($temp, $topik,$number_of_data,(intval($number_of_data/3)+1)*3);
+                                            }
+                                        }
+                                    }
+
+                                }
+                                else{
+                                    for($counter=1; $counter <= ($number_of_data/3); $counter++)
+                                    {
+                                        $media_data->displayMediaData($counter*3,$temp);
+
+                                        if($number_of_data%3 != 0)
+                                        {
+
+                                            $media_data->displayMediaData((intval($number_of_data/3)+1)*3,$temp);
+                                        }
                                     }
                                 }
                                 ?>
