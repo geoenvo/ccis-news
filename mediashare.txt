@@ -1,10 +1,10 @@
 Republika,38
+Okezone,37
 Suara Merdeka,35
-Okezone,33
+Tribun News,34
 Elshinta,31
-Tribun News,31
 Bisnis Indonesia,30
 The Sydney Morning Herald,29
-Tempo Interaktif,24
-Kompas,23
+Tempo Interaktif,25
+Kompas,24
 Antara,23
