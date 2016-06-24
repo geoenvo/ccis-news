@@ -433,7 +433,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=22&LAYER=suhu_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+                            <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=suhu_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
 
                         </div>
                     </div>
@@ -445,9 +445,10 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
     <br>
 <label>Akses via GeoPortal:</label>
 <select id="selectsuhu">
-    <option value="http://139.162.55.216/layers/geonode%3Asuhu_jawa">Suhu Rata-rata</option>
-    <option value="http://139.162.55.216/layers/geonode%3Asuhumin_jawa">Suhu Min</option>
-    <option value="http://139.162.55.216/layers/geonode%3Asuhumax_jawa">Suhu Max</option>
+    <option value="http://139.162.55.216/layers/geonode%3Asuhu_jawa">Rata-rata</option>
+    <option value="http://139.162.55.216/layers/geonode%3Asuhumin_jawa">Minimum</option>
+    <option value="http://139.162.55.216/layers/geonode%3Asuhumax_jawa">Maximum</option>
+    <option value="http://139.162.55.216/layers/geonode%3Adiurnal_jawa">Diurnal</option>
 </select>
 <input type="button" class="btn btn-info" value="Go" onclick="Gosuhu()" />
     <script type="text/javascript">
@@ -484,7 +485,7 @@ echo 'Legenda';
 echo '</div>';
 echo '<div class="panel-body">';
 echo '<div class="row">';
-echo '<img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=22&LAYER=';
+echo '<img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=';
 echo "$value";
 echo '_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">';
 echo '                        </div>
@@ -548,7 +549,7 @@ echo '
 
                                         <span class="pull-right">
                                             <form action="index.php#news" method="post">
-                                                 Topik : <select name="topik">
+                                                 Topik: <select name="topik">
 
                                                             <?php
                                                             $topik = array("","Perubahan Iklim","Kualitas Udara");
@@ -564,7 +565,7 @@ echo '
                                                         </select>
 
 
-                                                Bahasa : <select name="bahasa">
+                                                Bahasa: <select name="bahasa">
 
                                                             <?php
                                                             $bahasa = array("","Indonesia","English");

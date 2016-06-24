@@ -14,7 +14,6 @@
     });
     var boundary = new ol.layer.Tile({
            source: source_boundary,
-           title: 'Batas Kabupaten',
     });
 
     var source_l1 = new ol.source.TileWMS({
@@ -24,7 +23,7 @@
     });
     var l1 = new ol.layer.Tile({
            source: source_l1,
-           title: 'DJF',
+           title: 'Des-Jan-Feb',
            type: 'base',
     });
 
@@ -35,7 +34,7 @@
     });
     var l2 = new ol.layer.Tile({
            source: source_l2,
-           title: 'MAM',
+           title: 'Mar-Apr-Mei',
            type: 'base',
     });
 
@@ -46,7 +45,7 @@
     });
     var l3 = new ol.layer.Tile({
            source: source_l3,
-           title: 'JJA',
+           title: 'Jun-Jul-Agu',
            type: 'base',
     });
 
@@ -57,7 +56,7 @@
     });
     var l4 = new ol.layer.Tile({
            source: source_l4,
-           title: 'SON',
+           title: 'Sep-Okt-Nov',
            type: 'base',
     });
 
@@ -68,7 +67,7 @@
     });
     var l5 = new ol.layer.Tile({
            source: source_l5,
-           title: 'DJF',
+           title: 'Des-Jan-Feb',
            type: 'base',
     });
 
@@ -79,7 +78,7 @@
     });
     var l6 = new ol.layer.Tile({
            source: source_l6,
-           title: 'MAM',
+           title: 'Mar-Apr-Mei',
            type: 'base',
     });
 
@@ -90,7 +89,7 @@
     });
     var l7 = new ol.layer.Tile({
            source: source_l7,
-           title: 'JJA',
+           title: 'Jun-Jul-Agu',
            type: 'base',
     });
 
@@ -101,7 +100,7 @@
     });
     var l8 = new ol.layer.Tile({
            source: source_l8,
-           title: 'SON',
+           title: 'Sep-Okt-Nov',
            type: 'base',
     });
 
@@ -112,7 +111,7 @@
     });
     var l9 = new ol.layer.Tile({
            source: source_l9,
-           title: 'DJF',
+           title: 'Des-Jan-Feb',
            type: 'base',
     });
 
@@ -123,7 +122,7 @@
     });
     var l10 = new ol.layer.Tile({
            source: source_l10,
-           title: 'MAM',
+           title: 'Mar-Apr-Mei',
            type: 'base',
     });
 
@@ -134,7 +133,7 @@
     });
     var l11 = new ol.layer.Tile({
            source: source_l11,
-           title: 'JJA',
+           title: 'Jun-Jul-Agu',
            type: 'base',
     });
 
@@ -145,7 +144,7 @@
     });
     var l12 = new ol.layer.Tile({
            source: source_l12,
-           title: 'SON',
+           title: 'Sep-Okt-Nov',
            type: 'base',
     });
 
@@ -156,7 +155,7 @@
     });
     var l13 = new ol.layer.Tile({
            source: source_l13,
-           title: 'DJF',
+           title: 'Des-Jan-Feb',
            type: 'base',
     });
 
@@ -167,7 +166,7 @@
     });
     var l14 = new ol.layer.Tile({
            source: source_l14,
-           title: 'MAM',
+           title: 'Mar-Apr-Mei',
            type: 'base',
     });
 
@@ -178,7 +177,7 @@
     });
     var l15 = new ol.layer.Tile({
            source: source_l15,
-           title: 'JJA',
+           title: 'Jun-Jul-Agu',
            type: 'base',
     });
 
@@ -189,7 +188,7 @@
     });
     var l16 = new ol.layer.Tile({
            source: source_l16,
-           title: 'SON',
+           title: 'Sep-Okt-Nov',
            type: 'base',
     });
 
@@ -200,7 +199,7 @@
     });
     var l17 = new ol.layer.Tile({
            source: source_l17,
-           title: 'DJF',
+           title: 'Des-Jan-Feb',
            type: 'base',
     });
 
@@ -211,7 +210,7 @@
     });
     var l18 = new ol.layer.Tile({
            source: source_l18,
-           title: 'MAM',
+           title: 'Mar-Apr-Mei',
            type: 'base',
     });
 
@@ -222,7 +221,7 @@
     });
     var l19 = new ol.layer.Tile({
            source: source_l19,
-           title: 'JJA',
+           title: 'Jun-Jul-Agu',
            type: 'base',
     });
 
@@ -233,7 +232,7 @@
     });
     var l20 = new ol.layer.Tile({
            source: source_l20,
-           title: 'SON',
+           title: 'Sep-Okt-Nov',
            type: 'base',
     });
 
@@ -244,7 +243,7 @@
     });
     var l21 = new ol.layer.Tile({
            source: source_l21,
-           title: 'DJF',
+           title: 'Des-Jan-Feb',
            type: 'base',
     });
 
@@ -255,7 +254,7 @@
     });
     var l22 = new ol.layer.Tile({
            source: source_l22,
-           title: 'MAM',
+           title: 'Mar-Apr-Mei',
            type: 'base',
     });
 
@@ -266,7 +265,7 @@
     });
     var l23 = new ol.layer.Tile({
            source: source_l23,
-           title: 'JJA',
+           title: 'Jun-Jul-Agu',
            type: 'base',
     });
 
@@ -277,7 +276,7 @@
     });
     var l24 = new ol.layer.Tile({
            source: source_l24,
-           title: 'SON',
+           title: 'Sep-Okt-Nov',
            type: 'base',
     });
 
@@ -311,5 +310,16 @@
     var l27 = new ol.layer.Tile({
            source: source_l27,
            title: 'suhu maximum',
+           type: 'base',
+    });
+
+    var source_l28 = new ol.source.TileWMS({
+      url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
+      params: {'LAYERS': 'diurnal_jawa', 'TILED': true},
+      serverType: 'geoserver'
+    });
+    var l28 = new ol.layer.Tile({
+           source: source_l28,
+           title: 'diurnal_jawa',
            type: 'base',
     });

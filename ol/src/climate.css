@@ -4,7 +4,6 @@ html, body {
   padding: 0;
   margin: 0;
 }
-
 .map {
   width: 99%;
   height: 99%;
@@ -26,12 +25,9 @@ html, body {
   width: 100%;
   height: 100%;
 }
-.ol-rotate {
-  top: 3em;
-}
-.sidepanel-title {
+.map-title {
   position: absolute;
-  bottom: 11%;
+  bottom: 3%;
   left: 2%;
   z-index: 1;
   text-align: left;

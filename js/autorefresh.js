@@ -7,7 +7,7 @@ var AutoRefresh = function() {
                 $("body").html(data);
             });
         }
-        setInterval(refresh, 120*1000); //every 5 minutes
+        setInterval(refresh, 300*1000); //every 5 minutes
     }
 
     return {
