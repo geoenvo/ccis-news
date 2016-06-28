@@ -152,6 +152,28 @@ var GenerateCharts = function() {
         $('#mediashare').jqxChart(settings);
     }
 
+
+    var inittrendingChart = function() {
+        var source =
+        {
+            datatype: "csv",
+            datafields: [
+                { name: 'Keyword' },
+                { name: 'Score' }
+            ],
+            url: 'http://193.183.98.127:8002/trendingPI.txt'
+        };
+        var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
+
+        // setup the chart
+        $('#trendingPI').jqxTagCloud({
+            source: dataAdapter,
+            displayMember: 'Keyword',
+            valueMember: 'Score'
+        });
+    }
+
+
     return {
         //main function to initiate the module
 

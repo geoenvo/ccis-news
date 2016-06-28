@@ -152,6 +152,7 @@ class StatisticChart
     public $dataStatistic;
     public $relatedOrganization;
     public $mediaShare;
+    public $trendingPI;
 
     function __construct() {
     }
@@ -254,6 +255,50 @@ class StatisticChart
         fclose($myfile);
         return $info;
     }
+
+
+    public function gettrendingPIJsonData($url)
+    {
+        $aContext = array(
+            'http' => array(
+                'request_fulluri' => true,
+            ),
+        );
+        $cxContext = stream_context_create($aContext);
+        $sFile = file_get_contents($url, False, $cxContext);
+        $data = json_decode($sFile, true);
+        $this->trendingPI =  $data;
+
+
+    }
+
+    public function gettrendingPIData($trendingPIfile)
+    {
+        $info = array();
+        $myfile = fopen($trendingPIfile, "w") or die("Unable to open file!");
+        $numItems = count($this->trendingPI['data']);
+        $i = 0;
+
+        foreach ($this->trendingPI['data'] as $value) {
+            $obj = new stdClass();
+            $obj->keyword = $value['keyword'];
+            $obj->score = $value['score'];
+
+            if(++$i === $numItems) {
+                $tempdata = $obj->keyword.','.$obj->score;
+            }
+            else{
+                $tempdata = $obj->keyword.','.$obj->score."\n";
+            }
+
+            fwrite($myfile, $tempdata);
+            $info[] = $obj;
+        }
+
+        fclose($myfile);
+        return $info;
+    }
+
 
     public function getStatisticJsonData($url)
     {
@@ -409,6 +454,7 @@ class MediaData
     public $dataStatistic;
     public $relatedOrganization;
     public $mediaShare;
+    public $trendingPI;
     
     function __construct($jsonfile) {
 
@@ -536,6 +582,50 @@ class MediaData
         fclose($myfile);
         return $info;
     }
+
+
+    public function gettrendingPIJsonData($url)
+    {
+        $aContext = array(
+            'http' => array(
+                'request_fulluri' => true,
+            ),
+        );
+        $cxContext = stream_context_create($aContext);
+        $sFile = file_get_contents($url, False, $cxContext);
+        $data = json_decode($sFile, true);
+        $this->trendingPI =  $data;
+
+
+    }
+
+    public function gettrendingPIData($trendingPIfile)
+    {
+        $info = array();
+        $myfile = fopen($trendingPIfile, "w") or die("Unable to open file!");
+        $numItems = count($this->trendingPI['data']);
+        $i = 0;
+
+        foreach ($this->trendingPI['data'] as $value) {
+            $obj = new stdClass();
+            $obj->keyword = $value['keyword'];
+            $obj->score = $value['score'];
+
+            if(++$i === $numItems) {
+                $tempdata = $obj->keyword.','.$obj->score;
+            }
+            else{
+                $tempdata = $obj->keyword.','.$obj->score."\n";
+            }
+
+            fwrite($myfile, $tempdata);
+            $info[] = $obj;
+        }
+
+        fclose($myfile);
+        return $info;
+    }
+
 
     public function getStatisticJsonData($url)
     {

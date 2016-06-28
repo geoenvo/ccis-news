@@ -10,6 +10,10 @@ header{
     
 }
 
+.portfolio-item {
+    margin-bottom: 25px;
+}
+
 .nextButton{
     position: absolute;
     left: 80%;

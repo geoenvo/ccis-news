@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-    <link href="css/3-col-portfolio.css" rel="stylesheet">
     <link rel="stylesheet" href="jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
     <script type="text/javascript" src="jqwidgets/scripts/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="jqwidgets/jqwidgets/jqxcore.js"></script>
