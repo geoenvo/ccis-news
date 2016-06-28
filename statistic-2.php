@@ -13,6 +13,7 @@
     <script type="text/javascript" src="jqwidgets/jqwidgets/jqxdraw.js"></script>
     <script type="text/javascript" src="jqwidgets/jqwidgets/jqxchart.core.js"></script>
     <script type="text/javascript" src="jqwidgets/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxtagcloud.js"></script>
 </head>
 <body>
 <?php
