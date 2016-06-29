@@ -1,10 +1,10 @@
-Okezone,42
-Republika,38
+Republika,36
+Okezone,35
 The Sydney Morning Herald,29
-The Guardian,26
-Suara Merdeka,25
-Bisnis Indonesia,24
-Xinhua,22
-Brisbane times,22
-Tribun News,22
+Xinhua,26
+Bisnis Indonesia,23
+Brisbane times,23
+Suara Merdeka,21
+The Guardian,21
 The Age,20
+India Times,19

@@ -165,12 +165,21 @@ var GenerateCharts = function() {
         };
         var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
 
-        // setup the chart
-        $('#trendingPI').jqxTagCloud({
+        var settings = {
+            title: "Climate Change Trending Tpoic",
+            description: "",
+            enableAnimations: true,
+            showLegend: true,
+            showBorderLine: true,
+            legendLayout: { left: 10, top: 10, width: 300, height: 200, flow: 'vertical' },
+            padding: { left: 5, top: 5, right: 5, bottom: 5 },
+            titlePadding: { left: 0, top: 0, right: 0, bottom: 10 },
             source: dataAdapter,
-            displayMember: 'Keyword',
-            valueMember: 'Score'
-        });
+            colorScheme: 'scheme03',
+        };
+
+        // setup the chart
+        $('#trendingPI').jqxTagCloud(settings);
     }
 
 

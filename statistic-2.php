@@ -4,10 +4,9 @@
     <title>Knowledge Management PIKU</title>
     <link rel="icon" href="img/logo_BMKG_square.ico" type="image/ico">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-    <link rel="stylesheet" href="jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="jqwidgets/jqwidgets/styles/jqx.base.css">
     <script type="text/javascript" src="jqwidgets/scripts/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="jqwidgets/jqwidgets/jqxcore.js"></script>
     <script type="text/javascript" src="jqwidgets/jqwidgets/jqxdraw.js"></script>
