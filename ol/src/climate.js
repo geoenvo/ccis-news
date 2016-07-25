@@ -4,7 +4,7 @@
     });
 
     var osm = new ol.layer.Tile({
-      source: new ol.source.MapQuest({layer: 'osm'})
+      source: new ol.source.OSM({layer: 'osm'})
     });
 
     var source_boundary = new ol.source.TileWMS({
