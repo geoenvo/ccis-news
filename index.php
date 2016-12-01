@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Knowledge Management PIKU</title>
+    <title>Knowledge Management Pusat Informasi Perubahan Iklim</title>
     <link rel="icon" href="img/logo_BMKG_square.ico" type="image/ico">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
