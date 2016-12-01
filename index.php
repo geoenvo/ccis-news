@@ -121,7 +121,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                     <div class="col-md-10" style="padding-right: 0px">
                         <h2 class="hidden-xs" style="color: #fff; font-size: 16px">BADAN METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</h2>
                         <h1 style="color: #fff; font-size: 16px" class="visible-xs">BMKG</h1>
-                        <strong style="color: #fff; font-size: 30px">Knowledge Management Perubahan Iklim dan Kualitas Udara</strong>
+                        <strong style="color: #fff; font-size: 30px">Knowledge Management Pusat Informasi Perubahan Iklim</strong>
 
                     </div>
 
