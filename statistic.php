@@ -26,7 +26,7 @@ if ((!isset($_GET) || empty($_GET)) && (!isset($_POST) || empty($_POST)))
     $offset = 0;
     //$topik = 1;
     //$bahasa = 1;
-    $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
+    $url = 'dummy2.json';
 }else {
 
 
@@ -34,7 +34,7 @@ if ((!isset($_GET) || empty($_GET)) && (!isset($_POST) || empty($_POST)))
     {
         $page = $_GET['page'];
         $offset = ($page-1)*6;
-        $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
+        $url = 'dummy2.json';
     }
 
 
@@ -87,7 +87,7 @@ if ((!isset($_GET) || empty($_GET)) && (!isset($_POST) || empty($_POST)))
         {
             if($topikid == "all")
             {
-                $url = 'https://api.ebdesk.com/bmkg/news/?limit=6&offset='.$offset;
+                $url = 'dummy2.json';
             }
             else
             {
@@ -99,7 +99,7 @@ if ((!isset($_GET) || empty($_GET)) && (!isset($_POST) || empty($_POST)))
         {
             if($kodebahasa == "all")
             {
-                $url = 'https://api.ebdesk.com/bmkg/news/?limit=6&offset='.$offset;
+                $url = 'dummy2.json';
             }
             else
             {
