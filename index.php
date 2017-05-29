@@ -28,7 +28,7 @@
     $offset = 0;
     $topikid = "all";
     //$bahasa = 1;
-    $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
+    $url = 'dummy2.json';
     $media_data = new MediaData($url);
     $temp = $media_data->getMediaData();
     $number_of_data = $media_data->getNumberOfData();
@@ -40,7 +40,7 @@
         $topikid = "all";
         $page = $_GET['page'];
         $offset = ($page-1)*6;
-        $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset='.$offset;
+        $url = 'dummy2.json';
         $media_data = new MediaData($url);
         $temp = $media_data->getMediaData();
         $number_of_data = $media_data->getNumberOfData();
@@ -197,7 +197,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 
                 <!-- Wrapper for slides -->
                 <?php
-                    $url = 'https://api.ebdesk.com/bmkg/news?limit=6&offset=0';
+                    $url = 'dummy2.json';
                     $carousel_news = new CarouselData($url);
                     $news_carousel = $carousel_news->getMediaData();
                 ?>
