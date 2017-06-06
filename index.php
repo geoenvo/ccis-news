@@ -141,27 +141,27 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://193.183.98.127:8002/">CCIS BMKG</a>
+                    <a class="navbar-brand" href="http://139.162.55.216:8001/">CCIS BMKG</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="mynavbar-content">
                     <ul class="nav navbar-nav">
-                        <li><a href="http://193.183.98.127:8002/">Home</a> </li>
-                        <li><a href="http://ccis.klimat.bmkg.go.id/ccis/news">News</a> </li>
-                        <li class="dropdown"><a href="http://ccis.klimat.bmkg.go.id/ccis/map" class="dropdown-toggle" data-toggle="dropdown">Map<b class="caret"></b> </a>
+                        <li><a href="http://139.162.55.216:8001/">Home</a> </li>
+                        <li><a href="http://ccis.klimat.bmkg.go.id/news">News</a> </li>
+                        <li class="dropdown"><a href="http://ccis.klimat.bmkg.go.id/map" class="dropdown-toggle" data-toggle="dropdown">Map<b class="caret"></b> </a>
                             <ul class="dropdown-menu">
-                                <li><a href="http://ccis.klimat.bmkg.go.id/ccis/content/cdd-cwd-rainfall">CDD, CWD & Rainfall</a> </li>
-                                <li><a href="http://ccis.klimat.bmkg.go.id/ccis/content/normal-climate-value-calculation">Normal Climate Value Calculation</a> </li>
-                                <li><a href="http://ccis.klimat.bmkg.go.id/ccis/rainfall-prediction">Rainfall Prediction</a> </li>
-                                <li><a href="http://ccis.klimat.bmkg.go.id/ccis/temperature-differences">Temperature Differences</a> </li>
+                                <li><a href="http://ccis.klimat.bmkg.go.id/content/cdd-cwd-rainfall">CDD, CWD & Rainfall</a> </li>
+                                <li><a href="http://ccis.klimat.bmkg.go.id/content/normal-climate-value-calculation">Normal Climate Value Calculation</a> </li>
+                                <li><a href="http://ccis.klimat.bmkg.go.id/rainfall-prediction">Rainfall Prediction</a> </li>
+                                <li><a href="http://ccis.klimat.bmkg.go.id/temperature-differences">Temperature Differences</a> </li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a href="http://ccis.klimat.bmkg.go.id/ccis/dashboard" class="dropdown-toggle" data-toggle="dropdown">Dashboard<b class="caret"></b> </a>
+                        <li class="dropdown"><a href="http://ccis.klimat.bmkg.go.idi/dashboard" class="dropdown-toggle" data-toggle="dropdown">Dashboard<b class="caret"></b> </a>
                             <ul class="dropdown-menu">
-                                <li><a href="http://ccis.klimat.bmkg.go.id/ccis/content/climate-indices-definitions">Climate Indice Definition</a> </li>
+                                <li><a href="http://ccis.klimat.bmkg.go.id/content/climate-indices-definitions">Climate Indice Definition</a> </li>
                             </ul>
                         </li>
-                        <li><a href="http://ccis.klimat.bmkg.go.id/ccis/about">About</a> </li>
+                        <li><a href="http://ccis.klimat.bmkg.go.id/about">About</a> </li>
                         <li><a href="http://139.162.55.216/">Geoportal</a> </li>
                     </ul>
                     <form class="navbar-form pull-right" role="search">
