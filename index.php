@@ -156,7 +156,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 <li><a href="http://ccis.klimat.bmkg.go.id/temperature-differences">Temperature Differences</a> </li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a href="http://ccis.klimat.bmkg.go.idi/dashboard" class="dropdown-toggle" data-toggle="dropdown">Dashboard<b class="caret"></b> </a>
+                        <li class="dropdown"><a href="http://ccis.klimat.bmkg.go.id/dashboard" class="dropdown-toggle" data-toggle="dropdown">Dashboard<b class="caret"></b> </a>
                             <ul class="dropdown-menu">
                                 <li><a href="http://ccis.klimat.bmkg.go.id/content/climate-indices-definitions">Climate Indice Definition</a> </li>
                             </ul>
@@ -644,7 +644,7 @@ echo '
                             <?php
 
                             echo '<li>';
-                            echo '<a href="http://193.183.98.127:8002/index.php?page='.($page-1).'#news">&laquo;</a>';
+                            echo '<a href="http://139.162.55.216:8001/index.php?page='.($page-1).'#news">&laquo;</a>';
                             echo '</li>';
 
 
@@ -654,18 +654,18 @@ echo '
                                 if($index == $page)
                                 {
                                     echo '<li class="active">';
-                                    echo '<a href="http://193.183.98.127:8002/index.php?page='.$index.'#news">'.$index.'</a>';
+                                    echo '<a href="http://139.162.55.216:8001/index.php?page='.$index.'#news">'.$index.'</a>';
                                     echo '</li>';
                                 }else{
                                     echo '<li>';
-                                    echo '<a href="http://193.183.98.127:8002/index.php?page='.$index.'#news">'.$index.'</a>';
+                                    echo '<a href="http://139.162.55.216:8001/index.php?page='.$index.'#news">'.$index.'</a>';
                                     echo '</li>';
                                 }
 
                             }
 
                             echo '<li>';
-                            echo '<a href="http://193.183.98.127:8002/index.php?page='.($page+1).'#news">&raquo;</a>';
+                            echo '<a href="http://139.162.55.216:8001/index.php?page='.($page+1).'#news">&raquo;</a>';
                             echo '</li>';
 
                             ?>
