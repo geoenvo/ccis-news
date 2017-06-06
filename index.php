@@ -563,10 +563,10 @@ echo '
                                                         </select>
 
 
-                                                Bahasa: <select name="bahasa">
+                                                Sumber: <select name="source">
 
                                                             <?php
-                                                            $bahasa = array("","Indonesia","English");
+                                                            $bahasa = array("","Detik","Kompas","CNN");
                                                             for ($i = 0; $i < 3; $i++)
                                                             {
                                                                 ?>
