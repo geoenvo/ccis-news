@@ -181,187 +181,170 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
     </div>
 </header>
 
-<div style="margin-top: 20px">
+<div style="margin-top: 20px"></div>
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <div id="myCarousel" class="carousel slide hidden-xs" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                    <li data-target="#myCarousel" data-slide-to="4"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <?php
-                    $url = 'dummy2.json';
-                    $carousel_news = new CarouselData($url);
-                    $news_carousel = $carousel_news->getMediaData();
-                ?>
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <?php
-                        if($news_carousel[0]->image != null)
-                        {
-                            echo '<img src="'.$news_carousel[0]->image.'" alt="Chania" width="200" height="200">';
-                        }
-                        else
-                        {
-                            echo '<img src="img/slider-default.jpg" alt="Chania">';
-                        }
-                        ?>
-
-                        <div class="carousel-dashboard">
-                            <div class="row">
-                                <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
-
-                                    <?php
-                                    if($news_carousel[0]->title != null)
-                                    {
-                                        echo '<a href="'.$news_carousel[0]->link.'"> <h5>'.$news_carousel[0]->title.'</h5></a>';
-                                    }
-                                    ?>
-
-                                </div>
+        <div id="myCarousel" class="carousel slide hidden-xs" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <?php
+                $url = 'dummy2.json';
+                $carousel_news = new CarouselData($url);
+                $news_carousel = $carousel_news->getMediaData();
+            ?>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <?php
+                    if($news_carousel[0]->image != null)
+                    {
+                        echo '<img src="'.$news_carousel[0]->image.'" alt="Chania" width="200" height="200">';
+                    }
+                    else
+                    {
+                        echo '<img src="img/slider-default.jpg" alt="Chania">';
+                    }
+                    ?>
+                    <div class="carousel-dashboard">
+                        <div class="row">
+                            <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
+                                <?php
+                                if($news_carousel[0]->title != null)
+                                {
+                                    echo '<a href="'.$news_carousel[0]->link.'"> <h5>'.$news_carousel[0]->title.'</h5></a>';
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
-
-                    <div class="item">
-                        <?php
-                        if($news_carousel[1]->image != null)
-                        {
-                            echo '<img src="'.$news_carousel[1]->image.'" alt="Chania" width="200" height="200">';
-                        }
-                        else
-                        {
-                            echo '<img src="img/slider-default.jpg" alt="Chania">';
-                        }
-                        ?>
-                        <div class="carousel-dashboard">
-                            <div class="row">
-                                <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
-
-                                    <?php
-                                    if($news_carousel[1]->title != null)
-                                    {
-                                        echo '<a href="'.$news_carousel[1]->link.'">'.$news_carousel[1]->title.'</a>';
-                                    }
-                                    ?>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-caption">
-                            <div class="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <?php
-                        if($news_carousel[2]->image != null)
-                        {
-                            echo '<img src="'.$news_carousel[2]->image.'" alt="Chania" width="200" height="200">';
-                        }
-                        else
-                        {
-                            echo '<img src="img/slider-default.jpg" alt="Chania">';
-                        }
-                        ?>
-                        <div class="carousel-caption">
-
-                        </div>
-                        <div class="carousel-dashboard">
-                            <div class="row">
-                                <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
-
-                                    <?php
-                                    if($news_carousel[2]->title != null)
-                                    {
-                                        echo '<a href="'.$news_carousel[2]->link.'">'.$news_carousel[2]->title.'</a>';
-                                    }
-                                    ?>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <?php
-                        if($news_carousel[3]->image != null)
-                        {
-                            echo '<img src="'.$news_carousel[3]->image.'" alt="Chania" width="200" height="200">';
-                        }
-                        else
-                        {
-                            echo '<img src="img/slider-default.jpg" alt="Chania">';
-                        }
-                        ?>
-                        <div class="carousel-caption">
-
-                        </div>
-                        <div class="carousel-dashboard">
-                            <div class="row">
-                                <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
-                                    <?php
-                                    if($news_carousel[3]->title != null)
-                                    {
-                                        echo '<a href="'.$news_carousel[3]->link.'">'.$news_carousel[3]->title.'</a>';
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <?php
-                        if($news_carousel[4]->image != null)
-                        {
-                            echo '<img src="'.$news_carousel[4]->image.'" alt="Chania" width="200" height="200">';
-                        }
-                        else
-                        {
-                            echo '<img src="img/slider-default.jpg" alt="Chania">';
-                        }
-                        ?>
-                        <div class="carousel-caption">
-
-                        </div>
-                        <div class="carousel-dashboard">
-                            <div class="row">
-                                <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
-                                    <?php
-                                    if($news_carousel[4]->title != null)
-                                    {
-                                        echo '<a href="'.$news_carousel[4]->link.'">'.$news_carousel[4]->title.'</a>';
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous
-                </a>
-                <a class="carousel-control nextButton" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <div class="item">
+                    <?php
+                    if($news_carousel[1]->image != null)
+                    {
+                        echo '<img src="'.$news_carousel[1]->image.'" alt="Chania" width="200" height="200">';
+                    }
+                    else
+                    {
+                        echo '<img src="img/slider-default.jpg" alt="Chania">';
+                    }
+                    ?>
+                    <div class="carousel-dashboard">
+                        <div class="row">
+                            <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
+                                <?php
+                                if($news_carousel[1]->title != null)
+                                {
+                                    echo '<a href="'.$news_carousel[1]->link.'">'.$news_carousel[1]->title.'</a>';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-caption">
+                        <div class="">
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <?php
+                    if($news_carousel[2]->image != null)
+                    {
+                        echo '<img src="'.$news_carousel[2]->image.'" alt="Chania" width="200" height="200">';
+                    }
+                    else
+                    {
+                        echo '<img src="img/slider-default.jpg" alt="Chania">';
+                    }
+                    ?>
+                    <div class="carousel-caption">
+                    </div>
+                    <div class="carousel-dashboard">
+                        <div class="row">
+                            <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
+                                <?php
+                                if($news_carousel[2]->title != null)
+                                {
+                                    echo '<a href="'.$news_carousel[2]->link.'">'.$news_carousel[2]->title.'</a>';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <?php
+                    if($news_carousel[3]->image != null)
+                    {
+                        echo '<img src="'.$news_carousel[3]->image.'" alt="Chania" width="200" height="200">';
+                    }
+                    else
+                    {
+                        echo '<img src="img/slider-default.jpg" alt="Chania">';
+                    }
+                    ?>
+                    <div class="carousel-caption">
+                    </div>
+                    <div class="carousel-dashboard">
+                        <div class="row">
+                            <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
+                                <?php
+                                if($news_carousel[3]->title != null)
+                                {
+                                    echo '<a href="'.$news_carousel[3]->link.'">'.$news_carousel[3]->title.'</a>';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <?php
+                    if($news_carousel[4]->image != null)
+                    {
+                        echo '<img src="'.$news_carousel[4]->image.'" alt="Chania" width="200" height="200">';
+                    }
+                    else
+                    {
+                        echo '<img src="img/slider-default.jpg" alt="Chania">';
+                    }
+                    ?>
+                    <div class="carousel-caption">
+                    </div>
+                    <div class="carousel-dashboard">
+                        <div class="row">
+                            <div class="col-md-4" style="height: auto;width: 100%;padding-top: 2%">
+                                <?php
+                                if($news_carousel[4]->title != null)
+                                {
+                                    echo '<a href="'.$news_carousel[4]->link.'">'.$news_carousel[4]->title.'</a>';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous
+            </a>
+            <a class="carousel-control nextButton" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
 
+<!--
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-12">
@@ -369,9 +352,11 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                 </div>
             </div>
         </div>
+-->
     </div>
 </div>
 
+<!--
 <div class="container">
     <div class="row" style="margin-top: 10px; padding-right: 16px">
         <a href="statistic.php" class="btn btn-info pull-right">More Statistic</a>
@@ -393,6 +378,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
         </div>
     </div>
 </div>
+-->
 
 <div style="margin-top: 20px">
 <div class="row">    
@@ -563,10 +549,10 @@ echo '
                                                         </select>
 
 
-                                                Sumber: <select name="source">
+                                                Bahasa: <select name="bahasa">
 
                                                             <?php
-                                                            $bahasa = array("","Detik","Kompas","CNN");
+                                                            $bahasa = array("","Indonesia","English");
                                                             for ($i = 0; $i < 3; $i++)
                                                             {
                                                                 ?>
