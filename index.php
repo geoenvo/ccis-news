@@ -8,12 +8,6 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="jqwidgets/jqwidgets/styles/jqx.base.css">
     <link rel="stylesheet" type="text/css" href="css/openmap.css">
-    <script type="text/javascript" src="jqwidgets/scripts/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxcore.js"></script>
-    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxdraw.js"></script>
-    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxchart.core.js"></script>
-    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxdata.js"></script>
-    <script type="text/javascript" src="js/openmap.js"></script>
 </head>
 <body>
 <?php
@@ -391,140 +385,11 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             <div class="panel-heading text-left text-info">
                                 Data Proyeksi Iklim 
                             </div>
-                            <div class="panel-body">
-<ul class="tab" style="cursor:pointer">
-  <li><a class="tablinks active" onclick="OpenMap(event, 'suhu')">Suhu</a></li>
-  <li><a class="tablinks" onclick="OpenMap(event, 'hujan')">Hujan</a></li>
-  <li><a class="tablinks" onclick="OpenMap(event, 'cdd')">CDD</a></li>
-  <li><a class="tablinks" onclick="OpenMap(event, 'cwd')">CWD</a></li>
-  <li><a class="tablinks" onclick="OpenMap(event, 'fhl')">FHL</a></li>
-  <li><a class="tablinks" onclick="OpenMap(event, 'hth')">HTH</a></li>
-  <li><a class="tablinks" onclick="OpenMap(event, 'r50')">r50</a></li>
-</ul>
-
-<div id="suhu" class="tabcontent" style="display: block;">
-    <div class="row">
-        <div class="col-md-9">
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/suhu.php"></iframe>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="row" style="padding-right: 5px">
-                <div class="panel panel-info">
-                    <div class="panel-heading text-center text-info">
-                        Legenda
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=suhu_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
-
+                            <?php require('includes/tabmap.inc'); ?>
                         </div>
-                    </div>
+                    </section>
                 </div>
-            </div>
-        </div>
-    </div>
-    <span>
-    <br>
-<label>Akses via GeoPortal:</label>
-<select id="selectsuhu">
-    <option value="http://139.162.55.216/layers/geonode%3Asuhu_jawa">Rata-rata</option>
-    <option value="http://139.162.55.216/layers/geonode%3Asuhumin_jawa">Minimum</option>
-    <option value="http://139.162.55.216/layers/geonode%3Asuhumax_jawa">Maximum</option>
-    <option value="http://139.162.55.216/layers/geonode%3Adiurnal_jawa">Diurnal</option>
-</select>
-<input type="button" class="btn btn-info" value="Go" onclick="Gosuhu()" />
-    <script type="text/javascript">
-    function Gosuhu(){
-    var geoportal = document.getElementById("selectsuhu");
-    var selectedVal = geoportal.options[geoportal.selectedIndex].value;
-
-    window.open(selectedVal)
-    }
-    </script>
-    </span>
-</div>
-
-<?php 
-$climate = array("hujan", "cdd", "cwd", "fhl", "hth", "r50"); 
-
-foreach ($climate as $value) {
-
-echo "<div id=$value ";
-echo 'class="tabcontent" style="display: none;">';
-echo '<div class="row">';
-echo '<div class="col-md-9">';
-echo '<div class="embed-responsive embed-responsive-16by9">';
-echo '<iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/';
-echo "$value";
-echo '.php"></iframe>';
-echo '</div>';
-echo '</div>';
-echo '<div class="col-md-3">';
-echo '<div class="row" style="padding-right: 5px">';
-echo '<div class="panel panel-info">';
-echo '<div class="panel-heading text-center text-info">';
-echo 'Legenda';
-echo '</div>';
-echo '<div class="panel-body">';
-echo '<div class="row">';
-echo '<img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=';
-echo "$value";
-echo '_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">';
-echo '                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <span>
-    <br>
-<label>Akses via GeoPortal:</label>
-<select id="select';
-echo "$value";
-echo '">';
-echo '<option value="http://139.162.55.216/layers/geonode%3A';
-echo "$value";
-echo '_djf_jawa">Des-Jan-Feb</option>';
-echo '<option value="http://139.162.55.216/layers/geonode%3A';
-echo "$value";
-echo '_mam_jawa">Mar-Apr-Mei</option>';
-echo '<option value="http://139.162.55.216/layers/geonode%3A';
-echo "$value";
-echo '_jja_jawa">Jun-Jul-Agu</option>';
-echo '<option value="http://139.162.55.216/layers/geonode%3A';
-echo "$value";
-echo '_son_jawa">Sep-Okt-Nov</option>';
-echo '</select>
-<input type="button" class="btn btn-info" value="Go" onclick="Go';
-echo "$value";
-echo '()" />
-    <script type="text/javascript">
-    function Go';
-echo "$value";
-echo '(){';
-echo '
-        var geoportal = document.getElementById("select';
-echo "$value";
-echo '");';
-echo '
-        var selectedVal = geoportal.options[geoportal.selectedIndex].value;
-
-    window.open(selectedVal)
-    }
-    </script>
-    </span>
-</div>';
-
-}
-?>
-
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div><!-- THE END OF THE FIRST ROW OF THE LEFT SIDE BAR-->
+            </div><!-- THE END OF THE FIRST ROW OF THE LEFT SIDE BAR-->
                 <div class="row">
                     <section id="news">
                         <div class="panel panel-info">
@@ -676,11 +541,15 @@ echo '
             </ul>
         </div>
     </div>
-
-
 </footer>
 
-    <script src="js/bootstrap.js"></script>
-    <script src="js/mediashare.js"></script>
+    <script type="text/javascript" src="jqwidgets/scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxdraw.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxchart.core.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="js/openmap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/mediashare.js"></script>
 </body>
 </html>
