@@ -35,7 +35,7 @@
       <div class="row">
         <div class="col-md-9">
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/suhu.php"></iframe>
+            <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/hujan_sulawesi.php"></iframe>
           </div>
         </div>
         <div class="col-md-3">

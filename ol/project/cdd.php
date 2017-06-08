@@ -13,7 +13,6 @@
       <div id="map" class="map">
         <div class="map-title">Proyeksi Perubahan Consecutive Dry Days Periode 2032-2040 terhadap Periode 2006-2014 Pulau Jawa</div>
       </div>
-
     <script>
       var map = new ol.Map({
           target: 'map',
