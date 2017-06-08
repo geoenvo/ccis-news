@@ -41,7 +41,6 @@ for (var i = 0; i < province.length; i++) {
       else if (season[k] == 'jja') { layerTitle = 'Jun-Jul-Agu'}
       else if (season[k] == 'son') { layerTitle = 'Sep-Okt-Nov'}
       else { layerTitle = 'Layer Title'};
-  
       var layerIndex = new ol.layer.Tile({
         source: layerSource,
         title: layerTitle,
@@ -52,90 +51,28 @@ for (var i = 0; i < province.length; i++) {
   }
 };
 
-var source_layer_s1 = new ol.source.TileWMS({
-  url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-  params: {'LAYERS': 'suhu_jawa', 'TILED': true},
-  serverType: 'geoserver'
-});
-var layer_s1 = new ol.layer.Tile({
-  source: source_layer_s1,
-  title: 'suhu rata-rata',
-  type: 'base',
-});
+var t_climVar = ['suhu', 'suhumin', 'suhumax', 'diurnal'];
+var t_layer = [];
 
-var source_layer_s2 = new ol.source.TileWMS({
-  url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-  params: {'LAYERS': 'suhumin_jawa', 'TILED': true},
-  serverType: 'geoserver'
-});
-var layer_s2 = new ol.layer.Tile({
-  source: source_layer_s2,
-  title: 'suhu minimum',
-  type: 'base',
-});
-
-var source_layer_s3 = new ol.source.TileWMS({
-  url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-  params: {'LAYERS': 'suhumax_jawa', 'TILED': true},
-  serverType: 'geoserver'
-});
-var layer_s3 = new ol.layer.Tile({
-  source: source_layer_s3,
-  title: 'suhu maximum',
-  type: 'base',
-});
-
-var source_layer_s4 = new ol.source.TileWMS({
-  url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-  params: {'LAYERS': 'diurnal_jawa', 'TILED': true},
-  serverType: 'geoserver'
-});
-var layer_s4 = new ol.layer.Tile({
-  source: source_layer_s4,
-  title: 'diurnal',
-  type: 'base',
-});
-
-var source_layer_s5 = new ol.source.TileWMS({
-  url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-  params: {'LAYERS': 'suhu_sulawesi', 'TILED': true},
-  serverType: 'geoserver'
-});
-var layer_s5 = new ol.layer.Tile({
-  source: source_layer_s5,
-  title: 'suhu rata-rata',
-  type: 'base',
-});
-
-var source_layer_s6 = new ol.source.TileWMS({
-  url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-  params: {'LAYERS': 'suhumin_sulawesi', 'TILED': true},
-  serverType: 'geoserver'
-});
-var layer_s6 = new ol.layer.Tile({
-  source: source_layer_s6,
-  title: 'suhu minimum',
-  type: 'base',
-});
-
-var source_layer_s7 = new ol.source.TileWMS({
-  url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-  params: {'LAYERS': 'suhumax_sulawesi', 'TILED': true},
-  serverType: 'geoserver'
-});
-var layer_s7 = new ol.layer.Tile({
-  source: source_layer_s7,
-  title: 'suhu maximum',
-  type: 'base',
-});
-
-var source_layer_s8 = new ol.source.TileWMS({
-  url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-  params: {'LAYERS': 'diurnal_sulawesi', 'TILED': true},
-  serverType: 'geoserver'
-});
-var layer_s4 = new ol.layer.Tile({
-  source: source_layer_s8,
-  title: 'diurnal',
-  type: 'base',
-});
+for (var i = 0; i < province.length; i++) {
+  for (var j = 0; j < t_climVar.length; j++) {
+      var layerName = t_climVar[j] + "_" + province[i];
+      var layerSource = new ol.source.TileWMS({
+      	url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
+        params: {'LAYERS': layerName, 'TILED': true},
+        serverType: 'geoserver'
+        });
+	  var layerTitle = "";
+      if (t_climVar[j] == 'suhu') { layerTitle = 'Suhu Rata-rata'}
+      else if (t_climVar[j] == 'suhumin') { layerTitle ='Suhu Minimum'}
+      else if (t_climVar[j] == 'suhumax') { layerTitle = 'Suhu Maksimum'}
+      else if (t_climVar[j] == 'diurnal') { layerTitle = 'Diurnal'}
+      else { layerTitle = 'Layer Title'};  
+      var layerIndex = new ol.layer.Tile({
+        source: layerSource,
+        title: layerTitle,
+        type: 'base',
+      });
+      t_layer.push(layerIndex);
+  }
+};
