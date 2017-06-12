@@ -51,7 +51,7 @@ for (var i = 0; i < province.length; i++) {
   }
 };
 
-var t_climVar = ['suhu', 'suhumin', 'suhumax', 'diurnal'];
+var t_climVar = ['suhu', 'suhu_min', 'suhu_maks', 'diurnal'];
 var t_layer = [];
 
 for (var i = 0; i < province.length; i++) {
@@ -64,8 +64,8 @@ for (var i = 0; i < province.length; i++) {
         });
 	  var layerTitle = "";
       if (t_climVar[j] == 'suhu') { layerTitle = 'Suhu Rata-rata'}
-      else if (t_climVar[j] == 'suhumin') { layerTitle ='Suhu Minimum'}
-      else if (t_climVar[j] == 'suhumax') { layerTitle = 'Suhu Maksimum'}
+      else if (t_climVar[j] == 'suhu_min') { layerTitle ='Suhu Minimum'}
+      else if (t_climVar[j] == 'suhu_maks') { layerTitle = 'Suhu Maksimum'}
       else if (t_climVar[j] == 'diurnal') { layerTitle = 'Diurnal'}
       else { layerTitle = 'Layer Title'};  
       var layerIndex = new ol.layer.Tile({
