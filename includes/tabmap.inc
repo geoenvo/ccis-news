@@ -142,7 +142,7 @@
     ?>
   </div>
 
-  <div id="sulawesi" class="" style="display: block;">
+  <div id="sulawesi" class="">
   </div>
 
 </div>
