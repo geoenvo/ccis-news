@@ -1,6 +1,6 @@
 <?php
 echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>Id</th><th>Title</th><th>Description</th>Thumbnail<th><th>date_article</th></tr>";
+echo "<tr><th>Id</th><th>Title</th><th>Description</th><th>Thumbnail</th><th>date_article</th></tr>";
 
 class TableRows extends RecursiveIteratorIterator { 
     function __construct($it) { 
