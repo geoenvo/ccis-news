@@ -453,12 +453,16 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 									    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 									    $stmt = $conn->prepare("SELECT id, title, description, url, thumbnail, news_website_id, date_article FROM open_news_article"); 
 									    $stmt->execute();
-									$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-									while ($row=mysql_fetch_row($stmt))
-									{
-									   echo "$row[0] $row[1] $row[2] $row[3] $row[4]";
-									   echo "<br />";
-									} 
+										while ($row=mysql_fetch_row($stmt))
+										{
+										   echo "$row[0] $row[1] $row[2] $row[3] $row[4]";
+										   echo "<br />";
+										}
+									}
+									catch(PDOException $e) {
+									    echo "Error: " . $e->getMessage();
+									}
+									$conn = null; 
                             	?>
 
                                 <?php
