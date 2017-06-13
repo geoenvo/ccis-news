@@ -9,7 +9,10 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+
+
 <?php
+
     require 'datastorage.php';
     $count = 0;
 
@@ -395,11 +398,13 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             <div class="panel-heading text-left">
                                 Headline Hari Ini
 
+                                		<!--
                                         <span class="pull-right">
                                             <form action="index.php#news" method="post">
                                                  Topik: <select name="topik">
 
                                                             <?php
+                                                            /*
                                                             $topik = array("","Perubahan Iklim","Kualitas Udara");
                                                             for ($i = 0; $i < 3; $i++)
                                                             {
@@ -424,6 +429,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 
                                                                 <?php
                                                             }
+                                                            */
                                                             ?>
 
                                                         </select>
@@ -431,12 +437,32 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                                 <input class="btn btn-info" type="submit" value="Go"/>
                                             </form>
                                         </span>
+                                        -->
 
 
                             </div>
                             <div class="panel-body">
 
+                            	<?php
+                            		$servername = "localhost";
+									$username = "";
+									$password = "";
+									$dbname = "";
+									try {
+									    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+									    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+									    $stmt = $conn->prepare("SELECT id, title, description, url, thumbnail, news_website_id, date_article FROM open_news_article"); 
+									    $stmt->execute();
+									$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+									while ($row=mysql_fetch_row($stmt))
+									{
+									   echo "$row[0] $row[1] $row[2] $row[3] $row[4]";
+									   echo "<br />";
+									} 
+                            	?>
+
                                 <?php
+                                /*
                                     if(isset($_POST['topik']))
                                 {
                                     if($topikid == "10750")
@@ -453,12 +479,12 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                     {
                                         for($counter =1; $counter <= $number_of_data; $counter++)
                                         {
-                                            $news->displayMediaData($temp, $topik,$number_of_data,$counter*3);
+                                            $news->displayMediaData($temp, $topik, $number_of_data, $counter*3);
                                         }
                                     }else{
                                         for($counter=1; $counter <= ($number_of_data/3); $counter++)
                                         {
-                                            $news->displayMediaData($temp, $topik,$number_of_data,$counter*3);
+                                            $news->displayMediaData($temp, $topik, $number_of_data, $counter*3);
 
                                             if($number_of_data%3 != 0)
                                             {
@@ -481,6 +507,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         }
                                     }
                                 }
+                                */
                                 ?>
 
                             </div>
