@@ -445,9 +445,9 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 
                             	<?php
                             		$servername = "localhost";
-									$username = "";
-									$password = "";
-									$dbname = "";
+									$username = "dds_readonly";
+									$password = "ddsreadonlyp455w0rd";
+									$dbname = "dds";
 									try {
 									    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 									    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

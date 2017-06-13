@@ -21,9 +21,9 @@ class TableRows extends RecursiveIteratorIterator {
 } 
 
 $servername = "localhost";
-$username = "";
-$password = "";
-$dbname = "";
+$username = "dds_readonly";
+$password = "ddsreadonlyp455w0rd";
+$dbname = "dds";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
