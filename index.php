@@ -443,51 +443,32 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             </div>
                             <div class="panel-body">
 
-<?php
-echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>Id</th><th>Title</th><th>Description</th><th>url</th><th>Thumbnail</th><th>news_website_id</th><th>date_article</th></tr>";
-
-class TableRows extends RecursiveIteratorIterator { 
-    function __construct($it) { 
-        parent::__construct($it, self::LEAVES_ONLY); 
-    }
-
-    function current() {
-        return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
-    }
-
-    function beginChildren() { 
-        echo "<tr>"; 
-    } 
-
-    function endChildren() { 
-        echo "</tr>" . "\n";
-    } 
-} 
-
-$servername = "localhost";
-$username = "dds_readonly";
-$password = "ddsreadonlyp455w0rd";
-$dbname = "dds";
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT id, title, description, url, thumbnail, news_website_id, date_article FROM open_news_article"); 
-    $stmt->execute();
-
-    // set the resulting array to associative
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
-        echo $v;
-    }
-}
-catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
-$conn = null;
-echo "</table>";
-?>
+                            	<?php
+                            		$servername = "localhost";
+									$username = "dds_readonly";
+									$password = "ddsreadonlyp455w0rd";
+									$dbname = "dds";
+									try {
+									    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+									    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+									    $stmt = $conn->prepare("SELECT id, title, description, url, thumbnail, news_website_id, date_article FROM open_news_article"); 
+									    $stmt->execute();
+										while ($row=mysql_fetch_row($stmt))
+										{
+   											echo "<tr>";
+   											echo "<td>".$row['id']."</td>";
+   											echo "<td>".$row['title']."</td>";
+   											echo "<td>".$row['url']."</td>";
+   											echo "<td>".$row['thumbnail']."</td>";
+   											echo "<td>".$row['news_website_id']."</td>";   
+   											echo "</tr>";
+										}
+									}
+									catch(PDOException $e) {
+									    echo "Error: " . $e->getMessage();
+									}
+									$conn = null; 
+                            	?>
 
                                 <?php
                                 /*
