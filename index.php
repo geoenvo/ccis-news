@@ -4,10 +4,9 @@
     <title>Knowledge Management Pusat Informasi Perubahan Iklim</title>
     <link rel="icon" href="img/logo_BMKG_square.ico" type="image/ico">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="jqwidgets/jqwidgets/styles/jqx.base.css">
-    <link rel="stylesheet" type="text/css" href="css/openmap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <?php
@@ -548,7 +547,6 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
     <script type="text/javascript" src="jqwidgets/jqwidgets/jqxdraw.js"></script>
     <script type="text/javascript" src="jqwidgets/jqwidgets/jqxchart.core.js"></script>
     <script type="text/javascript" src="jqwidgets/jqwidgets/jqxdata.js"></script>
-    <script type="text/javascript" src="js/openmap.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/mediashare.js"></script>
 </body>
