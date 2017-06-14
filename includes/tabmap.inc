@@ -42,7 +42,7 @@
     }
   </script>
 
-  <ul class="tab" style="cursor:pointer">
+  <ul class="tab" style="cursor:pointer; float: right; margin-top:12px"">
     <li><a class="tablinkProv active" onclick="openTabProv(event, 'jawa')">Jawa</a></li>
     <li><a class="tablinkProv" onclick="openTabProv(event, 'sulawesi')">Sulawesi</a></li>
   </ul>

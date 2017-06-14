@@ -334,13 +334,17 @@ span {
 
 /*tab menu*/
 
-ul.tab {
+ul.tab, ul.tabProv {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     border: 1px solid #BCE8F1;
     background-color: #D9EDF7;
+}
+
+ul.tabProv li {
+    float: right;
 }
 
 /* Float the list items side by side */
@@ -374,7 +378,7 @@ ul.tab li a:focus, .active {
 }
 
 /* Style the tab content */
-.tabcontentProv, .tabcontentClim {
+.tabcontentProv, .tabcontentClimJawa, .tabcontentClimSul {
     display: none;
     padding: 12px 12px;
     border-top: none;
