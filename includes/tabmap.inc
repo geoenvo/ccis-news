@@ -14,15 +14,28 @@
       document.getElementById(variable).style.display = "block";
       evt.currentTarget.className += " active";
     }
-    function openTabClim(evt, variable) {
-      var i, tabcontentClim, tablinkClim;
-      tabcontentClim = document.getElementsByClassName("tabcontentClim");
-      for (i = 0; i < tabcontentClim.length; i++) {
-          tabcontentClim[i].style.display = "none";
+    function openTabClimJawa(evt, variable) {
+      var i, tabcontentClimJawa, tablinkClimJawa;
+      tabcontentClimJawa = document.getElementsByClassName("tabcontentClimJawa");
+      for (i = 0; i < tabcontentClimJawa.length; i++) {
+          tabcontentClimJawa[i].style.display = "none";
       }
-      tablinkClim = document.getElementsByClassName("tablinkClim");
-      for (i = 0; i < tablinkClim.length; i++) {
-          tablinkClim[i].className = tablinkClim[i].className.replace(" active", "");
+      tablinkClimJawa = document.getElementsByClassName("tablinkClimJawa");
+      for (i = 0; i < tablinkClimJawa.length; i++) {
+          tablinkClimJawa[i].className = tablinkClimJawa[i].className.replace(" active", "");
+      }
+      document.getElementById(variable).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    function openTabClimSul(evt, variable) {
+      var i, tabcontentClimSul, tablinkClimSul;
+      tabcontentClimSul = document.getElementsByClassName("tabcontentClimSul");
+      for (i = 0; i < tabcontentClimSul.length; i++) {
+          tabcontentClimSul[i].style.display = "none";
+      }
+      tablinkClimSul = document.getElementsByClassName("tablinkClimSul");
+      for (i = 0; i < tablinkClimSul.length; i++) {
+          tablinkClimSul[i].className = tablinkClimSul[i].className.replace(" active", "");
       }
       document.getElementById(variable).style.display = "block";
       evt.currentTarget.className += " active";
@@ -36,15 +49,15 @@
 
   <div id="jawa" class="tabcontentProv" style="display: block;">
     <ul class="tab" style="cursor:pointer">
-      <li><a class="tablinkClim active" onclick="openTabClim(event, 'suhuJawa')">Suhu</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'hujanJawa')">Hujan</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'cddJawa')">CDD</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'cwdJawa')">CWD</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'fhlJawa')">FHL</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'hthJawa')">HTH</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'r50Jawa')">r50</a></li>
+      <li><a class="tablinkClimJawa active" onclick="openTabClimJawa(event, 'suhuJawa')">Suhu</a></li>
+      <li><a class="tablinkClimJawa" onclick="openTabClimJawa(event, 'hujanJawa')">Hujan</a></li>
+      <li><a class="tablinkClimJawa" onclick="openTabClimJawa(event, 'cddJawa')">CDD</a></li>
+      <li><a class="tablinkClimJawa" onclick="openTabClimJawa(event, 'cwdJawa')">CWD</a></li>
+      <li><a class="tablinkClimJawa" onclick="openTabClimJawa(event, 'fhlJawa')">FHL</a></li>
+      <li><a class="tablinkClimJawa" onclick="openTabClimJawa(event, 'hthJawa')">HTH</a></li>
+      <li><a class="tablinkClimJawa" onclick="openTabClimJawa(event, 'r50Jawa')">r50</a></li>
     </ul>
-    <div id="suhuJawa" class="tabcontentClim" style="display: block;">
+    <div id="suhuJawa" class="tabcontentClimJawa" style="display: block;">
       <div class="row">
         <div class="col-md-9">
           <div class="embed-responsive embed-responsive-16by9">
@@ -90,7 +103,7 @@
     $climate = array("hujan", "cdd", "cwd", "fhl", "hth", "r50"); 
     foreach ($climate as $value) {
     echo "<div id=$value";
-    echo 'Jawa class="tabcontentClim" style="display: none;">';
+    echo 'Jawa class="tabcontentClimJawa" style="display: none;">';
     echo '<div class="row">';
     echo '<div class="col-md-9">';
     echo '<div class="embed-responsive embed-responsive-16by9">';
@@ -161,15 +174,15 @@
 
   <div id="sulawesi" class="tabcontentProv" style="display: none">
     <ul class="tab" style="cursor:pointer">
-      <li><a class="tablinkClim active" onclick="openTabClim(event, 'suhuSulawesi')">Suhu</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'hujanSulawesi')">Hujan</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'cddSulawesi')">CDD</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'cwdSulawesi')">CWD</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'fhlSulawesi')">FHL</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'hthSulawesi')">HTH</a></li>
-      <li><a class="tablinkClim" onclick="openTabClim(event, 'r50Sulawesi')">r50</a></li>
+      <li><a class="tablinkClimSul active" onclick="openTabClimSul(event, 'suhuSulawesi')">Suhu</a></li>
+      <li><a class="tablinkClimSul" onclick="openTabClimSul(event, 'hujanSulawesi')">Hujan</a></li>
+      <li><a class="tablinkClimSul" onclick="openTabClimSul(event, 'cddSulawesi')">CDD</a></li>
+      <li><a class="tablinkClimSul" onclick="openTabClimSul(event, 'cwdSulawesi')">CWD</a></li>
+      <li><a class="tablinkClimSul" onclick="openTabClimSul(event, 'fhlSulawesi')">FHL</a></li>
+      <li><a class="tablinkClimSul" onclick="openTabClimSul(event, 'hthSulawesi')">HTH</a></li>
+      <li><a class="tablinkClimSul" onclick="openTabClimSul(event, 'r50Sulawesi')">r50</a></li>
     </ul>
-    <div id="suhuSulawesi" class="tabcontentClim" style="display: block;">
+    <div id="suhuSulawesi" class="tabcontentClimSul" style="display: block;">
       <div class="row">
         <div class="col-md-9">
           <div class="embed-responsive embed-responsive-16by9">
@@ -215,7 +228,7 @@
     $climate = array("hujan", "cdd", "cwd", "fhl", "hth", "r50"); 
     foreach ($climate as $value) {
     echo "<div id=$value";
-    echo 'Sulawesi class="tabcontentClim" style="display: none;">';
+    echo 'Sulawesi class="tabcontentClimSul" style="display: none;">';
     echo '<div class="row">';
     echo '<div class="col-md-9">';
     echo '<div class="embed-responsive embed-responsive-16by9">';
