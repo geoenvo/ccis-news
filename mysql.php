@@ -11,22 +11,36 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT title, url, thumbnail, date_str FROM open_news_article";
+$sql = "SELECT title, url, thumbnail, date_str, description FROM open_news_article";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    echo "<table><tr><th>ID</th><th>Name</th></tr>";
+    echo '<div class="row">';
     // output data of each row
     while($row = $result->fetch_assoc()) {
+        echo '<div class="col-md-4 portfolio-item">';
+        echo '<a href="#">';
+        echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail']'" width=350 height="200"  alt="">';
+        echo '</a>';
+        echo '<h5>';
+        echo '<a href="'.$row['url'].'">'.$row['title'].'</a><br>';
+        echo '</h5>';
+        echo '<h6>'.$row['date_str'].'</h6>';
+        echo ''.$row['date_str'].' <br>';
+        echo '</div>';
+/*
         echo "<tr>";
         echo "<td>".$row['title']."</td>";
         echo "<td>".$row['url']."</td>";
         echo "<td>".$row['thumbnail']."</td>";
+        echo "<td>".$row['date_str']."</td>";
         echo "<td>".$row['date_str']."</td>";   
         echo "</tr>";
+*/
 
     }
-    echo "</table>";
+    echo '</div>';
+    echo '<hr style="color:black;" />';
 } else {
     echo "0 results";
 }
