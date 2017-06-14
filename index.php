@@ -454,8 +454,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 									    $stmt = $conn->prepare("SELECT title, url, thumbnail, date_str, description FROM open_news_article"); 
 									    $stmt->execute();
 									    echo '<div class="row">';
-										while ($row=mysql_fetch_row($stmt))
-										{
+										while ($row = $result->fetch_assoc()) {
             								echo '<div class="col-md-4 portfolio-item">';
             								echo '<a href="#">';
             								echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt="">';
