@@ -205,17 +205,14 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
             </ol>
             <!-- Wrapper for slides -->
             <?php
-            /*
                 $url = 'dummy2.json';
                 $carousel_news = new CarouselData($url);
                 $news_carousel = $carousel_news->getMediaData();
-            */
             ?>
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
                     <?php
-                    /*
                     if($news_carousel[0]->image != null)
                     {
                         echo '<img src="'.$news_carousel[0]->image.'" alt="Chania" width="200" height="200">';
@@ -224,9 +221,6 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                     {
                         echo '<img src="img/slider-default.jpg" alt="Chania">';
                     }
-                    */
-                    ?>
-                    <?php
                     ?>
                     <div class="carousel-dashboard">
                         <div class="row">
@@ -243,7 +237,6 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                 </div>
                 <div class="item">
                     <?php
-                    /*
                     if($news_carousel[1]->image != null)
                     {
                         echo '<img src="'.$news_carousel[1]->image.'" alt="Chania" width="200" height="200">';
@@ -252,11 +245,6 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                     {
                         echo '<img src="img/slider-default.jpg" alt="Chania">';
                     }
-                    */
-                    ?>
-                    <?php
-                    $row = $result->fetch_assoc();
-                    echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'][0].'" alt="Chania" width="200" height="200">';
                     ?>
                     <div class="carousel-dashboard">
                         <div class="row">
