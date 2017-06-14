@@ -458,17 +458,19 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 								$result = $conn->query($sql);
 								if ($result->num_rows > 0) {
 								    echo '<div class="row">';
-								    while($row = $result->fetch_assoc() && $row['categories'] == 'banjir') { 
-								        echo '<div class="col-md-4 portfolio-item">';
-								        echo '<a href="#">';
-								        echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt="">';
-								        echo '</a>';
-								        echo '<h5>';
-								        echo '<a href="'.$row['url'].'">'.$row['title'].'</a><br>';
-								        echo '</h5>';
-								        echo '<h6>'.$row['date_str'].'</h6>';
-								        echo ''.$row['description'].' <br>';
-								        echo '</div>';
+								    while($row = $result->fetch_assoc()) {
+								    	if ($row['categories'] == 'banjir') 
+								        	echo '<div class="col-md-4 portfolio-item">';
+								        	echo '<a href="#">';
+								        	echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt="">';
+								        	echo '</a>';
+								        	echo '<h5>';
+								        	echo '<a href="'.$row['url'].'">'.$row['title'].'</a><br>';
+								        	echo '</h5>';
+								        	echo '<h6>'.$row['date_str'].'</h6>';
+								        	echo ''.$row['description'].' <br>';
+								        	echo '</div>';
+								        }
 								    }
 								    echo '</div>';
 								    echo '<hr style="color:black;" />';
