@@ -459,7 +459,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 								if ($result->num_rows > 0) {
 								    echo '<div class="row">';
 								    while($row = $result->fetch_assoc()) {
-								    	if (!$row['thumbnail'] && !$row['categories']) {
+								    	if (!$row['thumbnail'] or !$row['categories']) {
 								        	echo '<div class="col-md-4 portfolio-item">';
 								        	echo '<a href="#">';
 								        	echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt="">';
