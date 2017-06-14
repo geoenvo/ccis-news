@@ -471,6 +471,9 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 								        	echo ''.$row['description'].' <br>';
 								        	echo '</div>';
 								        }
+								        else {
+								    		echo "0 results";
+										}
 								    }
 								}
 								    echo '</div>';
