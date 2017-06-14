@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         echo '<div class="col-md-4 portfolio-item">';
         echo '<a href="#">';
-        echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail']'" width=350 height="200"  alt="">';
+        echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt="">';
         echo '</a>';
         echo '<h5>';
         echo '<a href="'.$row['url'].'">'.$row['title'].'</a><br>';
