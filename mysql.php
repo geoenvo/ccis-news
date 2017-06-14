@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
         echo '<a href="'.$row['url'].'">'.$row['title'].'</a><br>';
         echo '</h5>';
         echo '<h6>'.$row['date_str'].'</h6>';
-        echo ''.$row['date_str'].' <br>';
+        echo ''.$row['description'].' <br>';
         echo '</div>';
 /*
         echo "<tr>";
@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
         echo "<td>".$row['url']."</td>";
         echo "<td>".$row['thumbnail']."</td>";
         echo "<td>".$row['date_str']."</td>";
-        echo "<td>".$row['date_str']."</td>";   
+        echo "<td>".$row['description']."</td>";   
         echo "</tr>";
 */
 
