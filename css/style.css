@@ -334,17 +334,13 @@ span {
 
 /*tab menu*/
 
-ul.tab, ul.tabProv {
+ul.tab, {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     border: 1px solid #BCE8F1;
     background-color: #D9EDF7;
-}
-
-ul.tabProv li {
-    float: right;
 }
 
 /* Float the list items side by side */
