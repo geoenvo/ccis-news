@@ -1,5 +1,5 @@
 <?php
-$servername = "http://139.162.55.216";
+$servername = "localhost";
 $username = "dds_readonly";
 $password = "ddsreadonlyp455w0rd";
 $dbname = "dds";
