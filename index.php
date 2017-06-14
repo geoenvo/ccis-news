@@ -475,7 +475,6 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 								    		echo "0 results";
 										}
 								    }
-								}
 								    echo '</div>';
 								    echo '<hr style="color:black;" />';
 								} else {
