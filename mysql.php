@@ -16,7 +16,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     echo '<div class="row">';
-    $row = $result->fetch_assoc());
+    $row = $result->fetch_assoc();
     for($i=$index-3; $i < $maxindex; $i++) {
         echo '<div class="col-md-4 portfolio-item">';
         echo '<a href="#">';
