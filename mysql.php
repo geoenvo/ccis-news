@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT title, url, thumbnail, date_str, description FROM open_news_article";
+$sql = "SELECT title, url, thumbnail, date_str, description, categories, published FROM open_news_article";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
