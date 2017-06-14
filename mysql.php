@@ -17,7 +17,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     echo '<div class="row">';
 
-    $numfields = mysql_num_fields($result);
+    $numfields = mysql_num_fields($sql);
     echo '<table border="1" bgcolor="white"><tr>';
     for ($i = 0; $i<$numfields; $i += 1) {
         $field = mysql_fetch_field($query, $i);
