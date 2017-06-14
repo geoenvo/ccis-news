@@ -238,7 +238,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 <?php
                                 if($news_carousel[1]->title != null)
                                 {
-                                    echo '<a href="'.$news_carousel[1]->link.'">'.$news_carousel[1]->title.'</a>';
+                                    echo '<a href="'.$news_carousel[1]->link.'"> <h5>'.$news_carousel[1]->title.'</h5></a>';
                                 }
                                 ?>
                             </div>
@@ -268,7 +268,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 <?php
                                 if($news_carousel[2]->title != null)
                                 {
-                                    echo '<a href="'.$news_carousel[2]->link.'">'.$news_carousel[2]->title.'</a>';
+                                    echo '<a href="'.$news_carousel[2]->link.'"> <h5>'.$news_carousel[2]->title.'</h5></a>';
                                 }
                                 ?>
                             </div>
@@ -294,7 +294,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 <?php
                                 if($news_carousel[3]->title != null)
                                 {
-                                    echo '<a href="'.$news_carousel[3]->link.'">'.$news_carousel[3]->title.'</a>';
+                                    echo '<a href="'.$news_carousel[3]->link.'"> <h5>'.$news_carousel[3]->title.'</h5></a>';
                                 }
                                 ?>
                             </div>
@@ -320,7 +320,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 <?php
                                 if($news_carousel[4]->title != null)
                                 {
-                                    echo '<a href="'.$news_carousel[4]->link.'">'.$news_carousel[4]->title.'</a>';
+                                    echo '<a href="'.$news_carousel[4]->link.'"> <h5>'.$news_carousel[4]->title.'<h5></a>';
                                 }
                                 ?>
                             </div>
