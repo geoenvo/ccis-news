@@ -1,45 +1,34 @@
 <?php
-echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>Id</th><th>Title</th><th>Description</th><th>url</th><th>Thumbnail</th><th>news_website_id</th><th>date_article</th></tr>";
+$servername = "http://139.162.55.216";
+$username = "dds_readonly";
+$password = "ddsreadonlyp455w0rd";
+$dbname = "dds";
 
-class TableRows extends RecursiveIteratorIterator { 
-    function __construct($it) { 
-        parent::__construct($it, self::LEAVES_ONLY); 
-    }
-
-    function current() {
-        return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
-    }
-
-    function beginChildren() { 
-        echo "<tr>"; 
-    } 
-
-    function endChildren() { 
-        echo "</tr>" . "\n";
-    } 
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 } 
 
-$servername = "localhost";
-$username = "";
-$password = "";
-$dbname = "";
+$sql = "SELECT title, url, thumbnail, date_str FROM open_news_article";
+$result = $conn->query($sql);
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT id, title, description, url, thumbnail, news_website_id, date_article FROM open_news_article"); 
-    $stmt->execute();
+if ($result->num_rows > 0) {
+    echo "<table><tr><th>ID</th><th>Name</th></tr>";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>".$row['title']."</td>";
+        echo "<td>".$row['url']."</td>";
+        echo "<td>".$row['thumbnail']."</td>";
+        echo "<td>".$row['date_str']."</td>";   
+        echo "</tr>";
 
-    // set the resulting array to associative
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
-        echo $v;
     }
+    echo "</table>";
+} else {
+    echo "0 results";
 }
-catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
-$conn = null;
-echo "</table>";
+$conn->close();
 ?>
