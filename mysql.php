@@ -28,16 +28,6 @@ if ($result->num_rows > 0) {
         echo '<h6>'.$row['date_str'].'</h6>';
         echo ''.$row['description'].' <br>';
         echo '</div>';
-/*
-        echo "<tr>";
-        echo "<td>".$row['title']."</td>";
-        echo "<td>".$row['url']."</td>";
-        echo "<td>".$row['thumbnail']."</td>";
-        echo "<td>".$row['date_str']."</td>";
-        echo "<td>".$row['description']."</td>";   
-        echo "</tr>";
-*/
-
     }
     echo '</div>';
     echo '<hr style="color:black;" />';
