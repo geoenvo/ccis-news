@@ -16,8 +16,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     echo '<div class="row">';
-    $row = $result->fetch_assoc();
-    for($i=$index-3; $i < $maxindex; $i++) {
+    while($row = $result->fetch_assoc()) {
         echo '<div class="col-md-4 portfolio-item">';
         echo '<a href="#">';
         echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt="">';
