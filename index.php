@@ -461,11 +461,11 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 								    while($row = $result->fetch_assoc()) {
 								    	if ($row['published'] == 1 && $row['thumbnail']) {
 								        	echo '<div class="col-md-4 portfolio-item">';
-								        	echo '<a href="'.$row['url'].' target="_blank">';
+								        	echo '<a href="'.$row['url'].'" target="_blank">';
 								        	echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt="">';
 								        	echo '</a>';
 								        	echo '<h5>';
-								        	echo '<a href="'.$row['url'].' target="_blank">'.$row['title'].'</a><br>';
+								        	echo '<a href="'.$row['url'].'" target="_blank">'.$row['title'].'</a><br>';
 								        	echo '</h5>';
 								        	echo '<h6>'.$row['date_str'].'</h6>';
 								        	echo ''.$row['description'].' <br>';
