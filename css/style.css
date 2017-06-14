@@ -24,7 +24,7 @@ header{
     position: absolute;
     padding-left: 20px;
     padding-right: 20px;
-    top: 0%;
+    bottom: 0;
     z-index: 20;
     color: white;
     text-shadow: 0 1px 2px rgba(0,0,0,.6);
@@ -33,6 +33,13 @@ header{
     background: #000000;
     width: 100%;
     height:50px ;
+}
+
+.carousel-dashboard .row .col-md-4 h5 {
+    position: relative;
+    top: -17px;
+    font-size: 20px;
+    color: white;
 }
 
 div.transbox {
@@ -62,7 +69,7 @@ footer{
 
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 1140px;
+      width: 1170px;
       height: 296px;
       margin: auto;
   }
@@ -84,15 +91,15 @@ footer{
 }
 
 .carousel-indicators {
-          bottom: -5px;
-          left: 290px;
+  top: 5px;
+  left: 50px;
 }
 
 .button-login {
-    position: absolute;
-    bottom: 2%;
-    right: 3%;
-    z-index: 21;
+  position: absolute;
+  bottom: 2%;
+  right: 3%;
+  z-index: 21;
 }
 
 .btn-info{
