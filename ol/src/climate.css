@@ -27,11 +27,18 @@ html, body {
 }
 .map-title {
   position: absolute;
-  bottom: 3%;
-  left: 1%;
+  top: .5em;
+  left: .5em;
   z-index: 1;
   text-align: left;
   font-size: 1.1em;
   color: white; text-shadow: 0 0 0.3em #000, 0 0 0.3em #000,
   0 0 0.3em #000;
+}
+
+.ol-zoom, .ol-full-screen {
+  top: 2.5em;
+}
+.layer-switcher {
+  top: 4.5em;
 }
