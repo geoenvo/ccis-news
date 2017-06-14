@@ -451,18 +451,24 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 									try {
 									    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 									    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-									    $stmt = $conn->prepare("SELECT id, title, description, url, thumbnail, news_website_id, date_article FROM open_news_article"); 
+									    $stmt = $conn->prepare("SELECT title, url, thumbnail, date_str, description FROM open_news_article"); 
 									    $stmt->execute();
+									    echo '<div class="row">';
 										while ($row=mysql_fetch_row($stmt))
 										{
-   											echo "<tr>";
-   											echo "<td>".$row['id']."</td>";
-   											echo "<td>".$row['title']."</td>";
-   											echo "<td>".$row['url']."</td>";
-   											echo "<td>".$row['thumbnail']."</td>";
-   											echo "<td>".$row['news_website_id']."</td>";   
-   											echo "</tr>";
+            								echo '<div class="col-md-4 portfolio-item">';
+            								echo '<a href="#">';
+            								echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt="">';
+            								echo '</a>';
+            								echo '<h5>';
+            								echo '<a href="'.$row['url'].'">'.$row['title'].'</a><br>';
+            								echo '</h5>';
+            								echo '<h6>'.$row['date_str'].'</h6>';
+            								echo ''.$row['description'].' <br>';
+            								echo '</div>';
 										}
+										echo '</div>';
+        								echo '<hr style="color:black;" />';
 									}
 									catch(PDOException $e) {
 									    echo "Error: " . $e->getMessage();
