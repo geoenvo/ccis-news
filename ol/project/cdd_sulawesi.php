@@ -18,9 +18,7 @@
           target: 'map',
           view: viewSulawesi,
           layers: [osm, layer[27], layer[26], layer[25], layer[24]],
-          controls: ol.control.defaults({attribution: false}).extend([
-            new ol.control.FullScreen(), new ol.control.LayerSwitcher()
-          ]),
+          controls: controls
       });
     </script>
   </body>

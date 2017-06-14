@@ -1,3 +1,7 @@
+var controls = ol.control.defaults({attribution: false}).extend([
+  new ol.control.FullScreen(), new ol.control.LayerSwitcher(), new ol.control.ScaleLine();
+  ]);
+
 var view = new ol.View({
   center: ol.proj.transform([110.5, -7.3], 'EPSG:4326', 'EPSG:3857'),
   zoom: 6.5
