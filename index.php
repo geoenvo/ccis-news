@@ -255,7 +255,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                     */
                     ?>
                     <?php
-                    $row = $result->fetch_assoc()
+                    $row = $result->fetch_assoc();
                     echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'][0].'" alt="Chania" width="200" height="200">';
                     ?>
                     <div class="carousel-dashboard">
