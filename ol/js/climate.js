@@ -4,13 +4,10 @@ var map = new ol.Map({
 });
 
 var scaleLine = new ol.control.ScaleLine();
-map.addControl(scaleLine);
 
 var fullScreen = new ol.control.FullScreen();
-map.addControl(fullScreen);
 
 var layerSwitcher = new ol.control.LayerSwitcher();
-map.addControl(layerSwitcher);
 
 var gratStyle = new ol.style.Style();
 gratStyle.setText (new ol.style.Text({
@@ -22,7 +19,6 @@ var grat = new ol.control.Graticule({
   formatCoord:function(c){ return c.toFixed(1)+"°" }
 });
 grat.setStyle(gratStyle);
-map.addControl(grat);
 
 var viewJawa = new ol.View({
   center: ol.proj.transform([110.5, -7.3], 'EPSG:4326', 'EPSG:3857'),
@@ -101,3 +97,9 @@ for (var i = 0; i < province.length; i++) {
       t_layer.push(layerIndex);
   }
 };
+
+map.addControl(scaleLine);
+map.addControl(fullScreen);
+map.addControl(layerSwitcher);
+map.addControl(grat);
+map.addLayer(osm);

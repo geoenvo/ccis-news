@@ -27,8 +27,8 @@ html, body {
 }
 .map-title {
   position: absolute;
-  top: .5em;
-  left: .5em;
+  top: 1.5em;
+  left: 2em;
   z-index: 1;
   text-align: left;
   font-size: 1.1em;
@@ -36,12 +36,25 @@ html, body {
   0 0 0.3em #000;
 }
 
-.ol-zoom, .ol-full-screen {
-  top: 2.5em;
+.ol-rotate {
+  top: 2em;
+  right: 2.3em;
+}
+.ol-full-screen {
+  top: 4em;
+  right: 2.3em;
+}
+.ol-zoom {
+  top: 6em;
+  right: 2.3em;
+  left: auto;
 }
 .layer-switcher {
-  top: 4.5em;
+  top: 9.6em;
+  right: 2.3em;
 }
 .ol-scale-line {
   background: rgba(0,60,136,.7);
+  bottom: 1.5em;
+  left: 2.5em;
 }
