@@ -36,6 +36,7 @@ html, body {
   0 0 0.3em #000;
 }
 
+/*ol*/
 .ol-rotate {
   top: 2em;
   right: 2.3em;
@@ -57,4 +58,16 @@ html, body {
   background: rgba(0,60,136,.7);
   bottom: 1.5em;
   left: 2.5em;
+}
+
+/*compass*/
+.ol-compassctrl.bottom {
+  top: auto;
+  right: auto;
+  bottom: 4.5em;
+  left: 2.5em;
+  width: 100px;
+  height: 100px;
+  -webkit-transform: none;
+  transform: none;
 }

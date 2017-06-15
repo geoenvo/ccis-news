@@ -1,6 +1,6 @@
 var map = new ol.Map({
-    target: 'map',
-    controls: ol.control.defaults({attribution: false})
+  target: 'map',
+  controls: ol.control.defaults({attribution: false})
 });
 
 var scaleLine = new ol.control.ScaleLine();
@@ -14,11 +14,16 @@ gratStyle.setText (new ol.style.Text({
   stroke: new ol.style.Stroke({color:"#fff", width:3}),
   fill: new ol.style.Fill({color:"#000"}),
   }));
-var grat = new ol.control.Graticule({
+var graticule = new ol.control.Graticule({
   step: 0.1, stepCoord: 5, margin:5, projection: 'EPSG:4326',
   formatCoord:function(c){ return c.toFixed(1)+"°" }
 });
-grat.setStyle(gratStyle);
+graticule.setStyle(gratStyle);
+
+var compass = new ol.control.Compass({
+  className: "bottom",
+  src: "../img/compass.png"
+});
 
 var viewJawa = new ol.View({
   center: ol.proj.transform([110.5, -7.3], 'EPSG:4326', 'EPSG:3857'),
@@ -101,5 +106,6 @@ for (var i = 0; i < province.length; i++) {
 map.addControl(scaleLine);
 map.addControl(fullScreen);
 map.addControl(layerSwitcher);
-map.addControl(grat);
+map.addControl(graticule);
+map.addControl(compass);
 map.addLayer(osm);
