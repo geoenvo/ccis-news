@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hujan</title>
+    <title>Hujan Jawa</title>
     <link rel="stylesheet" href="http://openlayers.org/en/v3.16.0/css/ol.css" type="text/css">
     <link rel="stylesheet" href="../src/ol3-layerswitcher.css" />
     <link rel="stylesheet" href="../src/climate.css" />
@@ -19,8 +19,8 @@
           view: view,
           layers: [osm, l20, l19, l18, l17, boundary],
           controls: ol.control.defaults({attribution: false}).extend([
-            new ol.control.FullScreen(), new ol.control.LayerSwitcher()
-          ]),
+            new ol.control.FullScreen(), new ol.control.LayerSwitcher(), new ol.control.ScaleLine()
+            ]),
       });
     </script>
   </body>

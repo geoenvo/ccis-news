@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FHL</title>
+    <title>FHL Jawa</title>
     <link rel="stylesheet" href="http://openlayers.org/en/v3.16.0/css/ol.css" type="text/css">
     <link rel="stylesheet" href="../src/ol3-layerswitcher.css" />
     <link rel="stylesheet" href="../src/climate.css" />
@@ -20,8 +20,8 @@
           view: view,
           layers: [osm, l12, l11, l10, l9, boundary],
           controls: ol.control.defaults({attribution: false}).extend([
-            new ol.control.FullScreen(), new ol.control.LayerSwitcher()
-          ]),
+            new ol.control.FullScreen(), new ol.control.LayerSwitcher(), new ol.control.ScaleLine()
+            ]),
       });
     </script>
   </body>

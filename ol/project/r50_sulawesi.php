@@ -19,8 +19,8 @@
           view: viewSulawesi,
           layers: [osm, layer[47], layer[46], layer[45], layer[44]],
           controls: ol.control.defaults({attribution: false}).extend([
-            new ol.control.FullScreen(), new ol.control.LayerSwitcher()
-          ]),
+            new ol.control.FullScreen(), new ol.control.LayerSwitcher(), new ol.control.ScaleLine()
+            ]),
       });
     </script>
   </body>

@@ -1,8 +1,33 @@
-var view = new ol.View({
+var map = new ol.Map({
+    target: 'map',
+    controls: ol.control.defaults({attribution: false})
+});
+
+var scaleLine = new ol.control.ScaleLine();
+map.addControl(scaleLine);
+
+var fullScreen = new ol.control.FullScreen();
+map.addControl(fullScreen);
+
+var layerSwitcher = new ol.control.LayerSwitcher();
+map.addControl(layerSwitcher);
+
+var gratStyle = new ol.style.Style();
+gratStyle.setText (new ol.style.Text({
+  stroke: new ol.style.Stroke({color:"#fff", width:3}),
+  fill: new ol.style.Fill({color:"#000"}),
+  }));
+var grat = new ol.control.Graticule({
+  step: 0.1, stepCoord: 5, margin:5, projection: 'EPSG:4326',
+  formatCoord:function(c){ return c.toFixed(1)+"°" }
+});
+grat.setStyle(gratStyle);
+map.addControl(grat);
+
+var viewJawa = new ol.View({
   center: ol.proj.transform([110.5, -7.3], 'EPSG:4326', 'EPSG:3857'),
   zoom: 6.5
 });
-
 var viewSulawesi = new ol.View({
   center: ol.proj.transform([121.5, -1.5], 'EPSG:4326', 'EPSG:3857'),
   zoom: 5.7
@@ -12,13 +37,13 @@ var osm = new ol.layer.Tile({
   source: new ol.source.OSM({layer: 'osm'})
 });
 
-var source_boundary = new ol.source.TileWMS({
+var sourceBoundaryJawa = new ol.source.TileWMS({
   url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
   params: {'LAYERS': 'bf_cityreg_091213', 'TILED': true},
   serverType: 'geoserver'
 });
 var boundary = new ol.layer.Tile({
-       source: source_boundary,
+       source: sourceBoundaryJawa,
 });
 
 var province = ['jawa', 'sulawesi'];

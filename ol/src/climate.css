@@ -42,3 +42,6 @@ html, body {
 .layer-switcher {
   top: 4.5em;
 }
+.ol-scale-line {
+  background: rgba(0,60,136,.7);
+}

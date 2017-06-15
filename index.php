@@ -11,6 +11,7 @@
 <body>
 
 <?php
+/*
 $servername = "localhost";
 $username = "dds_readonly";
 $password = "ddsreadonlyp455w0rd";
@@ -23,6 +24,7 @@ if ($conn->connect_error) {
 } 
 $sql = "SELECT title, url, thumbnail, date_str, description, categories, published FROM open_news_article";
 $result = $conn->query($sql);
+*/
 ?>
 
 <?php

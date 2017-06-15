@@ -2,26 +2,23 @@
 <html>
   <head>
     <title>Suhu</title>
-    <link rel="stylesheet" href="http://openlayers.org/en/v3.16.0/css/ol.css" type="text/css">
-    <link rel="stylesheet" href="../src/ol3-layerswitcher.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://openlayers.org/en/master/css/ol.css" />
+    <link rel="stylesheet" href="../src/layerswitcher.css" />
     <link rel="stylesheet" href="../src/climate.css" />
-    <script src="http://openlayers.org/en/v3.16.0/build/ol.js"></script>
-    <script src="../src/ol3-layerswitcher.js"></script>
-    <script src="../src/climate_v2.js"></script>
+    <script type="text/javascript" src="https://openlayers.org/en/master/build/ol.js"></script>
+    <script type="text/javascript" src="../src/layerswitcher.js"></script>
+    <script type="text/javascript" src="../src/graticule.js"></script>
   </head>
   <body>
       <div id="map" class="map">
         <div class="map-title">Proyeksi Perubahan Suhu Periode 2032-2040 terhadap Periode 2006-2014 Pulau Sulawesi</div>
       </div>
-    <script>
-      var map = new ol.Map({
-          target: 'map',
-          view: viewSulawesi,
-          layers: [osm, t_layer[4]],
-          controls: ol.control.defaults({attribution: false}).extend([
-            new ol.control.FullScreen(), new ol.control.LayerSwitcher()
-          ]),
-      });
-    </script>
+      <script src="../src/climate_v2.js"></script>
+      <script>
+      map.setView(viewSulawesi);
+      map.addLayer(osm);
+      map.addLayer(t_layer[4]);
+      </script>
   </body>
 </html>
