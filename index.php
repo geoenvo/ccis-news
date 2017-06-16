@@ -548,10 +548,24 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 ?>
                                 <a class="twitter-timeline"
                                 href="https://twitter.com/TwitterDev"
-                                data-width="100"
-                                data-height="100"
+                                data-width="300"
+                                data-height="300"
                                 data-tweet-limit="5">
-                                Tweets by @TwitterDev
+                                #perubahaniklim
+                                </a>
+                                <a class="twitter-timeline"
+                                href="https://twitter.com/TwitterDev"
+                                data-width="300"
+                                data-height="300"
+                                data-tweet-limit="5">
+                                #climatechange
+                                </a>
+                                <a class="twitter-timeline"
+                                href="https://twitter.com/TwitterDev"
+                                data-width="300"
+                                data-height="300"
+                                data-tweet-limit="5">
+                                #kualitasudara
                                 </a>
                                 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                             </div>
