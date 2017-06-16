@@ -586,8 +586,8 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         echo 'categories are not found';
                                     }
                                 }
-                                echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>'
-                                echo '<style>.Tweet-brand u-floatRight{display:none}</style>'
+                                echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
+                                echo '<style>.Tweet-brand u-floatRight{display:none}</style>';
                                 ?>
                                 <!--
                                 <a class="twitter-timeline"
