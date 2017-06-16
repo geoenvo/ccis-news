@@ -545,17 +545,54 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             <div class="panel-body" style="align-items: justify">
                                 <?php
                                 require 'pgsql.php';
-                                foreach ($connec->query($sql) as $row)
-                                {
-                                    echo '<blockquote class="twitter-tweet">';
-                                    echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
-                                    echo '/status/'.$row['tweet_id'].'';
-                                    echo '"';
-                                    echo 'data-width="300"';
-                                    echo 'data-height="300"';
-                                    /*echo 'data-tweet-limit="5"';*/
-                                    echo '>';
-                                    echo '</a></blockquote>';
+                                foreach ($connec->query($sql) as $row) {
+                                    if ($row['categories'] == 'perubahaniklim') {
+                                        echo '<blockquote class="twitter-tweet">';
+                                        echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
+                                        echo '/status/'.$row['tweet_id'].'';
+                                        echo '"';
+                                        echo 'data-width="200"';
+                                        echo 'data-height="200"';
+                                        echo 'data-tweet-limit="5"';
+                                        echo '>';
+                                        echo '</a></blockquote>';
+                                    }
+                                    else if ($row['categories'] == 'climatechange') {
+                                        echo '<blockquote class="twitter-tweet">';
+                                        echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
+                                        echo '/status/'.$row['tweet_id'].'';
+                                        echo '"';
+                                        echo 'data-width="200"';
+                                        echo 'data-height="200"';
+                                        echo 'data-tweet-limit="5"';
+                                        echo '>';
+                                        echo '</a></blockquote>';
+                                    }
+                                    else if ($row['categories'] == 'kualitasudara') {
+                                        echo '<blockquote class="twitter-tweet">';
+                                        echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
+                                        echo '/status/'.$row['tweet_id'].'';
+                                        echo '"';
+                                        echo 'data-width="200"';
+                                        echo 'data-height="200"';
+                                        echo 'data-tweet-limit="5"';
+                                        echo '>';
+                                        echo '</a></blockquote>';
+                                    }
+                                    else if ($row['categories'] == 'climatechangeadaptation') {
+                                        echo '<blockquote class="twitter-tweet">';
+                                        echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
+                                        echo '/status/'.$row['tweet_id'].'';
+                                        echo '"';
+                                        echo 'data-width="200"';
+                                        echo 'data-height="200"';
+                                        echo 'data-tweet-limit="5"';
+                                        echo '>';
+                                        echo '</a></blockquote>';
+                                    }
+                                    else {
+
+                                    }
                                 }
                                 echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>'
                                 ?>
