@@ -548,11 +548,12 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                     </section>
                 </div> <!-- THE END OF THE SECOND ROW OF THE MAIN CONTENT-->
 
+                <!--
                 <div class="row text-center">
                     <div class="col-lg-12">
                         <ul class="pagination">
                             <?php
-
+                            /*
                             echo '<li>';
                             echo '<a href="http://139.162.55.216:8001/index.php?page='.($page-1).'#news">&laquo;</a>';
                             echo '</li>';
@@ -577,11 +578,11 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             echo '<li>';
                             echo '<a href="http://139.162.55.216:8001/index.php?page='.($page+1).'#news">&raquo;</a>';
                             echo '</li>';
-
+                            */
                             ?>
                         </ul>
                     </div>
-                </div> <!-- THE END OF THE SECOND ROW OF THE PAGINATION-->
+                </div>--> <!-- THE END OF THE SECOND ROW OF THE PAGINATION-->
             </div>
         </div>
     </div>  <!-- THE END OF THE FIRST ROW -->
