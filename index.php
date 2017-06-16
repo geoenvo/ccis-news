@@ -556,7 +556,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 print "<--" . $row['user_screen_name'] . "<br>";
                                 print $row['tweet_id'] . "<br> ";
                                 print $row['categories'] . "--><br>";
-                                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>'
                                 ?>
                                 <!--
                                 <a class="twitter-timeline"
