@@ -548,9 +548,12 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 foreach ($connec->query($sql) as $row)
                                 {
                                     echo '<a class="twitter-timeline"';
-                                    echo 'href="https://twitter.com/'.$row['user_screen_name'].'/status/'.$row['tweet_id'].'"';
+                                    echo 'href="https://twitter.com/'.$row['user_screen_name'].'';
+                                    /*echo '/status/'.$row['tweet_id'].'';*/
+                                    echo '"';
                                     echo 'data-width="300"';
                                     echo 'data-height="300"';
+                                    echo 'data-tweet-limit="5">';
                                     echo '</a>';
                                 }
                                 print "<--" . $row['user_screen_name'] . "<br>";
