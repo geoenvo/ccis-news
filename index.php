@@ -546,7 +546,18 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 <?php
                                 require 'pgsql.php';
                                 foreach ($connec->query($sql) as $row) {
-                                    if ($row['categories'] == 'perubahaniklim') {
+                                    if ($row['categories'] == 'perubahan iklim') {
+                                        echo '<blockquote class="twitter-tweet">';
+                                        echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
+                                        echo '/status/'.$row['tweet_id'].'';
+                                        echo '"';
+                                        echo 'data-width="200"';
+                                        echo 'data-height="200"';
+                                        echo 'data-tweet-limit="5"';
+                                        echo '>';
+                                        echo '</a></blockquote>';
+                                    }
+                                    else if ($row['categories'] == 'climate change') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
                                         echo '/status/'.$row['tweet_id'].'';
@@ -556,7 +567,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         echo '>';
                                         echo '</a></blockquote>';
                                     }
-                                    else if ($row['categories'] == 'climatechange') {
+                                    else if ($row['categories'] == 'kualitas udara') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
                                         echo '/status/'.$row['tweet_id'].'';
@@ -566,17 +577,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         echo '>';
                                         echo '</a></blockquote>';
                                     }
-                                    else if ($row['categories'] == 'kualitasudara') {
-                                        echo '<blockquote class="twitter-tweet">';
-                                        echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
-                                        echo '/status/'.$row['tweet_id'].'';
-                                        echo '"';
-                                        echo 'data-width="200"';
-                                        echo 'data-height="200"';
-                                        echo '>';
-                                        echo '</a></blockquote>';
-                                    }
-                                    else if ($row['categories'] == 'climatechangeadaptation') {
+                                    else if ($row['categories'] == 'climate change adaptation') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
                                         echo '/status/'.$row['tweet_id'].'';
@@ -587,7 +588,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         echo '</a></blockquote>';
                                     }
                                     else {
-                                        echo 'aaa';
+                                        echo 'categories are not found'
                                     }
                                 }
                                 echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>'
