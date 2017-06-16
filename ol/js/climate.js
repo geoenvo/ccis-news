@@ -38,13 +38,13 @@ var osm = new ol.layer.Tile({
   source: new ol.source.OSM({layer: 'osm'})
 });
 
-var sourceBoundaryJawa = new ol.source.TileWMS({
+var boundaryJawaSource = new ol.source.TileWMS({
   url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
   params: {'LAYERS': 'bf_cityreg_091213', 'TILED': true},
   serverType: 'geoserver'
 });
 var boundary = new ol.layer.Tile({
-       source: sourceBoundaryJawa,
+       source: boundaryJawaSource,
 });
 
 var province = ['jawa', 'sulawesi'];

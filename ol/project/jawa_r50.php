@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>r50 Sulawesi</title>
+    <title>r50 Jawa</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="../css/ol.css" />
     <link rel="stylesheet" href="../css/layerswitcher.css" />
@@ -15,7 +15,7 @@
   <body>
     <div id="map" class="map">
       <div class="map-title">Proyeksi Perubahan Frekuensi Hujan Lebat Periode 2032-2040 terhadap Periode 2006-2014<br>
-      Pulau Sulawesi
+      Pulau Jawa
       </div>
     </div>
     <script src="../js/climate.js"></script>
