@@ -548,6 +548,8 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 ?>
                                 <a class="twitter-timeline"
                                 href="https://twitter.com/TwitterDev"
+                                data-width="100"
+                                data-height="100"
                                 data-tweet-limit="5">
                                 Tweets by @TwitterDev
                                 </a>
