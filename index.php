@@ -549,16 +549,13 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 {
                                     echo '<a class="twitter-timeline"';
                                     echo 'href="https://twitter.com/'.$row['user_screen_name'].'';
-                                    /*echo '/status/'.$row['tweet_id'].'';*/
+                                    echo '/status/'.$row['tweet_id'].'';
                                     echo '"';
                                     echo 'data-width="300"';
                                     echo 'data-height="300"';
                                     echo 'data-tweet-limit="5">';
                                     echo '</a>';
                                 }
-                                print "<--" . $row['user_screen_name'] . "<br>";
-                                print $row['tweet_id'] . "<br> ";
-                                print $row['categories'] . "--><br>";
                                 echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>'
                                 ?>
                                 <!--
