@@ -587,7 +587,6 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                     }
                                 }
                                 echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
-                                echo '<style>.Tweet-brand u-floatRight{display:none}</style>';
                                 ?>
                                 <!--
                                 <a class="twitter-timeline"
