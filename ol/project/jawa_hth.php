@@ -2,27 +2,29 @@
 <html>
   <head>
     <title>HTH Jawa</title>
-    <link rel="stylesheet" href="http://openlayers.org/en/v3.16.0/css/ol.css" type="text/css">
-    <link rel="stylesheet" href="../src/ol3-layerswitcher.css" />
-    <link rel="stylesheet" href="../src/climate.css" />
-    <script src="http://openlayers.org/en/v3.16.0/build/ol.js"></script>
-    <script src="../src/ol3-layerswitcher.js"></script>
-    <script src="../src/climate.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/ol.css" />
+    <link rel="stylesheet" href="../css/layerswitcher.css" />
+    <link rel="stylesheet" href="../css/climate.css" />
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/ol.js"></script>
+    <script type="text/javascript" src="../js/layerswitcher.js"></script>
+    <script type="text/javascript" src="../js/graticule.js"></script>
+    <script type="text/javascript" src="../js/compass.js"></script>
   </head>
   <body>
-      <div id="map" class="map">
-        <div class="map-title">Proyeksi Perubahan Hari Tanpa Hujan Musiman Periode 2032-2040 terhadap Periode 2006-2014 Pulau Jawa</div>
+    <div id="map" class="map">
+      <div class="map-title">Proyeksi Perubahan Hari Tanpa Hujan Periode 2032-2040 terhadap Periode 2006-2014<br>
+      Pulau Jawa
       </div>
-
+    </div>
+    <script src="../js/climate.js"></script>
     <script>
-      var map = new ol.Map({
-          target: 'map',
-          view: view,
-          layers: [osm, l16, l5, l4, l13, boundary],
-          controls: ol.control.defaults({attribution: false}).extend([
-            new ol.control.FullScreen(), new ol.control.LayerSwitcher(), new ol.control.ScaleLine()
-            ]),
-      });
+    map.setView(viewJawa);
+    map.addLayer(layer[15]);
+    map.addLayer(layer[14]);
+    map.addLayer(layer[13]);
+    map.addLayer(layer[12]);
     </script>
   </body>
 </html>
