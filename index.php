@@ -548,13 +548,14 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 foreach ($connec->query($sql) as $row)
                                 {
                                     echo '<a class="twitter-timeline"';
-                                    echo 'href="https://twitter.com/'.$row['user_name'].'/status/'.$row['tweet_id'].'"';
+                                    echo 'href="https://twitter.com/'.$row['user_screen_name'].'/status/'.$row['tweet_id'].'"';
                                     echo 'data-width="300"';
                                     echo 'data-height="300"';
-                                    echo 'data-tweet-limit="5">';
                                     echo '</a>';
-                                    echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
                                 }
+                                print "<--" . $row['user_screen_name'] . "<br>";
+                                print $row['tweet_id'] . "<br> ";
+                                print $row['categories'] . "--><br>";
                                 ?>
                                 <!--
                                 <a class="twitter-timeline"
@@ -564,9 +565,9 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 data-tweet-limit="5">
                                 #kualitasudara
                                 </a>
+                                -->
 
                                 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                                -->
                             </div>
                         </div>
                     </section>
