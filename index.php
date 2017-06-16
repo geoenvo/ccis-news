@@ -547,7 +547,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 require 'pgsql.php';
                                 foreach ($connec->query($sql) as $row)
                                 {
-                                    echo '<a class="twitter-timeline"';
+                                    echo '<a class="twitter-tweet"';
                                     echo 'href="https://twitter.com/'.$row['user_screen_name'].'';
                                     echo '/status/'.$row['tweet_id'].'';
                                     echo '"';
