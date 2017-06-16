@@ -386,7 +386,21 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             <div class="panel-heading text-left text-info">
                                 Data Proyeksi Iklim 
                             </div>
-                            <?php require('includes/tabmap.inc'); ?>
+                            <div class="panel-body">
+                              <?php require('includes/tabmap.inc'); ?>
+                                <div class="col-md-9">
+                                  <div class="row" style="margin: 5px 10px">
+                                    <div class="panel panel-info">
+                                      <div class="panel-heading text-center text-info">Keterangan</div>
+                                      <div class="panel-body">
+                                        <div class="row">
+                                          <p style="margin: 10px 20px; text-align:justify">Dalam proses pembuatan peta proyeksi iklim ini, digunakan metode Dynamical Downscaling menggunakan RCM (Regional Climate Model) Weather Research and Forecasting (WRF) v3.6. Skenario Emisi RCP(Representative Concentration Pathway) yang digunakan adalah RCP 4.5 (menengah-rendah). Data GCM berjenis MIROC5 yang bersumber dari Tokyo University, NIES dan JAMSTEC, digunakan sebagai initial dan boundary condition untuk simulasi proses downscaling.</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div> 
                         </div>
                     </section>
                 </div>
