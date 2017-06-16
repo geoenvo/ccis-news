@@ -11,23 +11,6 @@
 <body>
 
 <?php
-/*
-$servername = "localhost";
-$username = "dds_readonly";
-$password = "ddsreadonlyp455w0rd";
-$dbname = "dds";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-$sql = "SELECT title, url, thumbnail, date_str, description, categories, published FROM open_news_article";
-$result = $conn->query($sql);
-*/
-?>
-
-<?php
 
     require 'datastorage.php';
     $count = 0;
@@ -460,6 +443,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             <div class="panel-body">
 
 								<?php
+                                require 'datastorage.php';
 								if ($result->num_rows > 0) {
 								    echo '<div class="row">';
 								    while($row = $result->fetch_assoc()) {
