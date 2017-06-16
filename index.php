@@ -447,7 +447,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 								if ($result->num_rows > 0) {
 								    echo '<div class="row">';
 								    while($row = $result->fetch_assoc()) {
-								    	if ($row['published'] == 1 && $row['thumbnail']) {
+								    	if ($row['thumbnail']) {
 								        	echo '<div class="col-md-4 portfolio-item">';
 								        	echo '<a href="'.$row['url'].'" target="_blank">';
 								        	echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt="">';
@@ -519,6 +519,30 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 */
                                 ?>
 
+                            </div>
+                        </div>
+                    </section>
+                </div> <!-- THE END OF THE SECOND ROW OF THE MAIN CONTENT-->
+
+                <div class="row">
+                    <section id="tweetaggregator">
+                        <div class="panel panel-info">
+                            <div class="panel-heading text-left">Tweet Aggregator</div>
+                            <div class="panel-body">
+                                <?php
+                                require 'pgsql.php';
+                                echo '<div class="row">';
+                                while($row = pg_fetch_row($ret)) {
+                                   echo "ID = ". $row[0] . "\n";
+                                   echo "NAME = ". $row[1] ."\n";
+                                   echo "ADDRESS = ". $row[2] ."\n";
+                                   echo "SALARY =  ".$row[4] ."\n\n";
+                                }
+                                echo "Operation done successfully\n";
+                                pg_close($db);
+                                echo '</div>';
+                                echo '<hr style="color:black;" />';
+                                ?>
                             </div>
                         </div>
                     </section>
