@@ -542,7 +542,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                     <section id="tweetaggregator">
                         <div class="panel panel-info">
                             <div class="panel-heading text-left">Tweet Aggregator</div>
-                            <div class="panel-body">
+                            <div class="panel-body" style="align-items: justify">
                                 <?php
                                 require 'pgsql.php';
                                 ?>
@@ -566,13 +566,6 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 data-height="300"
                                 data-tweet-limit="5">
                                 #kualitasudara
-                                </a>
-                                <a class="twitter-timeline"
-                                href="https://twitter.com/TwitterDev"
-                                data-width="300"
-                                data-height="300"
-                                data-tweet-limit="5">
-                                #climatechangeadaptation
                                 </a>
                                 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                             </div>
