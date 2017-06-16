@@ -443,7 +443,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             <div class="panel-body">
 
 								<?php
-                                require 'datastorage.php';
+                                require 'mysql.php';
 								if ($result->num_rows > 0) {
 								    echo '<div class="row">';
 								    while($row = $result->fetch_assoc()) {
