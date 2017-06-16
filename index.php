@@ -537,7 +537,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                         </div>
                     </section>
                 </div> <!-- THE END OF THE SECOND ROW OF THE MAIN CONTENT-->
-                
+
                 <script>window.twttr = (function(d, s, id) {
                   var js, fjs = d.getElementsByTagName(s)[0],
                     t = window.twttr || {};
@@ -567,6 +567,8 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 data-tweet-limit="5">
                                 Tweets by @TwitterDev
                                 </a>
+
+                                <a class="twitter-timeline" href="https://twitter.com/TwitterDev/timelines/539487832448843776">National Park Tweets - Curated tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                             </div>
                         </div>
                     </section>
