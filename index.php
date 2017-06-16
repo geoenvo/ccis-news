@@ -545,21 +545,27 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             <div class="panel-body" style="align-items: justify">
                                 <?php
                                 require 'pgsql.php';
+                                foreach ($connec->query($sql) as $row)
+                                {
+                                    echo '<a class="twitter-timeline"';
+                                    echo 'href="https://twitter.com/'.$row['user_name'].'/status/'.$row['tweet_id'].'"';
+                                    echo 'data-width="300"';
+                                    echo 'data-height="300"';
+                                    echo 'data-tweet-limit="5">';
+                                    echo '</a>';
+                                }
                                 ?>
-                                <br>
                                 <a class="twitter-timeline"
-                                href="https://twitter.com/TwitterDev"
+                                href="https://twitter.com/$row['user_name']/status/$row['tweet_id']"
                                 data-width="300"
                                 data-height="300"
                                 data-tweet-limit="5">
                                 #perubahaniklim
                                 </a>
                                 <a class="twitter-timeline"
-                                href="https://twitter.com/TwitterDev"
+                                href="https://twitter.com/$row['user_name']/status/$row['tweet_id']"
                                 data-width="300"
-                                data-height="300"
-                                data-tweet-limit="5">
-                                #climatechange
+                                data-height="300">
                                 </a>
                                 <a class="twitter-timeline"
                                 href="https://twitter.com/TwitterDev"
@@ -569,8 +575,6 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 #kualitasudara
                                 </a>
 
-                                <a href="https://twitter.com/intent/tweet?button_hashtag=perubahaniklim" class="twitter-hashtag-button" data-show-count="false">Tweet #perubahaniklim</a>
-                                
                                 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                             </div>
                         </div>
