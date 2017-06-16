@@ -43,7 +43,7 @@ var boundaryJawaSource = new ol.source.TileWMS({
   params: {'LAYERS': 'bf_cityreg_091213', 'TILED': true},
   serverType: 'geoserver'
 });
-var boundary = new ol.layer.Tile({
+var boundaryJawa = new ol.layer.Tile({
        source: boundaryJawaSource,
 });
 

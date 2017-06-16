@@ -22,6 +22,7 @@
     <script>
     map.setView(viewJawa);
     map.addLayer(t_layer[0]);
+    map.addLayer(boundaryJawa);
     </script>
   </body>
 </html>

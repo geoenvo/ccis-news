@@ -25,6 +25,7 @@
     map.addLayer(layer[18]);
     map.addLayer(layer[17]);
     map.addLayer(layer[16]);
+    map.addLayer(boundaryJawa);
     </script>
   </body>
 </html>
