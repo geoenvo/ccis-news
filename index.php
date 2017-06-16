@@ -553,20 +553,10 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                     echo 'data-height="300"';
                                     echo 'data-tweet-limit="5">';
                                     echo '</a>';
+                                    echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
                                 }
                                 ?>
-                                <a class="twitter-timeline"
-                                href="https://twitter.com/$row['user_name']/status/$row['tweet_id']"
-                                data-width="300"
-                                data-height="300"
-                                data-tweet-limit="5">
-                                #perubahaniklim
-                                </a>
-                                <a class="twitter-timeline"
-                                href="https://twitter.com/$row['user_name']/status/$row['tweet_id']"
-                                data-width="300"
-                                data-height="300">
-                                </a>
+                                <!--
                                 <a class="twitter-timeline"
                                 href="https://twitter.com/TwitterDev"
                                 data-width="300"
@@ -576,6 +566,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 </a>
 
                                 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                -->
                             </div>
                         </div>
                     </section>
