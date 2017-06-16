@@ -547,14 +547,15 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 require 'pgsql.php';
                                 foreach ($connec->query($sql) as $row)
                                 {
-                                    echo '<a class="twitter-tweet"';
-                                    echo 'href="https://twitter.com/'.$row['user_screen_name'].'';
+                                    echo '<blockquote class="twitter-tweet">';
+                                    echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
                                     echo '/status/'.$row['tweet_id'].'';
                                     echo '"';
                                     echo 'data-width="300"';
                                     echo 'data-height="300"';
-                                    echo 'data-tweet-limit="5">';
-                                    echo '</a>';
+                                    /*echo 'data-tweet-limit="5"';*/
+                                    echo '>';
+                                    echo '</a></blockquote>';
                                 }
                                 echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>'
                                 ?>
@@ -567,6 +568,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 #kualitasudara
                                 </a>
                                 -->
+                                <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS">@GrandTetonNPS</a>. <a href="https://twitter.com/hashtag/nature?src=hash">#nature</a> <a href="https://twitter.com/hashtag/sunset?src=hash">#sunset</a> <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Dept of Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456">May 5, 2014</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                             </div>
                         </div>
                     </section>
