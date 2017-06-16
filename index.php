@@ -588,7 +588,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         echo '</a></blockquote>';
                                     }
                                     else {
-                                        echo 'categories are not found'
+                                        echo 'categories are not found';
                                     }
                                 }
                                 echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>'
