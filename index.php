@@ -538,22 +538,6 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                     </section>
                 </div> <!-- THE END OF THE SECOND ROW OF THE MAIN CONTENT-->
 
-                <script>window.twttr = (function(d, s, id) {
-                  var js, fjs = d.getElementsByTagName(s)[0],
-                    t = window.twttr || {};
-                  if (d.getElementById(id)) return t;
-                  js = d.createElement(s);
-                  js.id = id;
-                  js.src = "https://platform.twitter.com/widgets.js";
-                  fjs.parentNode.insertBefore(js, fjs);
-                  t._e = [];
-                  t.ready = function(f) {
-                    t._e.push(f);
-                  };
-                  return t;
-                  }(document, "script", "twitter-wjs"));
-                </script>
-
                 <div class="row">
                     <section id="tweetaggregator">
                         <div class="panel panel-info">
@@ -567,8 +551,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 data-tweet-limit="5">
                                 Tweets by @TwitterDev
                                 </a>
-
-                                <a class="twitter-timeline" href="https://twitter.com/TwitterDev/timelines/539487832448843776">National Park Tweets - Curated tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                             </div>
                         </div>
                     </section>
