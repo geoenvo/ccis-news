@@ -551,9 +551,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
                                         echo '/status/'.$row['tweet_id'].'';
                                         echo '"';
-                                        echo 'data-width="200"';
-                                        echo 'data-height="200"';
-                                        echo 'data-tweet-limit="5"';
+                                        echo 'width="220"';
                                         echo '>';
                                         echo '</a></blockquote>';
                                     }
@@ -562,8 +560,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
                                         echo '/status/'.$row['tweet_id'].'';
                                         echo '"';
-                                        echo 'data-width="200"';
-                                        echo 'data-height="200"';
+                                        echo 'width="220"';
                                         echo '>';
                                         echo '</a></blockquote>';
                                     }
@@ -572,8 +569,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
                                         echo '/status/'.$row['tweet_id'].'';
                                         echo '"';
-                                        echo 'data-width="200"';
-                                        echo 'data-height="200"';
+                                        echo 'width="220"';
                                         echo '>';
                                         echo '</a></blockquote>';
                                     }
@@ -582,8 +578,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
                                         echo '/status/'.$row['tweet_id'].'';
                                         echo '"';
-                                        echo 'data-width="200"';
-                                        echo 'data-height="200"';
+                                        echo 'width="220"';
                                         echo '>';
                                         echo '</a></blockquote>';
                                     }
@@ -592,6 +587,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                     }
                                 }
                                 echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>'
+                                echo '<style>.Tweet-brand u-floatRight{display:none}</style>'
                                 ?>
                                 <!--
                                 <a class="twitter-timeline"
