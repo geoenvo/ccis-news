@@ -545,18 +545,12 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             <div class="panel-body">
                                 <?php
                                 require 'pgsql.php';
-                                echo '<div class="row">';
-                                while($row = pg_fetch_row($ret)) {
-                                   echo "ID = ". $row[0] . "\n";
-                                   echo "NAME = ". $row[1] ."\n";
-                                   echo "ADDRESS = ". $row[2] ."\n";
-                                   echo "SALARY =  ".$row[4] ."\n\n";
-                                }
-                                echo "Operation done successfully\n";
-                                pg_close($db);
-                                echo '</div>';
-                                echo '<hr style="color:black;" />';
                                 ?>
+                                <a class="twitter-timeline"
+                                href="https://twitter.com/TwitterDev"
+                                data-tweet-limit="5">
+                                Tweets by @TwitterDev
+                                </a>
                             </div>
                         </div>
                     </section>
