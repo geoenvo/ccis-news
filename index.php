@@ -168,9 +168,6 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                         </div>
                     </form>
                 </div>
-
-
-
             </div>
         </div>
     </div>
@@ -200,6 +197,24 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                       </div>
                                     </div>
                                   </div>
+
+                                  <!--div class="col-md-3">
+    								  <input type="button" class="btn btn-info" value="Download PDF" onclick="Gosuhu()" />
+    								  <select id="selectsuhu">
+    								    <option value="http://139.162.55.216:8001/files/jawa/cdd.zip">cdd</option>
+    								    <option selected="selected" value="http://139.162.55.216/layers/geonode%3Asuhumin_jawa">Minimum</option>
+    								    <option value="http://139.162.55.216/layers/geonode%3Asuhumax_jawa">Maximum</option>
+    								    <option value="http://139.162.55.216/layers/geonode%3Adiurnal_jawa">Diurnal</option>
+    								  </select>
+    								  <script type="text/javascript">
+    								  function Gosuhu(){
+    								  var geoportal = document.getElementById("selectsuhu");
+    								  var selectedVal = geoportal.options[geoportal.selectedIndex].value;
+    								  window.open(selectedVal)
+    								  }
+    								  </script>
+                                  </div-->
+
                                 </div>
                             </div> 
                         </div>

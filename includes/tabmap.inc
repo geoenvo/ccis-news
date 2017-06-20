@@ -76,17 +76,19 @@
         </div>
       </div>
     </div>
-    <!--
+
     <span>
       <br>
-      <label>Akses via GeoPortal:</label>
+      <input type="button" class="btn btn-info" value="Download PDF" onclick="Gosuhu()" />
       <select id="selectsuhu">
-        <option value="http://139.162.55.216/layers/geonode%3Asuhu_jawa">Rata-rata</option>
-        <option value="http://139.162.55.216/layers/geonode%3Asuhumin_jawa">Minimum</option>
-        <option value="http://139.162.55.216/layers/geonode%3Asuhumax_jawa">Maximum</option>
-        <option value="http://139.162.55.216/layers/geonode%3Adiurnal_jawa">Diurnal</option>
+        <option value="http://139.162.55.216:8001/files/pdf/jawa-cdd.zip">Jawa - CDD</option>
+        <option value="http://139.162.55.216:8001/files/pdf/jawa-cwd.zip">Jawa - CWD</option>
+        <option value="http://139.162.55.216:8001/files/pdf/jawa-fhl.zip">Jawa - FHL</option>
+        <option value="http://139.162.55.216:8001/files/pdf/jawa-hth.zip">Jawa - HTH</option>
+        <option value="http://139.162.55.216:8001/files/pdf/jawa-hujan.zip">Jawa - Hujan</option>
+        <option value="http://139.162.55.216:8001/files/pdf/jawa-r50.zip">Jawa - R50</option>
+        <option selected="selected" value="http://139.162.55.216:8001/files/pdf/jawa-suhu.zip">Jawa - Suhu</option>
       </select>
-      <input type="button" class="btn btn-info" value="Go" onclick="Gosuhu()" />
       <script type="text/javascript">
       function Gosuhu(){
       var geoportal = document.getElementById("selectsuhu");
@@ -95,7 +97,7 @@
       }
       </script>
     </span>
-    -->
+
   </div>
   <?php 
   $climate = array("hujan", "cdd", "cwd", "fhl", "hth", "r50"); 
@@ -128,30 +130,23 @@
               </div>
           </div>
       </div>
-      <!--
       <span>
-      <br>
-  <label>Akses via GeoPortal:</label>
-  <select id="select';
+      <br>';
+  echo '<input type="button" class="btn btn-info" value="Download PDF" onclick="Go';
+  echo "$value";
+  echo '()" />';
+  echo '<select id="select';
   echo "$value";
   echo '">';
-  echo '<option value="http://139.162.55.216/layers/geonode%3A';
-  echo "$value";
-  echo '_djf_jawa">Des-Jan-Feb</option>';
-  echo '<option value="http://139.162.55.216/layers/geonode%3A';
-  echo "$value";
-  echo '_mam_jawa">Mar-Apr-Mei</option>';
-  echo '<option value="http://139.162.55.216/layers/geonode%3A';
-  echo "$value";
-  echo '_jja_jawa">Jun-Jul-Agu</option>';
-  echo '<option value="http://139.162.55.216/layers/geonode%3A';
-  echo "$value";
-  echo '_son_jawa">Sep-Okt-Nov</option>';
-  echo '</select>
-  <input type="button" class="btn btn-info" value="Go" onclick="Go';
-  echo "$value";
-  echo '()" />
-      <script type="text/javascript">
+  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-cdd.zip">Jawa - CDD</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-cwd.zip">Jawa - CWD</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-fhl.zip">Jawa - FHL</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-hth.zip">Jawa - HTH</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-hujan.zip">Jawa - Hujan</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-r50.zip">Jawa - R50</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-suhu.zip">Jawa - Suhu</option>';
+  echo '</select>';
+  echo '<script type="text/javascript">
       function Go';
   echo "$value";
   echo '(){';
@@ -165,7 +160,7 @@
       }
       </script>
       </span>
-      -->
+
   </div>';
   }
   ?>
@@ -202,26 +197,28 @@
         </div>
       </div>
     </div>
-    <!--
+
     <span>
       <br>
-      <label>Akses via GeoPortal:</label>
-      <select id="selectsuhu">
-        <option value="http://139.162.55.216/layers/geonode%3Asuhu_jawa">Rata-rata</option>
-        <option value="http://139.162.55.216/layers/geonode%3Asuhumin_jawa">Minimum</option>
-        <option value="http://139.162.55.216/layers/geonode%3Asuhumax_jawa">Maximum</option>
-        <option value="http://139.162.55.216/layers/geonode%3Adiurnal_jawa">Diurnal</option>
+      <input type="button" class="btn btn-info" value="Download PDF" onclick="Gosuhu2()" />
+      <select id="select2suhu">
+        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-cdd.zip">Sulawesi - CDD</option>
+        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-cwd.zip">Sulawesi - CWD</option>
+        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-fhl.zip">Sulawesi - FHL</option>
+        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-hth.zip">Sulawesi - HTH</option>
+        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-hujan.zip">Sulawesi - Hujan</option>
+        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-r50.zip">Sulawesi - R50</option>
+        <option selected="selected" value="http://139.162.55.216:8001/files/pdf/sulawesi-suhu.zip">Sulawesi - Suhu</option>
       </select>
-      <input type="button" class="btn btn-info" value="Go" onclick="Gosuhu()" />
       <script type="text/javascript">
-      function Gosuhu(){
-      var geoportal = document.getElementById("selectsuhu");
+      function Gosuhu2(){
+      var geoportal = document.getElementById("select2suhu");
       var selectedVal = geoportal.options[geoportal.selectedIndex].value;
       window.open(selectedVal)
       }
       </script>
     </span>
-    -->
+
   </div>
   <?php 
   $climate = array("hujan", "cdd", "cwd", "fhl", "hth", "r50"); 
@@ -254,35 +251,29 @@
               </div>
           </div>
       </div>
-      <!--
+
       <span>
-      <br>
-  <label>Akses via GeoPortal:</label>
-  <select id="select';
+      <br>';
+  echo '<input type="button" class="btn btn-info" value="Download PDF" onclick="Go2';
+  echo "$value";
+  echo '()" />';
+  echo '<select id="select2';
   echo "$value";
   echo '">';
-  echo '<option value="http://139.162.55.216/layers/geonode%3A';
-  echo "$value";
-  echo '_djf_jawa">Des-Jan-Feb</option>';
-  echo '<option value="http://139.162.55.216/layers/geonode%3A';
-  echo "$value";
-  echo '_mam_jawa">Mar-Apr-Mei</option>';
-  echo '<option value="http://139.162.55.216/layers/geonode%3A';
-  echo "$value";
-  echo '_jja_jawa">Jun-Jul-Agu</option>';
-  echo '<option value="http://139.162.55.216/layers/geonode%3A';
-  echo "$value";
-  echo '_son_jawa">Sep-Okt-Nov</option>';
-  echo '</select>
-  <input type="button" class="btn btn-info" value="Go" onclick="Go';
-  echo "$value";
-  echo '()" />
-      <script type="text/javascript">
-      function Go';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-cdd.zip">Sulawesi - CDD</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-cwd.zip">Sulawesi - CWD</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-fhl.zip">Sulawesi - FHL</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-hth.zip">Sulawesi - HTH</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-hujan.zip">Sulawesi - Hujan</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-r50.zip">Sulawesi - R50</option>';
+  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-suhu.zip">Sulawesi - Suhu</option>';
+  echo '</select>';
+  echo '<script type="text/javascript">
+      function Go2';
   echo "$value";
   echo '(){';
   echo '
-          var geoportal = document.getElementById("select';
+          var geoportal = document.getElementById("select2';
   echo "$value";
   echo '");';
   echo '
@@ -291,7 +282,7 @@
       }
       </script>
       </span>
-      -->
+
   </div>';
   }
   ?>
