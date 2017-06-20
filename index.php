@@ -287,7 +287,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 								        	echo '<a href="'.$row['url'].'" target="_blank">'.$row['title'].'</a><br>';
 								        	echo '</h5>';
 								        	echo '<h6>'.$row['date_str'].'</h6>';
-								        	echo ''.$row['description'].' <br>';
+								        	echo '<div>'.$row['description'].'</div>';
 								        	echo '</div>';
 								        	$x++;
                                         	if ($x == 9) {
@@ -296,7 +296,6 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 								        }
 								    }
 								    echo '</div>';
-								    echo '<hr style="color:black;" />';
 								} else {
 								    echo "0 results";
 								}
