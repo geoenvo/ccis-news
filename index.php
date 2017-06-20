@@ -364,7 +364,8 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 echo '<div class="row">';
                                 echo '<div class="col-md-3">';
                                 echo '<button class="twitter-hashtag-button">#PerubahanIklim</button>';
-                                foreach ($connec->query($sql) as $row) {
+                                $row = $connec->query($sql);
+                                for ($row = 0; $x <= 10; $x++) {
                                     if ($row['categories'] == 'perubahan iklim') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
@@ -378,7 +379,8 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 echo '</div>';
                                 echo '<div class="col-md-3">';
                                 echo '<button class="twitter-hashtag-button">#ClimateChange</button>';
-                                foreach ($connec->query($sql) as $row) {
+                                $row = $connec->query($sql);
+                                for ($row = 0; $x <= 10; $x++) {
                                     if ($row['categories'] == 'climate change') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
@@ -392,7 +394,8 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 echo '</div>';
                                 echo '<div class="col-md-3">';
                                 echo '<button class="twitter-hashtag-button">#KualitasUdara</button>';
-                                foreach ($connec->query($sql) as $row) {
+                                $row = $connec->query($sql);
+                                for ($row = 0; $x <= 10; $x++) {
                                     if ($row['categories'] == 'kualitas udara') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
@@ -406,7 +409,8 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 echo '</div>';
                                 echo '<div class="col-md-3">';
                                 echo '<button class="twitter-hashtag-button">#ClimateChangeAdaptation</button>';
-                                foreach ($connec->query($sql) as $row) {
+                                $row = $connec->query($sql);
+                                for ($row = 0; $x <= 10; $x++) {
                                     if ($row['categories'] == 'climate change adaptation') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
