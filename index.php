@@ -363,6 +363,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 require 'pgsql.php';
                                 echo '<div class="row">';
                                 echo '<div class="col">';
+                                echo 'Perubahan Iklim';
                                 foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'perubahan iklim') {
                                         echo '<blockquote class="twitter-tweet">';
@@ -376,6 +377,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 }
                                 echo '</div>';
                                 echo '<div class="col">';
+                                echo 'Climate Change';
                                 foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'climate change') {
                                         echo '<blockquote class="twitter-tweet">';
@@ -389,6 +391,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 }
                                 echo '</div>';
                                 echo '<div class="col">';
+                                echo 'Kualitas Udara';
                                 foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'kualitas udara') {
                                         echo '<blockquote class="twitter-tweet">';
@@ -402,6 +405,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 }
                                 echo '</div>';
                                 echo '<div class="col">';
+                                echo 'Climate Change Adaptation';
                                 foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'climate change adaptation') {
                                         echo '<blockquote class="twitter-tweet">';
