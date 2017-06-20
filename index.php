@@ -363,7 +363,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 require 'pgsql.php';
                                 echo '<div class="row">';
                                 echo '<div class="col-md-3">';
-                                echo '<a class="twitter-hashtag-button" href="" data-size="large">#PerubahanIklim</a>';
+                                echo '<button class="twitter-hashtag-button">#PerubahanIklim</button>';
                                 foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'perubahan iklim') {
                                         echo '<blockquote class="twitter-tweet">';
@@ -377,7 +377,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 }
                                 echo '</div>';
                                 echo '<div class="col-md-3">';
-                                echo '<a class="twitter-hashtag-button" href="" data-size="large">#ClimateChange</a>';
+                                echo '<button class="twitter-hashtag-button">#ClimateChange</button>';
                                 foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'climate change') {
                                         echo '<blockquote class="twitter-tweet">';
@@ -391,7 +391,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 }
                                 echo '</div>';
                                 echo '<div class="col-md-3">';
-                                echo '<a class="twitter-hashtag-button" href="" data-size="large">#KualitasUdara</a>';
+                                echo '<button class="twitter-hashtag-button">#KualitasUdara</button>';
                                 foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'kualitas udara') {
                                         echo '<blockquote class="twitter-tweet">';
@@ -405,7 +405,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 }
                                 echo '</div>';
                                 echo '<div class="col-md-3">';
-                                echo '<a class="twitter-hashtag-button" href="" data-size="large">#ClimateChangeAdaptation</a>';
+                                echo '<button class="twitter-hashtag-button">#ClimateChangeAdaptation</button>';
                                 foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'climate change adaptation') {
                                         echo '<blockquote class="twitter-tweet">';
