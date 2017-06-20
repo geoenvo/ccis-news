@@ -379,3 +379,12 @@ ul.tab li a:focus, .active {
     padding: 12px 12px;
     border-top: none;
 }
+
+.twitter-hashtag-button {
+    padding: 5px 8px 3px;
+    margin-bottom: 5px;
+    background-color: #1B95E0;
+    color: white;
+    border-style: none;
+    border-radius: 5px;
+}
