@@ -361,6 +361,8 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             <div class="panel-body" style="align-items: justify">
                                 <?php
                                 require 'pgsql.php';
+                                echo '<div class="row">';
+                                echo '<div class="col">';
                                 foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'perubahan iklim') {
                                         echo '<blockquote class="twitter-tweet">';
@@ -371,7 +373,11 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         echo '>';
                                         echo '</a></blockquote>';
                                     }
-                                    else if ($row['categories'] == 'climate change') {
+                                }
+                                echo '</div>';
+                                echo '<div class="col">';
+                                foreach ($connec->query($sql) as $row) {
+                                    if ($row['categories'] == 'climate change') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
                                         echo '/status/'.$row['tweet_id'].'';
@@ -379,29 +385,35 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                         echo 'width="220"';
                                         echo '>';
                                         echo '</a></blockquote>';
-                                    }
-                                    else if ($row['categories'] == 'kualitas udara') {
-                                        echo '<blockquote class="twitter-tweet">';
-                                        echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
-                                        echo '/status/'.$row['tweet_id'].'';
-                                        echo '"';
-                                        echo 'width="220"';
-                                        echo '>';
-                                        echo '</a></blockquote>';
-                                    }
-                                    else if ($row['categories'] == 'climate change adaptation') {
-                                        echo '<blockquote class="twitter-tweet">';
-                                        echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
-                                        echo '/status/'.$row['tweet_id'].'';
-                                        echo '"';
-                                        echo 'width="220"';
-                                        echo '>';
-                                        echo '</a></blockquote>';
-                                    }
-                                    else {
-                                        echo 'categories are not found';
                                     }
                                 }
+                                echo '</div>';
+                                echo '<div class="col">';
+                                foreach ($connec->query($sql) as $row) {
+                                    if ($row['categories'] == 'kualitas udara') {
+                                        echo '<blockquote class="twitter-tweet">';
+                                        echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
+                                        echo '/status/'.$row['tweet_id'].'';
+                                        echo '"';
+                                        echo 'width="220"';
+                                        echo '>';
+                                        echo '</a></blockquote>';
+                                    }
+                                }
+                                echo '</div>';
+                                echo '<div class="col">';
+                                foreach ($connec->query($sql) as $row) {
+                                    if ($row['categories'] == 'climate change adaptation') {
+                                        echo '<blockquote class="twitter-tweet">';
+                                        echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
+                                        echo '/status/'.$row['tweet_id'].'';
+                                        echo '"';
+                                        echo 'width="220"';
+                                        echo '>';
+                                        echo '</a></blockquote>';
+                                    }
+                                }
+                                echo '</div>';
                                 echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
                                 ?>
                                 <!--
