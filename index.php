@@ -276,6 +276,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                                 require 'mysql.php';
 								if ($result->num_rows > 0) {
 								    echo '<div class="row">';
+								    $x=0;
 								    while($row = $result->fetch_assoc()) {
 								    	if ($row['thumbnail']) {
 								        	echo '<div class="col-md-4 portfolio-item">';
@@ -288,9 +289,11 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
 								        	echo '<h6>'.$row['date_str'].'</h6>';
 								        	echo ''.$row['description'].' <br>';
 								        	echo '</div>';
+								        	$x++;
+                                        	if ($x == 9) {
+    									    	break;
+    										}
 								        }
-								        else {
-										}
 								    }
 								    echo '</div>';
 								    echo '<hr style="color:black;" />';
