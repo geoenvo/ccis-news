@@ -358,67 +358,71 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                     <section id="tweetaggregator">
                         <div class="panel panel-info">
                             <div class="panel-heading text-left">Tweet Aggregator</div>
-                            <div class="panel-body" style="align-items: justify">
+                            <div class="panel-body">
                                 <?php
                                 require 'pgsql.php';
                                 echo '<div class="row">';
                                 echo '<div class="col-md-3">';
                                 echo '<button class="twitter-hashtag-button">#PerubahanIklim</button>';
-                                $row = $connec->query($sql);
-                                for ($row = 0; $row <= 10; $row++) {
+                                $x=0;
+                                foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'perubahan iklim') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
-                                        echo '/status/'.$row['tweet_id'].'';
-                                        echo '"';
-                                        echo 'width="220"';
-                                        echo '>';
+                                        echo '/status/'.$row['tweet_id'].'">';
                                         echo '</a></blockquote>';
+                                        $x++;
+                                        if ($x == 10) {
+    									    break;
+    									}
                                     }
                                 }
                                 echo '</div>';
                                 echo '<div class="col-md-3">';
                                 echo '<button class="twitter-hashtag-button">#ClimateChange</button>';
-                                $row = $connec->query($sql);
-                                for ($row = 0; $row <= 10; $row++) {
+                                $x=0;
+                                foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'climate change') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
-                                        echo '/status/'.$row['tweet_id'].'';
-                                        echo '"';
-                                        echo 'width="220"';
-                                        echo '>';
+                                        echo '/status/'.$row['tweet_id'].'">';
                                         echo '</a></blockquote>';
+                                        $x++;
+                                        if ($x == 10) {
+    									    break;
+    									}                                        
                                     }
                                 }
                                 echo '</div>';
                                 echo '<div class="col-md-3">';
                                 echo '<button class="twitter-hashtag-button">#KualitasUdara</button>';
-                                $row = $connec->query($sql);
-                                for ($row = 0; $row <= 10; $row++) {
+                                $x=0;
+                                foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'kualitas udara') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
-                                        echo '/status/'.$row['tweet_id'].'';
-                                        echo '"';
-                                        echo 'width="220"';
-                                        echo '>';
+                                        echo '/status/'.$row['tweet_id'].'">';
                                         echo '</a></blockquote>';
+                                        $x++;
+                                        if ($x == 10) {
+    									    break;
+    									}   
                                     }
                                 }
                                 echo '</div>';
                                 echo '<div class="col-md-3">';
                                 echo '<button class="twitter-hashtag-button">#ClimateChangeAdaptation</button>';
-                                $row = $connec->query($sql);
-                                for ($row = 0; $row <= 10; $row++) {
+                                $x=0;
+                                foreach ($connec->query($sql) as $row) {
                                     if ($row['categories'] == 'climate change adaptation') {
                                         echo '<blockquote class="twitter-tweet">';
                                         echo '<a href="https://twitter.com/'.$row['user_screen_name'].'';
-                                        echo '/status/'.$row['tweet_id'].'';
-                                        echo '"';
-                                        echo 'width="220"';
-                                        echo '>';
+                                        echo '/status/'.$row['tweet_id'].'">';
                                         echo '</a></blockquote>';
+                                        $x++;
+                                        if ($x == 10) {
+    									    break;
+    									}   
                                     }
                                 }
                                 echo '</div>';
