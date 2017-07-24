@@ -11,7 +11,7 @@
 <body>
 
 <?php
-
+/*
     require 'datastorage.php';
     $count = 0;
 
@@ -97,7 +97,7 @@ $statistic->getRelatedOrganizationJsonData('https://api.ebdesk.com/bmkg/organiza
 $temp_data_organization = $statistic->getRelatedOrganizationData();
 $statistic->getMediaShareJsonData('https://api.ebdesk.com/bmkg/media_share');
 $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
-
+*/
 ?>
 
 <header>
