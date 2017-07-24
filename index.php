@@ -10,96 +10,6 @@
 </head>
 <body>
 
-<?php
-/*
-    require 'datastorage.php';
-    $count = 0;
-
-    $page = 1;
-
-    if ((!isset($_GET) || empty($_GET)) && (!isset($_POST) || empty($_POST)))
-{
-    $page = 1;
-    $offset = 0;
-    $topikid = "all";
-    //$bahasa = 1;
-    $url = 'dummy2.json';
-    $media_data = new MediaData($url);
-    $temp = $media_data->getMediaData();
-    $number_of_data = $media_data->getNumberOfData();
-}else {
-
-
-    if(isset($_GET['page']))
-    {
-        $topikid = "all";
-        $page = $_GET['page'];
-        $offset = ($page-1)*6;
-        $url = 'dummy2.json';
-        $media_data = new MediaData($url);
-        $temp = $media_data->getMediaData();
-        $number_of_data = $media_data->getNumberOfData();
-    }
-
-
-    if(isset($_POST['topik']) && isset($_POST['bahasa']))
-    {
-
-        $topik = $_POST['topik'];
-        $bahasa = $_POST['bahasa'];
-        $page = $_POST['page'];
-        //$offset = ($page-1)*6;
-
-
-        if($bahasa == 1)
-        {
-            $kodebahasa = "id";
-
-        }elseif($bahasa == 2)
-        {
-            $kodebahasa = "en";
-
-        }
-        else
-        {
-            $kodebahasa="all";
-        }
-
-        if($topik == 1)
-        {
-            $topikid = "10750";
-            //$url = 'https://api.ebdesk.com/bmkg/news/10750?language='.$kodebahasa.'&limit=6&offset='.$offset;
-
-        }elseif($topik == 2)
-        {
-            $topikid = "11097";
-            //$url ='https://api.ebdesk.com/bmkg/news/11097?limit=5&offset=6&languange='.$kodebahasa;
-
-        }
-        else
-        {
-            $topikid="all";
-        }
-
-        $news = new News("cache.json");
-        $temp = $news->getMediaData($topikid, $kodebahasa);
-
-    }
-
-}
-
-$statistic = new StatisticChart();
-$statistic->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=2016&month=06');
-$tempdata = $statistic->getStatisticData("statistik_monthly.txt","monthly");
-$statistic->getStatisticJsonData('https://api.ebdesk.com/bmkg/statistic?year=2016');
-$tempdata = $statistic->getStatisticData("statistik_yearly.txt","yearly");
-$statistic->getRelatedOrganizationJsonData('https://api.ebdesk.com/bmkg/organization');
-$temp_data_organization = $statistic->getRelatedOrganizationData();
-$statistic->getMediaShareJsonData('https://api.ebdesk.com/bmkg/media_share');
-$temp_media_share = $statistic->getMediaShareData("mediashare.txt");
-*/
-?>
-
 <header>
     <div class="container";>
         <div class="topbar topbar-default topbar-fixed-top" role="navigation">
@@ -273,7 +183,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                             <div class="panel-body">
 
 								<?php
-                                require 'mysql.php';
+                                				require 'mysql.php';
 								if ($result->num_rows > 0) {
 								    echo '<div class="row">';
 								    $x=0;
@@ -355,7 +265,7 @@ $temp_media_share = $statistic->getMediaShareData("mediashare.txt");
                         </div>
                     </section>
                 </div> <!-- THE END OF THE SECOND ROW OF THE MAIN CONTENT-->
-
+		<div>aaaaaaaaaaaaaa</div>
                 <div class="row">
                     <section id="tweetaggregator">
                         <div class="panel panel-info">
