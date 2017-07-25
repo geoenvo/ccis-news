@@ -265,7 +265,7 @@
                         </div>
                     </section>
                 </div> <!-- THE END OF THE SECOND ROW OF THE MAIN CONTENT-->
-		<div>aaaaaaaaaaaaaa</div>
+
                 <div class="row">
                     <section id="tweetaggregator">
                         <div class="panel panel-info">
