@@ -163,6 +163,15 @@ $rs_result = mysqli_query($conn, $sql);
   $conn->close();
 ?>
 				</div>
+                                <nav><ul class="pagination">
+<?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
+            if($i == 1):?>
+            <li class='active'  id="<?php echo $i;?>"><a href='pagination.php?page=<?php echo $i;?>'><?php echo $i;?></a></li> 
+            <?php else:?>
+            <li id="<?php echo $i;?>"><a href='pagination.php?page=<?php echo $i;?>'><?php echo $i;?></a></li>
+        <?php endif;?>          
+<?php endfor;endif;?>
+                                </ul></nav>
                             </div>
                         </div>
                     </section>
