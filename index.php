@@ -16,12 +16,13 @@ $rs_result = mysqli_query($conn, $sql);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Knowledge Management Pusat Informasi Perubahan Iklim</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="icon" href="img/logo_BMKG_square.ico" type="image/ico">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="dist/simplePagination.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Knowledge Management Pusat Informasi Perubahan Iklim</title>
 </head>
 <body>
 
@@ -149,7 +150,7 @@ $rs_result = mysqli_query($conn, $sql);
                                 Headline Hari Ini
                             </div>
                             <div class="panel-body">
-			        <div class="row">
+			        <div class="row" id="target-content">
 <?php
   while ($row = $rs_result->fetch_assoc()) {
     echo '<div class="col-md-4 portfolio-item">';
@@ -160,7 +161,6 @@ $rs_result = mysqli_query($conn, $sql);
     echo '<div>'.$row['description'].'</div>';
     echo '</div>';
   };
-  $conn->close();
 ?>
 				</div>
                                 <nav><ul class="pagination">
@@ -323,6 +323,7 @@ $rs_result = mysqli_query($conn, $sql);
     <script type="text/javascript" src="jqwidgets/scripts/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="dist/jquery.simplePagination.js"></script>
+</body>
 <script type="text/javascript">
 $(document).ready(function(){
 $('.pagination').pagination({
@@ -337,5 +338,4 @@ $('.pagination').pagination({
     });
 });
 </script>
-</body>
 </html>
