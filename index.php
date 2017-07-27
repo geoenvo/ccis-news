@@ -42,13 +42,9 @@ $rs_result = mysqli_query($conn, $sql);
                         <h2 class="hidden-xs" style="color: #fff; font-size: 16px">BADAN METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</h2>
                         <h1 style="color: #fff; font-size: 16px" class="visible-xs">BMKG</h1>
                         <strong style="color: #fff; font-size: 30px">Knowledge Management Pusat Informasi Perubahan Iklim</strong>
-
                     </div>
-
-
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -153,84 +149,20 @@ $rs_result = mysqli_query($conn, $sql);
                                 Headline Hari Ini
                             </div>
                             <div class="panel-body">
-                              <?php
-								if ($result->num_rows > 0) {
-								    echo '<div class="row">';
-								    $x=0;
-								    while($row = $result->fetch_assoc()) {
-								    	if ($row['thumbnail']) {
-								        	echo '<div class="col-md-4 portfolio-item">';
-								        	echo '<a href="'.$row['url'].'" target="_blank">';
-								        	echo '<img src="http://139.162.55.216:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt="">';
-								        	echo '</a>';
-								        	echo '<h5>';
-								        	echo '<a href="'.$row['url'].'" target="_blank">'.$row['title'].'</a><br>';
-								        	echo '</h5>';
-								        	echo '<h6>'.$row['date_str'].'</h6>';
-								        	echo '<div>'.$row['description'].'</div>';
-								        	echo '</div>';
-								        	$x++;
-                                        	if ($x == 9) {
-    									    	break;
-    										}
-								        }
-								    }
-								    echo '</div>';
-								} else {
-								    echo "0 results";
-								}
-								$conn->close();
-								?>
-
-                                <?php
-                                /*
-                                    if(isset($_POST['topik']))
-                                {
-                                    if($topikid == "10750")
-                                    {
-                                        $topik = "Perubahan Iklim";
-                                    }
-                                    else
-                                    {
-                                        $topik = "Kualitas Udara";
-                                    }
-                                    $number_of_data = $news->getNumberOfData($topikid,$kodebahasa);
-                                    //$news->displayMediaData($temp, $topik,$number_of_data);
-                                    if($number_of_data < 3)
-                                    {
-                                        for($counter =1; $counter <= $number_of_data; $counter++)
-                                        {
-                                            $news->displayMediaData($temp, $topik, $number_of_data, $counter*3);
-                                        }
-                                    }else{
-                                        for($counter=1; $counter <= ($number_of_data/3); $counter++)
-                                        {
-                                            $news->displayMediaData($temp, $topik, $number_of_data, $counter*3);
-
-                                            if($number_of_data%3 != 0)
-                                            {
-
-                                                $news->displayMediaData($temp, $topik,$number_of_data,(intval($number_of_data/3)+1)*3);
-                                            }
-                                        }
-                                    }
-
-                                }
-                                else{
-                                    for($counter=1; $counter <= ($number_of_data/3); $counter++)
-                                    {
-                                        $media_data->displayMediaData($counter*3,$temp);
-
-                                        if($number_of_data%3 != 0)
-                                        {
-
-                                            $media_data->displayMediaData((intval($number_of_data/3)+1)*3,$temp);
-                                        }
-                                    }
-                                }
-                                */
-                                ?>
-
+			        <div class="row">
+<?php
+  while ($row = $rs_result->fetch_assoc()) {
+    echo '<div class="col-md-4 portfolio-item">';
+    echo '<a href="'.$row['url'].'" target="_blank">';
+    echo '<img src="http://192.168.1.200:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt=""></a>';
+    echo '<h5><a href="'.$row['url'].'" target="_blank">'.$row['title'].'</a><br></h5>';
+    echo '<h6>'.$row['date_str'].'</h6>';
+    echo '<div>'.$row['description'].'</div>';
+    echo '</div>';
+  };
+  $conn->close();
+?>
+				</div>
                             </div>
                         </div>
                     </section>
