@@ -323,5 +323,19 @@ $rs_result = mysqli_query($conn, $sql);
     <script type="text/javascript" src="jqwidgets/scripts/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="dist/jquery.simplePagination.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('.simplePaginationnation').pagination({
+        items: <?php echo $total_records;?>,
+        itemsOnPage: <?php echo $limit;?>,
+        cssStyle: 'light-theme',
+		currentPage : 1,
+		onPageClick : function(pageNumber) {
+			jQuery("#target-content").html('loading...');
+			jQuery("#target-content").load("pagination.php?page=" + pageNumber);
+		}
+    });
+});
+</script>
 </body>
 </html>
