@@ -1,12 +1,27 @@
+<?php
+include('mysql.php');
+//for total count data
+$countSql = "SELECT COUNT(id) FROM open_news_article WHERE published = 1";  
+$tot_result = mysqli_query($conn, $countSql);   
+$row = mysqli_fetch_row($tot_result);  
+$total_records = $row[0];  
+$total_pages = ceil($total_records / $limit);
+//for first time load data
+if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
+$start_from = ($page-1) * $limit;  
+$sql = "SELECT title, url, thumbnail, date_str, description, categories, published FROM open_news_article WHERE published = 1 ORDER BY date_str LIMIT $start_from, $limit";  
+$rs_result = mysqli_query($conn, $sql); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Knowledge Management Pusat Informasi Perubahan Iklim</title>
     <link rel="icon" href="img/logo_BMKG_square.ico" type="image/ico">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="jqwidgets/jqwidgets/styles/jqx.base.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="dist/simplePagination.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
 
@@ -136,54 +151,9 @@
                         <div class="panel panel-info">
                             <div class="panel-heading text-left">
                                 Headline Hari Ini
-
-                                		<!--
-                                        <span class="pull-right">
-                                            <form action="index.php#news" method="post">
-                                                 Topik: <select name="topik">
-
-                                                            <?php
-                                                            /*
-                                                            $topik = array("","Perubahan Iklim","Kualitas Udara");
-                                                            for ($i = 0; $i < 3; $i++)
-                                                            {
-                                                                ?>
-                                                                <option value="<?=$i ;?>" <? if ($topik == $i) { echo ' selected="selected"';}?><?= $topik[$i];?></option>
-
-                                                                <?php
-                                                            }
-                                                            ?>
-
-                                                        </select>
-
-
-                                                Bahasa: <select name="bahasa">
-
-                                                            <?php
-                                                            $bahasa = array("","Indonesia","English");
-                                                            for ($i = 0; $i < 3; $i++)
-                                                            {
-                                                                ?>
-                                                                <option value="<?=$i ;?>" <? if ($bahasa == $i) { echo ' selected="selected"';}?><?= $bahasa[$i];?></option>
-
-                                                                <?php
-                                                            }
-                                                            */
-                                                            ?>
-
-                                                        </select>
-                                                        <input type="text" name="page" hidden="hidden" value= <?=$page ;?> >
-                                                <input class="btn btn-info" type="submit" value="Go"/>
-                                            </form>
-                                        </span>
-                                        -->
-
-
                             </div>
                             <div class="panel-body">
-
-								<?php
-                                				require 'mysql.php';
+                              <?php
 								if ($result->num_rows > 0) {
 								    echo '<div class="row">';
 								    $x=0;
@@ -410,11 +380,7 @@
 </footer>
 
     <script type="text/javascript" src="jqwidgets/scripts/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxcore.js"></script>
-    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxdraw.js"></script>
-    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxchart.core.js"></script>
-    <script type="text/javascript" src="jqwidgets/jqwidgets/jqxdata.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/mediashare.js"></script>
+    <script type="text/javascript" src="dist/jquery.simplePagination.js"></script>
 </body>
 </html>
