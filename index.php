@@ -325,7 +325,7 @@ $rs_result = mysqli_query($conn, $sql);
     <script type="text/javascript" src="dist/jquery.simplePagination.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-$('.simplePaginationnation').pagination({
+$('.pagination').pagination({
         items: <?php echo $total_records;?>,
         itemsOnPage: <?php echo $limit;?>,
         cssStyle: 'light-theme',
