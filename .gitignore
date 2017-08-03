@@ -1,4 +1,2 @@
-mysql.php
-pgsql.php
-paging.php
-files/
+inc/mysql.php
+inc/pgsql.php

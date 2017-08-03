@@ -1,5 +1,5 @@
 <?php
-include('mysql.php');
+include('inc/mysql.php');
 //for total count data
 $countSql = "SELECT COUNT(id) FROM open_news_article WHERE published = 1";  
 $tot_result = mysqli_query($conn, $countSql);   
@@ -107,7 +107,7 @@ $rs_result = mysqli_query($conn, $sql);
                                 Data Proyeksi Iklim 
                             </div>
                             <div class="panel-body">
-                              <?php require('includes/tabmap.inc'); ?>
+                              <?php include('inc/tabmap.inc'); ?>
                                 <div class="col-md-9">
                                   <div class="row" style="margin: 5px 10px">
                                     <div class="panel panel-info">
@@ -183,7 +183,7 @@ $rs_result = mysqli_query($conn, $sql);
                             <div class="panel-heading text-left">Tweet Aggregator</div>
                             <div class="panel-body">
                                 <?php
-                                require 'pgsql.php';
+                                include 'inc/pgsql.php';
                                 echo '<div class="row">';
                                 echo '<div class="col-md-3">';
                                 echo '<button class="twitter-hashtag-button">#PerubahanIklim</button>';
