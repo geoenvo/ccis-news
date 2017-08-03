@@ -320,9 +320,9 @@ $rs_result = mysqli_query($conn, $sql);
     </div>
 </footer>
 
-    <script type="text/javascript" src="jqwidgets/scripts/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="dist/jquery.simplePagination.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.simplePagination.js"></script>
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
