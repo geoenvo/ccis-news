@@ -251,59 +251,13 @@ $rs_result = mysqli_query($conn, $sql);
                                 echo '</div>';
                                 echo '<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
                                 ?>
-                                <!--
-                                <a class="twitter-timeline"
-                                href="https://twitter.com/TwitterDev"
-                                data-width="300"
-                                data-height="300"
-                                data-tweet-limit="5">
-                                #kualitasudara
-                                </a>
-                                -->
                             </div>
                         </div>
                     </section>
                 </div> <!-- THE END OF THE SECOND ROW OF THE MAIN CONTENT-->
-
-                <!--
-                <div class="row text-center">
-                    <div class="col-lg-12">
-                        <ul class="pagination">
-                            <?php
-                            /*
-                            echo '<li>';
-                            echo '<a href="http://139.162.55.216:8001/index.php?page='.($page-1).'#news">&laquo;</a>';
-                            echo '</li>';
-
-
-                            $maxindex = $page + 5;
-                            for($index = $page; $index < $maxindex; $index++)
-                            {
-                                if($index == $page)
-                                {
-                                    echo '<li class="active">';
-                                    echo '<a href="http://139.162.55.216:8001/index.php?page='.$index.'#news">'.$index.'</a>';
-                                    echo '</li>';
-                                }else{
-                                    echo '<li>';
-                                    echo '<a href="http://139.162.55.216:8001/index.php?page='.$index.'#news">'.$index.'</a>';
-                                    echo '</li>';
-                                }
-
-                            }
-
-                            echo '<li>';
-                            echo '<a href="http://139.162.55.216:8001/index.php?page='.($page+1).'#news">&raquo;</a>';
-                            echo '</li>';
-                            */
-                            ?>
-                        </ul>
-                    </div>
-                </div>--> <!-- THE END OF THE SECOND ROW OF THE PAGINATION-->
             </div>
         </div>
     </div>  <!-- THE END OF THE FIRST ROW -->
-
 </div>
 
 
@@ -324,18 +278,18 @@ $rs_result = mysqli_query($conn, $sql);
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.simplePagination.js"></script>
 </body>
-<script type="text/javascript">
-$(document).ready(function(){
-$('.pagination').pagination({
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $('.pagination').pagination({
         items: <?php echo $total_records;?>,
         itemsOnPage: <?php echo $limit;?>,
         cssStyle: 'light-theme',
-		currentPage : 1,
-		onPageClick : function(pageNumber) {
-			jQuery("#target-content").html('loading...');
-			jQuery("#target-content").load("inc/pagination.php?page=" + pageNumber);
-		}
+	    currentPage : 1,
+	    onPageClick : function(pageNumber) {
+	        jQuery("#target-content").html('loading...');
+	        jQuery("#target-content").load("inc/pagination.php?page=" + pageNumber);
+	    }
     });
-});
-</script>
+    });
+    </script>
 </html>
