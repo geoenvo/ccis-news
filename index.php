@@ -20,7 +20,7 @@ $rs_result = mysqli_query($conn, $sql);
     <link rel="icon" href="img/logo_BMKG_square.ico" type="image/ico">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="dist/simplePagination.css" />
+    <link rel="stylesheet" type="text/css" href="css/simplePagination.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Knowledge Management Pusat Informasi Perubahan Iklim</title>
 </head>
