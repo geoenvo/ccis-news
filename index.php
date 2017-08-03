@@ -58,12 +58,12 @@ $rs_result = mysqli_query($conn, $sql);
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://139.162.55.216:8001/">CCIS BMKG</a>
+                    <a class="navbar-brand" href="http://192.168.1.200/">CCIS BMKG</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="mynavbar-content">
                     <ul class="nav navbar-nav">
-                        <li><a href="http://139.162.55.216:8001/">Home</a> </li>
+                        <li><a href="http://192.168.1.200/">Home</a> </li>
                         <li><a href="http://ccis.klimat.bmkg.go.id/news">News</a> </li>
                         <li class="dropdown"><a href="http://ccis.klimat.bmkg.go.id/map" class="dropdown-toggle" data-toggle="dropdown">Map<b class="caret"></b> </a>
                             <ul class="dropdown-menu">
@@ -79,7 +79,7 @@ $rs_result = mysqli_query($conn, $sql);
                             </ul>
                         </li>
                         <li><a href="http://ccis.klimat.bmkg.go.id/about">About</a> </li>
-                        <li><a href="http://139.162.55.216/">Geoportal</a> </li>
+                        <li><a href="http://192.168.1.200:8001/">Geoportal</a> </li>
                     </ul>
                     <form class="navbar-form pull-right" role="search">
                         <div class="input-group">

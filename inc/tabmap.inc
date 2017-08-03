@@ -59,7 +59,7 @@
     <div class="row">
       <div class="col-md-9">
         <div class="embed-responsive embed-responsive-16by9">
-          <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/jawa_suhu.php"></iframe>
+          <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/php/jawa_suhu.php"></iframe>
         </div>
       </div>
       <div class="col-md-3">
@@ -107,7 +107,7 @@
   echo '<div class="row">';
   echo '<div class="col-md-9">';
   echo '<div class="embed-responsive embed-responsive-16by9">';
-  echo '<iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/';
+  echo '<iframe allowfullscreen="true" class="embed-responsive-item" src="ol/php/';
   echo 'jawa_';    
   echo "$value";
   echo '.php"></iframe>';
@@ -180,7 +180,7 @@
     <div class="row">
       <div class="col-md-9">
         <div class="embed-responsive embed-responsive-16by9">
-          <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/sulawesi_suhu.php"></iframe>
+          <iframe allowfullscreen="true" class="embed-responsive-item" src="ol/php/sulawesi_suhu.php"></iframe>
         </div>
       </div>
       <div class="col-md-3">
@@ -228,7 +228,7 @@
   echo '<div class="row">';
   echo '<div class="col-md-9">';
   echo '<div class="embed-responsive embed-responsive-16by9">';
-  echo '<iframe allowfullscreen="true" class="embed-responsive-item" src="ol/project/';
+  echo '<iframe allowfullscreen="true" class="embed-responsive-item" src="ol/php/';
   echo 'sulawesi_';    
   echo "$value";
   echo '.php"></iframe>';
