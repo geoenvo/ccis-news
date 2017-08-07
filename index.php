@@ -1,20 +1,25 @@
 <?php
 include('inc/mysql.php');
+
 //for total count data
 $countSql = "SELECT COUNT(id) FROM open_news_article WHERE published = 1";  
 $tot_result = mysqli_query($conn, $countSql);   
 $row = mysqli_fetch_row($tot_result);  
 $total_records = $row[0];  
 $total_pages = ceil($total_records / $limit);
+
 //for first time load data
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
 $start_from = ($page-1) * $limit;  
 $sql = "SELECT title, url, thumbnail, date_str, description, categories, published FROM open_news_article WHERE published = 1 ORDER BY date_str LIMIT $start_from, $limit";  
 $rs_result = mysqli_query($conn, $sql); 
+
+$site_URL = "http://192.168.1.200";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="icon" href="img/logo_BMKG_square.ico" type="image/ico">
@@ -24,8 +29,8 @@ $rs_result = mysqli_query($conn, $sql);
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Knowledge Management Pusat Informasi Perubahan Iklim</title>
 </head>
-<body>
 
+<body>
 <header>
     <div class="container";>
         <div class="topbar topbar-default topbar-fixed-top" role="navigation">
@@ -58,12 +63,12 @@ $rs_result = mysqli_query($conn, $sql);
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://192.168.1.200/">CCIS BMKG</a>
+                    <a class="navbar-brand" href=<?php echo $site_URL ?>>CCIS BMKG</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="mynavbar-content">
                     <ul class="nav navbar-nav">
-                        <li><a href="http://192.168.1.200/">Home</a> </li>
+                        <li><a href=<?php echo $site_URL ?>>Home</a> </li>
                         <li><a href="http://ccis.klimat.bmkg.go.id/news">News</a> </li>
                         <li class="dropdown"><a href="http://ccis.klimat.bmkg.go.id/map" class="dropdown-toggle" data-toggle="dropdown">Map<b class="caret"></b> </a>
                             <ul class="dropdown-menu">
@@ -79,7 +84,7 @@ $rs_result = mysqli_query($conn, $sql);
                             </ul>
                         </li>
                         <li><a href="http://ccis.klimat.bmkg.go.id/about">About</a> </li>
-                        <li><a href="http://192.168.1.200:8001/">Geoportal</a> </li>
+                        <li><a href=<?php echo "$site_URL:8001/" ?>>Geoportal</a> </li>
                     </ul>
                     <form class="navbar-form pull-right" role="search">
                         <div class="input-group">
@@ -119,24 +124,6 @@ $rs_result = mysqli_query($conn, $sql);
                                       </div>
                                     </div>
                                   </div>
-
-                                  <!--div class="col-md-3">
-    								  <input type="button" class="btn btn-info" value="Download PDF" onclick="Gosuhu()" />
-    								  <select id="selectsuhu">
-    								    <option value="http://139.162.55.216:8001/files/jawa/cdd.zip">cdd</option>
-    								    <option selected="selected" value="http://139.162.55.216/layers/geonode%3Asuhumin_jawa">Minimum</option>
-    								    <option value="http://139.162.55.216/layers/geonode%3Asuhumax_jawa">Maximum</option>
-    								    <option value="http://139.162.55.216/layers/geonode%3Adiurnal_jawa">Diurnal</option>
-    								  </select>
-    								  <script type="text/javascript">
-    								  function Gosuhu(){
-    								  var geoportal = document.getElementById("selectsuhu");
-    								  var selectedVal = geoportal.options[geoportal.selectedIndex].value;
-    								  window.open(selectedVal)
-    								  }
-    								  </script>
-                                  </div-->
-
                                 </div>
                             </div> 
                         </div>
@@ -150,27 +137,27 @@ $rs_result = mysqli_query($conn, $sql);
                                 Headline Hari Ini
                             </div>
                             <div class="panel-body">
-			        <div class="row" id="target-content">
-<?php
-  while ($row = $rs_result->fetch_assoc()) {
-    echo '<div class="col-md-4 portfolio-item">';
-    echo '<a href="'.$row['url'].'" target="_blank">';
-    echo '<img src="http://192.168.1.200:8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt=""></a>';
-    echo '<h5><a href="'.$row['url'].'" target="_blank">'.$row['title'].'</a><br></h5>';
-    echo '<h6>'.$row['date_str'].'</h6>';
-    echo '<div>'.$row['description'].'</div>';
-    echo '</div>';
-  };
-?>
-				</div>
+			        		<div class="row" id="target-content">
+							<?php
+							  while ($row = $rs_result->fetch_assoc()) {
+							    echo '<div class="col-md-4 portfolio-item">';
+							    echo '<a href="'.$row['url'].'" target="_blank">';
+							    echo '<img src="'.$site_URL.':8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt=""></a>';
+							    echo '<h5><a href="'.$row['url'].'" target="_blank">'.$row['title'].'</a><br></h5>';
+							    echo '<h6>'.$row['date_str'].'</h6>';
+							    echo '<div>'.$row['description'].'</div>';
+							    echo '</div>';
+							  };
+							?>
+							</div>
                                 <nav><ul class="pagination">
-<?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
-            if($i == 1):?>
-            <li class='active'  id="<?php echo $i;?>"><a href='pagination.php?page=<?php echo $i;?>'><?php echo $i;?></a></li> 
-            <?php else:?>
-            <li id="<?php echo $i;?>"><a href='pagination.php?page=<?php echo $i;?>'><?php echo $i;?></a></li>
-        <?php endif;?>          
-<?php endfor;endif;?>
+								<?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
+								            if($i == 1):?>
+								            <li class='active'  id="<?php echo $i;?>"><a href='pagination.php?page=<?php echo $i;?>'><?php echo $i;?></a></li> 
+								            <?php else:?>
+								            <li id="<?php echo $i;?>"><a href='pagination.php?page=<?php echo $i;?>'><?php echo $i;?></a></li>
+								        <?php endif;?>          
+								<?php endfor;endif;?>
                                 </ul></nav>
                             </div>
                         </div>
@@ -209,7 +196,6 @@ $rs_result = mysqli_query($conn, $sql);
     <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.simplePagination.js"></script>
-</body>
     <script type="text/javascript">
     $(document).ready(function(){
     $('.pagination').pagination({
@@ -224,4 +210,5 @@ $rs_result = mysqli_query($conn, $sql);
     });
     });
     </script>
+</body>
 </html>
