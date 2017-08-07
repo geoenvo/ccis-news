@@ -204,7 +204,7 @@ $site_URL = "http://192.168.1.200";
         cssStyle: 'light-theme',
 	    currentPage : 1,
 	    onPageClick : function(pageNumber) {
-	        jQuery("#target-content").html('loading...');
+	        jQuery("#target-content").html('<img src="img/loading.gif" >');
 	        jQuery("#target-content").load("inc/pagination.php?page=" + pageNumber);
 	    }
     });
