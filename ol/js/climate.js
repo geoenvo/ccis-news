@@ -1,3 +1,5 @@
+var url = 'http://192.168.1.200:8080/geoserver/geonode/wms';
+
 var map = new ol.Map({
   target: 'map',
   controls: ol.control.defaults({attribution: false})
@@ -37,7 +39,7 @@ var osm = new ol.layer.Tile({
 });
 
 var boundaryJawaSource = new ol.source.TileWMS({
-  url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
+  url: url,
   params: {'LAYERS': 'boundary_jawa', 'TILED': true},
   serverType: 'geoserver'
 });
@@ -46,7 +48,7 @@ var boundaryJawa = new ol.layer.Tile({
 });
 
 var boundarySulawesiSource = new ol.source.TileWMS({
-  url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
+  url: url,
   params: {'LAYERS': 'boundary_sulawesi', 'TILED': true},
   serverType: 'geoserver'
 });
@@ -64,7 +66,7 @@ for (var i = 0; i < province.length; i++) {
   /*
   var boundaryName = "boundary_" + province[i];
   var boundarySource = new.ol.source.TileWMS({
-    url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
+    url: url,
     params: {'LAYERS': boundaryName, 'TILED': true},
     serverType: 'geoserver'
   });
@@ -77,7 +79,7 @@ for (var i = 0; i < province.length; i++) {
     for (var k = 0; k < season.length; k++) {
       var layerName = climVar[j] + "_" + season[k] + "_" + province[i];
       var layerSource = new ol.source.TileWMS({
-      	url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
+      	url: url,
         params: {'LAYERS': layerName, 'TILED': true},
         serverType: 'geoserver'
       });
@@ -104,7 +106,7 @@ for (var i = 0; i < province.length; i++) {
   for (var j = 0; j < t_climVar.length; j++) {
     var layerName = t_climVar[j] + "_" + province[i];
     var layerSource = new ol.source.TileWMS({
-      url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
+      url: url,
       params: {'LAYERS': layerName, 'TILED': true},
       serverType: 'geoserver'
     });
