@@ -39,29 +39,51 @@ var osm = new ol.layer.Tile({
 });
 
 var boundaryJawaSource = new ol.source.TileWMS({
-  url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
-  params: {'LAYERS': 'bf_cityreg_091213', 'TILED': true},
+  url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
+  params: {'LAYERS': 'boundary_jawa', 'TILED': true},
   serverType: 'geoserver'
 });
 var boundaryJawa = new ol.layer.Tile({
        source: boundaryJawaSource,
 });
 
+var boundarySulawesiSource = new ol.source.TileWMS({
+  url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
+  params: {'LAYERS': 'boundary_sulawesi', 'TILED': true},
+  serverType: 'geoserver'
+});
+var boundarySulawesi = new ol.layer.Tile({
+       source: boundarySulawesiSource,
+});
+
 var province = ['jawa', 'sulawesi'];
 var climVar = ['cdd', 'cwd', 'fhl', 'hth', 'hujan', 'r50'];
 var season = ['djf', 'mam', 'jja', 'son'];
 var layer = [];
+var boundary = [];
 
 for (var i = 0; i < province.length; i++) {
+  /*
+  var boundaryName = province[i];
+  var boundarySource = new.ol.source.TileWMS({
+    url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
+    params: {'LAYERS': boundaryName, 'TILED': true},
+    serverType: 'geoserver'
+  });
+  var boundaryIndex = new ol.layer.Tile({
+    source: boundarySource
+  )};
+  boundary.push(boundaryIndex);
+  */
   for (var j = 0; j < climVar.length; j++) {
     for (var k = 0; k < season.length; k++) {
       var layerName = climVar[j] + "_" + season[k] + "_" + province[i];
       var layerSource = new ol.source.TileWMS({
-      	url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
+      	url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
         params: {'LAYERS': layerName, 'TILED': true},
         serverType: 'geoserver'
         });
-	  var layerTitle = "";
+      var layerTitle = "";
       if (season[k] == 'djf') { layerTitle = 'Des-Jan-Feb'}
       else if (season[k] == 'mam') { layerTitle ='Mar-Apr-Mei'}
       else if (season[k] == 'jja') { layerTitle = 'Jun-Jul-Agu'}
@@ -84,11 +106,11 @@ for (var i = 0; i < province.length; i++) {
   for (var j = 0; j < t_climVar.length; j++) {
       var layerName = t_climVar[j] + "_" + province[i];
       var layerSource = new ol.source.TileWMS({
-      	url: 'http://139.162.55.216:8080/geoserver/geonode/wms',
+      	url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
         params: {'LAYERS': layerName, 'TILED': true},
         serverType: 'geoserver'
         });
-	  var layerTitle = "";
+      var layerTitle = "";
       if (t_climVar[j] == 'suhu') { layerTitle = 'Suhu Rata-rata'}
       else if (t_climVar[j] == 'suhu_min') { layerTitle ='Suhu Minimum'}
       else if (t_climVar[j] == 'suhu_maks') { layerTitle = 'Suhu Maksimum'}
