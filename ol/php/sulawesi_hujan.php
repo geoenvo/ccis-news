@@ -17,6 +17,7 @@
     map.addLayer(layer[42]);
     map.addLayer(layer[41]);
     map.addLayer(layer[40]);
+    map.addLayer(boundarySulawesi);
     </script>
   </body>
 </html>

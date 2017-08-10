@@ -14,6 +14,7 @@
     <script>
     map.setView(viewSulawesi);
     map.addLayer(t_layer[4]);
+    map.addLayer(boundarySulawesi);
     </script>
   </body>
 </html>

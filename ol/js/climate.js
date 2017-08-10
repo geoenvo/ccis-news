@@ -3,11 +3,9 @@ var map = new ol.Map({
   controls: ol.control.defaults({attribution: false})
 });
 
-var scaleLine = new ol.control.ScaleLine();
-
-var fullScreen = new ol.control.FullScreen();
-
-var layerSwitcher = new ol.control.LayerSwitcher();
+var scaleLine = new ol.control.ScaleLine(),
+    fullScreen = new ol.control.FullScreen(),
+    layerSwitcher = new ol.control.LayerSwitcher();
 
 var gratStyle = new ol.style.Style();
 gratStyle.setText (new ol.style.Text({
@@ -64,7 +62,7 @@ var boundary = [];
 
 for (var i = 0; i < province.length; i++) {
   /*
-  var boundaryName = province[i];
+  var boundaryName = "boundary_" + province[i];
   var boundarySource = new.ol.source.TileWMS({
     url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
     params: {'LAYERS': boundaryName, 'TILED': true},
@@ -82,7 +80,7 @@ for (var i = 0; i < province.length; i++) {
       	url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
         params: {'LAYERS': layerName, 'TILED': true},
         serverType: 'geoserver'
-        });
+      });
       var layerTitle = "";
       if (season[k] == 'djf') { layerTitle = 'Des-Jan-Feb'}
       else if (season[k] == 'mam') { layerTitle ='Mar-Apr-Mei'}
@@ -104,24 +102,24 @@ var t_layer = [];
 
 for (var i = 0; i < province.length; i++) {
   for (var j = 0; j < t_climVar.length; j++) {
-      var layerName = t_climVar[j] + "_" + province[i];
-      var layerSource = new ol.source.TileWMS({
-      	url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
-        params: {'LAYERS': layerName, 'TILED': true},
-        serverType: 'geoserver'
-        });
-      var layerTitle = "";
-      if (t_climVar[j] == 'suhu') { layerTitle = 'Suhu Rata-rata'}
-      else if (t_climVar[j] == 'suhu_min') { layerTitle ='Suhu Minimum'}
-      else if (t_climVar[j] == 'suhu_maks') { layerTitle = 'Suhu Maksimum'}
-      else if (t_climVar[j] == 'diurnal') { layerTitle = 'Diurnal'}
-      else { layerTitle = 'Layer Title'};  
-      var layerIndex = new ol.layer.Tile({
-        source: layerSource,
-        title: layerTitle,
-        type: 'base',
-      });
-      t_layer.push(layerIndex);
+    var layerName = t_climVar[j] + "_" + province[i];
+    var layerSource = new ol.source.TileWMS({
+      url: 'http://192.168.1.200:8080/geoserver/geonode/wms',
+      params: {'LAYERS': layerName, 'TILED': true},
+      serverType: 'geoserver'
+    });
+    var layerTitle = "";
+    if (t_climVar[j] == 'suhu') { layerTitle = 'Suhu Rata-rata'}
+    else if (t_climVar[j] == 'suhu_min') { layerTitle ='Suhu Minimum'}
+    else if (t_climVar[j] == 'suhu_maks') { layerTitle = 'Suhu Maksimum'}
+    else if (t_climVar[j] == 'diurnal') { layerTitle = 'Diurnal'}
+    else { layerTitle = 'Layer Title'};  
+    var layerIndex = new ol.layer.Tile({
+      source: layerSource,
+      title: layerTitle,
+      type: 'base',
+    });
+    t_layer.push(layerIndex);
   }
 };
 
