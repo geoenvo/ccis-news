@@ -81,13 +81,13 @@
       <br>
       <input type="button" class="btn btn-info" value="Download PDF" onclick="Gosuhu()" />
       <select id="selectsuhu">
-        <option value="http://139.162.55.216:8001/files/pdf/jawa-cdd.zip">Jawa - CDD</option>
-        <option value="http://139.162.55.216:8001/files/pdf/jawa-cwd.zip">Jawa - CWD</option>
-        <option value="http://139.162.55.216:8001/files/pdf/jawa-fhl.zip">Jawa - FHL</option>
-        <option value="http://139.162.55.216:8001/files/pdf/jawa-hth.zip">Jawa - HTH</option>
-        <option value="http://139.162.55.216:8001/files/pdf/jawa-hujan.zip">Jawa - Hujan</option>
-        <option value="http://139.162.55.216:8001/files/pdf/jawa-r50.zip">Jawa - R50</option>
-        <option selected="selected" value="http://139.162.55.216:8001/files/pdf/jawa-suhu.zip">Jawa - Suhu</option>
+          <option value=<?php echo "$site_URL/files/pdf/jawa-cdd.zip" ?>>Jawa - CDD</option>
+          <option value=<?php echo "$site_URL/files/pdf/jawa-cwd.zip" ?>>Jawa - CWD</option>
+          <option value=<?php echo "$site_URL/files/pdf/jawa-fhl.zip" ?>>Jawa - FHL</option>
+          <option value=<?php echo "$site_URL/files/pdf/jawa-hth.zip" ?>>Jawa - HTH</option>
+          <option value=<?php echo "$site_URL/files/pdf/jawa-hujan.zip" ?>>Jawa - Hujan</option>
+          <option value=<?php echo "$site_URL/files/pdf/jawa-r50.zip" ?>>Jawa - R50</option>
+          <option selected="selected" value=<?php echo "$site_URL:8001/files/pdf/jawa-suhu.zip" ?>>Jawa - Suhu</option>
       </select>
       <script type="text/javascript">
       function Gosuhu(){
@@ -121,7 +121,7 @@
   echo '</div>';
   echo '<div class="panel-body">';
   echo '<div class="row">';
-  echo '<img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=';
+  echo '<img src="'.$site_URL.':8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=';
   echo "$value";
   echo '_djf_jawa&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">';
   echo '                        </div>
@@ -138,13 +138,14 @@
   echo '<select id="select';
   echo "$value";
   echo '">';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-cdd.zip">Jawa - CDD</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-cwd.zip">Jawa - CWD</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-fhl.zip">Jawa - FHL</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-hth.zip">Jawa - HTH</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-hujan.zip">Jawa - Hujan</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-r50.zip">Jawa - R50</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/jawa-suhu.zip">Jawa - Suhu</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/jawa-cdd.zip">Jawa - CDD</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/jawa-cwd.zip">Jawa - CWD</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/jawa-fhl.zip">Jawa - FHL</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/jawa-hth.zip">Jawa - HTH</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/jawa-hujan.zip">Jawa - Hujan</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/jawa-hujan.zip">Jawa - Hujan</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/jawa-r50.zip">Jawa - R50</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/jawa-suhu.zip">Jawa - Suhu</option>';
   echo '</select>';
   echo '<script type="text/javascript">
       function Go';
@@ -190,7 +191,7 @@
             </div>
             <div class="panel-body">
               <div class="row">
-                <img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=suhu_sulawesi&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">
+                <img src=<?php echo "$site_URL:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=suhu_sulawesi&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180" ?>>
               </div>
             </div>
           </div>
@@ -202,13 +203,13 @@
       <br>
       <input type="button" class="btn btn-info" value="Download PDF" onclick="Gosuhu2()" />
       <select id="select2suhu">
-        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-cdd.zip">Sulawesi - CDD</option>
-        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-cwd.zip">Sulawesi - CWD</option>
-        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-fhl.zip">Sulawesi - FHL</option>
-        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-hth.zip">Sulawesi - HTH</option>
-        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-hujan.zip">Sulawesi - Hujan</option>
-        <option value="http://139.162.55.216:8001/files/pdf/sulawesi-r50.zip">Sulawesi - R50</option>
-        <option selected="selected" value="http://139.162.55.216:8001/files/pdf/sulawesi-suhu.zip">Sulawesi - Suhu</option>
+        <option value=<?php echo "$site_URL/files/pdf/sulawesi-cdd.zip" ?>>Sulawesi - CDD</option>
+        <option value=<?php echo "$site_URL/files/pdf/sulawesi-cwd.zip" ?>>Sulawesi - CWD</option>
+        <option value=<?php echo "$site_URL/files/pdf/sulawesi-fhl.zip" ?>>Sulawesi - FHL</option>
+        <option value=<?php echo "$site_URL/files/pdf/sulawesi-hth.zip" ?>>Sulawesi - HTH</option>
+        <option value=<?php echo "$site_URL/files/pdf/sulawesi-hujan.zip" ?>>Sulawesi - Hujan</option>
+        <option value=<?php echo "$site_URL/files/pdf/sulawesi-r50.zip" ?>>Sulawesi - R50</option>
+        <option selected="selected" value=<?php echo "$site_URL/files/pdf/sulawesi-suhu.zip" ?>>Sulawesi - Suhu</option>
       </select>
       <script type="text/javascript">
       function Gosuhu2(){
@@ -242,7 +243,7 @@
   echo '</div>';
   echo '<div class="panel-body">';
   echo '<div class="row">';
-  echo '<img src="http://139.162.55.216:8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=';
+  echo '<img src="'.$site_URL.':8080/geoserver/geonode/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=';
   echo "$value";
   echo '_djf_sulawesi&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000000;fontSize:6;bgColor:0xFFFFFF;dpi:180">';
   echo '                        </div>
@@ -260,13 +261,13 @@
   echo '<select id="select2';
   echo "$value";
   echo '">';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-cdd.zip">Sulawesi - CDD</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-cwd.zip">Sulawesi - CWD</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-fhl.zip">Sulawesi - FHL</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-hth.zip">Sulawesi - HTH</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-hujan.zip">Sulawesi - Hujan</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-r50.zip">Sulawesi - R50</option>';
-  echo '<option value="http://139.162.55.216:8001/files/pdf/sulawesi-suhu.zip">Sulawesi - Suhu</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/sulawesi-cdd.zip">Sulawesi - CDD</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/sulawesi-cwd.zip">Sulawesi - CWD</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/sulawesi-fhl.zip">Sulawesi - FHL</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/sulawesi-hth.zip">Sulawesi - HTH</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/sulawesi-hujan.zip">Sulawesi - Hujan</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/sulawesi-r50.zip">Sulawesi - R50</option>';
+  echo '<option value="'.$site_URL.'/files/pdf/sulawesi-suhu.zip">Sulawesi - Suhu</option>';
   echo '</select>';
   echo '<script type="text/javascript">
       function Go2';
