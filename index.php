@@ -13,15 +13,12 @@ if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };
 $start_from = ($page-1) * $limit;  
 $sql = "SELECT title, url, thumbnail, date_str, description, categories, published FROM open_news_article WHERE published = 1 ORDER BY date_str LIMIT $start_from, $limit";  
 $rs_result = mysqli_query($conn, $sql); 
-
-$site_URL = "http://192.168.1.200";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="icon" href="img/logo_BMKG_square.ico" type="image/ico">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
@@ -112,7 +109,7 @@ $site_URL = "http://192.168.1.200";
                                 Data Proyeksi Iklim 
                             </div>
                             <div class="panel-body">
-                              <?php include('inc/tabmap.inc'); ?>
+                              <?php include('inc/tabmap.php'); ?>
                                 <div class="col-md-9">
                                   <div class="row" style="margin: 5px 10px">
                                     <div class="panel panel-info">
@@ -137,28 +134,26 @@ $site_URL = "http://192.168.1.200";
                                 Headline Hari Ini
                             </div>
                             <div class="panel-body">
-			        		<div class="row" id="target-content">
-							<?php
-							  while ($row = $rs_result->fetch_assoc()) {
-							    echo '<div class="col-md-4 portfolio-item">';
-							    echo '<a href="'.$row['url'].'" target="_blank">';
-							    echo '<img src="'.$site_URL.':8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt=""></a>';
-							    echo '<h5><a href="'.$row['url'].'" target="_blank">'.$row['title'].'</a><br></h5>';
-							    echo '<h6>'.$row['date_str'].'</h6>';
-							    echo '<div>'.$row['description'].'</div>';
-							    echo '</div>';
-							  };
-							?>
-							</div>
-                                <nav><ul class="pagination">
-								<?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
-								            if($i == 1):?>
-								            <li class='active'  id="<?php echo $i;?>"><a href='pagination.php?page=<?php echo $i;?>'><?php echo $i;?></a></li> 
-								            <?php else:?>
-								            <li id="<?php echo $i;?>"><a href='pagination.php?page=<?php echo $i;?>'><?php echo $i;?></a></li>
-								        <?php endif;?>          
-								<?php endfor;endif;?>
+                                <nav style="margin-bottom: 15px;"><ul class="pagination">
+                                <?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
+                                    if($i == 1):?>
+                                        <li class='active'  id="<?php echo $i;?>"><a href='pagination.php?page=<?php echo $i;?>'><?php echo $i;?></a></li> 
+                                    <?php else:?>
+                                        <li id="<?php echo $i;?>"><a href='pagination.php?page=<?php echo $i;?>'><?php echo $i;?></a></li>
+                                    <?php endif;?>          
+                                <?php endfor;endif;?>
                                 </ul></nav>
+			    <div class="row" id="target-content">
+			    <?php while ($row = $rs_result->fetch_assoc()) {
+                                echo '<div class="col-md-4 portfolio-item">';
+				echo '<a href="'.$row['url'].'" target="_blank">';
+				echo '<img src="'.$site_URL.':8000/open_news/thumbnails_full/?thumbnail='.$row['thumbnail'].'" width="350" height="200"  alt=""></a>';
+				echo '<h5><a href="'.$row['url'].'" target="_blank">'.$row['title'].'</a><br></h5>';
+				echo '<h6>'.$row['date_str'].'</h6>';
+				echo '<div>'.$row['description'].'</div>';
+				echo '</div>';
+			    }; ?>
+			    </div>
                             </div>
                         </div>
                     </section>
