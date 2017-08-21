@@ -143,7 +143,6 @@
   echo '<option value="'.$site_URL.'/files/pdf/jawa-fhl.zip">Jawa - FHL</option>';
   echo '<option value="'.$site_URL.'/files/pdf/jawa-hth.zip">Jawa - HTH</option>';
   echo '<option value="'.$site_URL.'/files/pdf/jawa-hujan.zip">Jawa - Hujan</option>';
-  echo '<option value="'.$site_URL.'/files/pdf/jawa-hujan.zip">Jawa - Hujan</option>';
   echo '<option value="'.$site_URL.'/files/pdf/jawa-r50.zip">Jawa - R50</option>';
   echo '<option value="'.$site_URL.'/files/pdf/jawa-suhu.zip">Jawa - Suhu</option>';
   echo '</select>';
