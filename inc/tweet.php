@@ -4,6 +4,7 @@ echo '<div class="row">';
 echo '<div class="col-md-3">';
 echo '<button class="twitter-hashtag-button">#PerubahanIklim</button>';
 $x=0;
+$y=5;
 foreach ($connec->query($sql) as $row) {
     if ($row['categories'] == 'perubahan iklim') {
         echo '<blockquote class="twitter-tweet">';
@@ -11,7 +12,7 @@ foreach ($connec->query($sql) as $row) {
         echo '/status/'.$row['tweet_id'].'">';
         echo '</a></blockquote>';
         $x++;
-        if ($x == 2) {break;}
+        if ($x == $y) {break;}
     }
 }
 echo '</div>';
@@ -25,7 +26,7 @@ foreach ($connec->query($sql) as $row) {
         echo '/status/'.$row['tweet_id'].'">';
         echo '</a></blockquote>';
         $x++;
-        if ($x == 2) {break;}                                        
+        if ($x == $y) {break;}                                        
     }
 }
 echo '</div>';
@@ -39,7 +40,7 @@ foreach ($connec->query($sql) as $row) {
         echo '/status/'.$row['tweet_id'].'">';
         echo '</a></blockquote>';
         $x++;
-        if ($x == 2) {break;}   
+        if ($x == $y) {break;}   
     }
 }
 echo '</div>';
@@ -53,7 +54,7 @@ foreach ($connec->query($sql) as $row) {
         echo '/status/'.$row['tweet_id'].'">';
         echo '</a></blockquote>';
         $x++;
-        if ($x == 2) {break;}   
+        if ($x == $y) {break;}   
     }
 }
 echo '</div>';
