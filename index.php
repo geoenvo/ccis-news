@@ -162,7 +162,7 @@ $rs_result = mysqli_query($conn, $sql);
                 <div class="row">
                     <section id="tweetaggregator">
                         <div class="panel panel-info">
-                            <div class="panel-heading text-left">Tweet Aggregator</div>
+                            <div class="panel-heading text-left">Tweet Hari Ini</div>
                             <div class="panel-body">
                             <?php require('inc/tweet.php'); ?>
                             </div>
